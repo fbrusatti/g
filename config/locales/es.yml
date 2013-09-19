@@ -1,4 +1,13 @@
 es:
+  layouts:
+    header:
+      search: Busqueda
+      properties: Propiedades
+      calendar: Calendario
+      clients: Clientes
+      calculator: Calculadora
+      archived_properties: Prop.Arch.
+      contracts: Contratos
   activerecord:
     models:
       user: usuario
