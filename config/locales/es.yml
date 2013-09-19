@@ -23,6 +23,7 @@ es:
         password: Contraseña
         last_sign_in_at: Ultimo Ingreso
         sign_in_count: Cantidad de Ingreso
+        remember_me: Recordarme
   active_admin:
     details_admin_user: Detalles de administrador
     details_user: Detalles de Usuario
