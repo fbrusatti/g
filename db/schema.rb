@@ -72,6 +72,27 @@ ActiveRecord::Schema.define(:version => 20130920185845) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "properties", :force => true do |t|
+    t.integer  "amount_rooms"
+    t.string   "title_to_print"
+    t.string   "address"
+    t.string   "description"
+    t.integer  "amount_bathrooms"
+    t.integer  "lot"
+    t.integer  "meters_constructed"
+    t.decimal  "price",              :precision => 8, :scale => 2
+    t.string   "influence_zone"
+    t.string   "type_property"
+    t.string   "position"
+    t.string   "type_transaction"
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
+  end
+
+  add_index "properties", ["type_property"], :name => "index_properties_on_type_property"
+  add_index "properties", ["type_transaction"], :name => "index_properties_on_type_transaction"
+
+>>>>>>> Add property model
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
