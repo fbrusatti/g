@@ -1,0 +1,23 @@
+@import "twitter/bootstrap";
+
+// sub-header
+.sub-header {
+  display: block;
+}
+
+.sub-header a{
+  margin: 5px;
+}
+
+// sub-header customer
+.customer-new {
+  @extend .btn, .btn-large, .btn-primary;
+}
+
+.customer-print {
+  @extend .btn, .btn-large, .btn-primary, .pull-right;
+}
+
+.customer-danger {
+   @extend .btn, .btn-large, .btn-danger;
+}
