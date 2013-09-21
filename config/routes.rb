@@ -14,6 +14,8 @@ Gg::Application.routes.draw do
   devise_for :users
   ActiveAdmin.routes(self)
 
+  resources :appointments
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
