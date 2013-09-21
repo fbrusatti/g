@@ -14,6 +14,10 @@
  */
 @import "twitter/bootstrap";
 
+body {
+  background-color: #eee !important;
+}
+
 // Start Form Sign
 .form-signin {
   max-width: 330px;
