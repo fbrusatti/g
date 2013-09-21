@@ -1,11 +1,13 @@
 @import "twitter/bootstrap";
 
 .menu-head {
-  @extend .nav;
-  @extend .nav-justified;
+  @extend .nav, .nav-justified;
 }
 
 .menu-head li > a {
-  @extend .btn;
-  @extend .btn-success;
+  @extend .btn, .btn-success;
+}
+
+.menu-head li:last-child a  {
+  @extend .btn-danger;
 }

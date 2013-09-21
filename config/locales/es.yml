@@ -1,4 +1,9 @@
 es:
+  customers:
+    sub_header:
+      new: Nuevo
+      cancel: Cancelar
+      print: Imprimir
   layouts:
     header:
       search: Busqueda
@@ -8,6 +13,8 @@ es:
       calculator: Calculadora
       archived_properties: Prop.Arch.
       contracts: Contratos
+      exit: Salir
+      confirm: Esta Seguro?
   activerecord:
     models:
       user: usuario
