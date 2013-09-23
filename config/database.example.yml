@@ -1,11 +1,26 @@
 development:
   adapter: postgresql
-  encoding: unicode
-  database: gg_development
-  pool: 5
+  host: localhost
+  port: 5432
+  database: g_development
+  username: user
+  password: pool
+  psw: 5
+
 test:
   adapter: postgresql
-  encoding: unicode
-  database: gg_test
+  host: localhost
+  port: 5432
+  database: g_test
+  username: user
+  password: psw
   pool: 5
 
+production:
+  adapter: postgresql
+  host: localhost
+  port: 5432
+  database: g_production
+  username: user
+  password: psw
+  pool: 5
