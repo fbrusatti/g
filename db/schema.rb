@@ -13,8 +13,7 @@
 
 
 
-ActiveRecord::Schema.define(:version => 20130920230712) do
-
+ActiveRecord::Schema.define(:version => 20130923222122) do
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
     t.string   "resource_type", :null => false
@@ -56,7 +55,7 @@ ActiveRecord::Schema.define(:version => 20130920230712) do
     t.string   "title"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.string   "type"
+    t.string   "model"
     t.string   "status"
     t.integer  "priority"
     t.string   "description"
