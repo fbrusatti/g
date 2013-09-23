@@ -17,6 +17,7 @@ es:
       confirm: Esta Seguro?
   activerecord:
     models:
+      location: Ubicación
       user: usuario
       admin_user: administrador
     attributes:
@@ -31,6 +32,10 @@ es:
         last_sign_in_at: Ultimo Ingreso
         sign_in_count: Cantidad de Ingreso
         remember_me: Recordarme
+      location:
+        city: Ciudad
+        countri: País
+        state: Provincia
   active_admin:
     details_admin_user: Detalles de administrador
     details_user: Detalles de Usuario
