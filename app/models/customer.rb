@@ -6,4 +6,8 @@ class Customer < ActiveRecord::Base
 
   # == Validations
   validates_presence_of :name, :surname
+
+  def surname_with_name
+    "#{surname}. #{name}"
+  end
 end
