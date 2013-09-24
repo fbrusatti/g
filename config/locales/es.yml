@@ -6,6 +6,12 @@ es:
     form:
       title: Titulo
     model:
+      Cita: Cita
+      Informe: Informe
+      Email: Email
+      Nota_Seguimiento: Nota Seguimiento
+      Visita: Visita
+      Llamada_Seguimiento: Llamada Seguimiento
       Tasacion: Tasación
       LLamada_Telefonica: LLamada Telefónica
   customers:

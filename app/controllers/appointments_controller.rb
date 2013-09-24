@@ -8,7 +8,7 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    @appointement = Appointment.new(params[:appointment])
+    @appointement = current_user.appointments.build(params[:appointment])
     if @appointement.save
       flash[:success] = t('flash.appointment', message: t('flash.created'))
     end
