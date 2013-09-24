@@ -8,5 +8,5 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
-  has_many :appointments,  class_name: "Appointment", foreign_key: "owner_id"
+  has_many :appointments, foreign_key: "owner_id"
 end
