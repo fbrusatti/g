@@ -1,0 +1,10 @@
+.panel-main
+  .panel-heading
+    = t('.title')
+  .panel-body
+    = form_for @appointment do |f|
+      = errors_for(@appointment).html_safe
+      = render 'form', f: f
+      .clearfix
+      %br
+      = f.submit t('.btn_submit') , class: "button-accept"

@@ -1,0 +1,80 @@
+@import "twitter/bootstrap";
+
+.panel-main {
+  @extend .panel, .panel-success;
+  .panel-heading{
+    @extend .panel-heading;
+  }
+  .panel-body{
+    @extend .panel-body;
+  }
+}
+
+.form-appointments{
+  @include make-row();
+  @extend .form-horizontal;
+    .title-appointments{
+      @include make-md-column(10);
+      div {
+        @extend .form-group;
+      }
+      div label {
+        @extend .col-lg-3, .control-label;
+      }
+      div select, input {
+        @extend .col-lg-5;
+      }
+
+    }
+    .form-left{
+      @include make-md-column(5);
+    }
+    .form-right{
+      @include make-md-column(5);
+    }
+}
+
+.detail {// css
+  div {
+    @extend .form-group;
+  }
+  div label {
+    @extend .col-lg-3, .control-label;
+  }
+  div select, input {
+    @extend .col-lg-5;
+  }
+}
+
+.date-time {// css
+   div {
+    @extend .form-group;
+  }
+  div label {
+    @extend .col-lg-1, .control-label;
+  }
+  div select, input {
+    @extend .col-lg-2;
+  }
+}
+
+.description-appointments{// css
+  div {
+    @extend .form-group;
+  }
+  div label {
+    @extend .col-lg-2, .control-label;
+  }
+  div select, input ,textarea{
+    @extend .col-lg-5;
+  }
+
+}
+
+
+.button-accept{
+  @include clearfix();
+  @include make-md-column(1);
+  @include make-md-column-offset(1);
+  @extend .btn, .btn-success;
+}
