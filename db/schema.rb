@@ -102,10 +102,14 @@ ActiveRecord::Schema.define(:version => 20130924001838) do
     t.string   "type_transaction"
     t.datetime "created_at",                                       :null => false
     t.datetime "updated_at",                                       :null => false
+    t.integer  "user_id"
+    t.string   "key_possessor"
   end
 
+  add_index "properties", ["key_possessor"], :name => "index_properties_on_key_possessor"
   add_index "properties", ["type_property"], :name => "index_properties_on_type_property"
   add_index "properties", ["type_transaction"], :name => "index_properties_on_type_transaction"
+  add_index "properties", ["user_id"], :name => "index_properties_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
