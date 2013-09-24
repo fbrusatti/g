@@ -1,0 +1,40 @@
+.form-appointments
+  .title-appointments
+    %div
+      = f.label :title
+      = f.text_field :title , { class: "form-control" }
+  .form-left
+    .detail
+      %div
+        = f.label :model
+        = f.select :model,models, {:include_blank => false},{class: "form-control"}
+      %div
+        = f.label :customer
+        = f.collection_select :customer_id, Customer.all, :id, :surname_with_name, {include_blank:true},{class: "form-control"}
+      %div
+        = f.label :property
+        = f.collection_select :property_id, Property.all, :id, :address, {include_blank: true},{class: "form-control"}
+  .form-right
+    .detail
+      %div
+        = f.label :user
+        = f.collection_select :user_id, User.all, :id, :email,{include_blank:false},{class: "form-control"}
+      %div
+        = f.label :priority
+        = f.select :priority, (1..5).to_a,{ include_blank: false },{ class: "form-control" }
+      %div
+        = f.label :status
+        = f.select :status,status, {:include_blank => false}, {class: "form-control"}
+.date-time
+  %div
+    = f.label :start_date
+    = f.datetime_select :start_date,{ :order => [:day, :month, :year, :hour,:minute], :start_date => Time.now.year} ,:class => 'form-control'
+  %br
+  %div
+    = f.label :end_date
+    = f.datetime_select :end_date,{ :order => [:day, :month, :year, :hour,:minute], :end_date => Time.now.year} ,:class => 'form-control'
+  %br
+.description-appointments
+  %div
+    = f.label :description
+    = f.text_area :description, { class: "form-control",size: "100%x5"}
