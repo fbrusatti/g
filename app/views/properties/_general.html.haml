@@ -1,0 +1,13 @@
+.general
+  .left
+    .title= t(".title_left_1")
+    %div
+
+  .right
+    .title= t(".title_right_1")
+    %div
+      = f.label :address
+      = f.text_area :address, size: "1x2",  class: "pretty-input"
+    %div
+      = f.label :description
+      = f.text_area :description, size: "1x10",  class: "pretty-input"
