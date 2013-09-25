@@ -5,12 +5,12 @@
       = f.label :amount_rooms
       = f.select :amount_rooms, (1..80).to_a,
                  { include_blank: true },
-                 { class: "form-control"}
+                 { class: "pretty-input"}
     %div
       = f.label :amount_bathrooms
       = f.select :amount_bathrooms, (1..40).to_a,
                  { include_blank: true },
-                 { class: "form-control"}
+                 { class: "pretty-input"}
     %div
       = f.label :lot
       = f.number_field :lot, class: "pretty-input"
