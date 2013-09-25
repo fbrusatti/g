@@ -8,11 +8,11 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    @appointement = current_user.appointments.build(params[:appointment])
-    if @appointement.save
+    @appointment = current_user.appointments.build(params[:appointment])
+    if @appointment.save
       flash[:success] = t('flash.appointment', message: t('flash.created'))
     end
-    redirect_to new_appointment_path
+    respond_with @appointment
   end
 
   def new
