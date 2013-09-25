@@ -1,5 +1,5 @@
 $(document).ready(function() {
   $("a.property-save").click(function() {
-    $("#new_property").submit();
+    $("#new_property, [id^=edit_property_]").submit();
   });
 })
