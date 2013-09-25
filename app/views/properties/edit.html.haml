@@ -1,0 +1,21 @@
+%ul.property-tabs
+  %li.active
+    %a{"data-toggle" => "tab", href: "#general"}
+      = t("properties.new.general")
+  %li
+    %a{"data-toggle" => "tab", href: "#details"}
+      = t("properties.new.details")
+  %li
+    %a{"data-toggle" => "tab", href: "#pictures"}
+      = t("properties.new.pictures")
+
+= form_for @property do |f|
+  = errors_for(@property).html_safe
+  .property-tabs-content
+    #general.tab-pane.active
+      = render "general", f: f
+    #details.tab-pane
+      = render "detail", f: f
+    #pictures.tab-pane
+
+  = f.submit hidden: true
