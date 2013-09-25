@@ -1,0 +1,22 @@
+.sub-header
+  - if edit_or_new_page?
+    %a.property-save{ href: "#" }
+      %i.icon-save.icon-2x
+      = t('.property_save')
+    %a.property-danger{href: "#{properties_path}"}
+      %i.icon-remove-sign.icon-2x
+      = t('.cancel')
+  - elsif show_page?
+    %a.property-save{ href: "#" }
+      %i.icon-edit.icon-2x
+      = t('.property_edit')
+    %a.property-print{href: "#"}
+      %i.icon-print.icon-2x
+      = t('.print')
+  - else
+    %a.property-new{ href: "#{new_property_path}" }
+      %i.icon-plus-sign.icon-2x
+      = t('.new')
+    %a.property-print{href: "#"}
+      %i.icon-print.icon-2x
+      = t('.print')

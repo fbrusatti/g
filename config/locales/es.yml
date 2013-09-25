@@ -14,6 +14,48 @@ es:
       Llamada_Seguimiento: Llamada Seguimiento
       Tasacion: Tasación
       LLamada_Telefonica: LLamada Telefónica
+  properties:
+    detail:
+      title_left_1: Habitaciones y tamaños
+      title_right_1: Atributos
+      title_left_2: Precio
+      title_right_2: LLaves
+    key_possessor:
+      owner: Dueño
+      office: Oficina
+      agent: Vendedor
+      none: Otro
+    general:
+      title_left_1: Propietario
+      title_right_1: Direccion y notas
+    positions:
+      front_facade: Frente
+      rear_facade: Contra Frente
+      interior_facade: Interior
+    type_property:
+      apartment: Dpto
+      house: Casa
+      lot: Terreno
+      country_house: Quinta
+      storefront: Local
+      office: Oficina
+      barn: Galpon
+      garage: Cochera
+    sub_header:
+      print: Imprimir
+      new: Nueva
+      property_save: Guardar
+      property_edit: Editar
+      cancel: Cancelar
+    index:
+      properties: Propiedades
+      my_properties: Mis Propiedades
+      my_rent_properties: Mis Alquileres
+      my_favourite_properties: Mis Favoritas
+    new:
+      general: General
+      details: Detalles
+      pictures: Fotos
   customers:
     sub_header:
       new: Nuevo
@@ -29,7 +71,7 @@ es:
       archived_properties: Prop.Arch.
       contracts: Contratos
       exit: Salir
-      confirm: Esta Seguro?
+      confirm: ¿Está Seguro?
   activerecord:
     models:
       location: Ubicación
@@ -48,6 +90,19 @@ es:
         priority: Prioridad
         model: Tipo
         status: Estado
+      property:
+        key_possessor: LLaves
+        amount_rooms: Habitaciones
+        title_to_print: Titulo para imprimir
+        address: Direccion
+        description: Nota
+        amount_bathrooms: Baños
+        lot: Parcela m²
+        meters_constructed: Construidos m²
+        price: Precio
+        influence_zone: Zona
+        type_property: Tipo Prop
+        position: Situacíon
       admin_user:
         email: Email
         password: Contraseña
@@ -56,7 +111,7 @@ es:
       user:
         email: Email
         password: Contraseña
-        last_sign_in_at: Ultimo Ingreso
+        last_sign_in_at: Último Ingreso
         sign_in_count: Cantidad de Ingreso
         remember_me: Recordarme
       location:
@@ -162,6 +217,7 @@ es:
     reset: "Restablecer %{model}"
     required: "requerido"
   flash:
+    property: "Exitosamente se a %{message} la propiedad"
     appointment: "Exitosamente se a %{message} la cita"
     error_update_form: Hubo un problema al actulizar
     error_create_form: Hubo un problema al crear

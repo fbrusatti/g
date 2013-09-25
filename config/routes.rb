@@ -1,5 +1,7 @@
 Gg::Application.routes.draw do
 
+  resources :properties
+
   devise_scope :user do
     root to: 'devise/sessions#new'
   end

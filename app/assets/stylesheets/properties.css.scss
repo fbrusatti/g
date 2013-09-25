@@ -1,0 +1,79 @@
+@import "twitter/bootstrap";
+
+// sub-header
+.sub-header {
+  display: block;
+}
+
+.sub-header a{
+  margin: 5px;
+}
+
+// sub-header customer
+.property-new {
+  @extend .btn, .btn-large, .btn-primary;
+}
+
+.property-print {
+  @extend .btn, .btn-large, .btn-primary, .pull-right;
+}
+
+.property-save {
+  @extend .btn, .btn-large, .btn-primary;
+}
+
+.property-danger {
+   @extend .btn, .btn-large, .btn-danger;
+}
+
+// New Property
+// ------------
+.nav-tabs > li.active > a, .nav-tabs > li.active > a {
+  background-color: #E0DFDB !important;
+}
+
+#new_property {
+  background-color: #E0DFDB;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.pretty-input {
+  @extend .form-control
+}
+.pretty-check {
+ @extend .checkbox
+}
+
+.detail, .general {
+  @extend .form-horizontal;
+  @include make-row();
+
+  div {
+    @extend .form-group;
+  }
+  div label {
+    @extend .col-lg-2, .control-label;
+  }
+  div select, input, textarea {
+    @extend .col-lg-6;
+  }
+}
+
+.detail .left, .right, .general .left, .right {
+  @include make-lg-column(6);
+  .title { font-size: 15pt; }
+}
+
+.property-tabs {
+  @extend .nav, .nav-tabs;
+  li > a { @extend .btn, .btn-large, .btn-success }
+}
+
+.property-tabs-content { @extend .tab-content }
+
+// handled errors
+// --------------
+.field_with_errors {
+  display: inline;
+}
