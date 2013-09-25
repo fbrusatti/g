@@ -15,6 +15,11 @@ es:
       Tasacion: Tasación
       LLamada_Telefonica: LLamada Telefónica
   properties:
+    status:
+      "1": Disponible
+      "2": Archivada
+      "3": Reservada
+      "4": Evaluacion
     detail:
       title_left_1: Habitaciones y tamaños
       title_right_1: Atributos
@@ -28,6 +33,7 @@ es:
     general:
       title_left_1: Propietario
       title_right_1: Direccion y notas
+      title_left_2: Estado de la Propiedad
     positions:
       front_facade: Frente
       rear_facade: Contra Frente
@@ -63,6 +69,8 @@ es:
       print: Imprimir
       save: Guardar
       edit: Editar
+    new:
+      customer_data: Datos Personales
     new_customer_data:
       phone: Telefono
       mobile_phone: Celular
@@ -98,6 +106,7 @@ es:
         model: Tipo
         status: Estado
       property:
+        status: Estado
         key_possessor: LLaves
         amount_rooms: Habitaciones
         title_to_print: Titulo para imprimir
