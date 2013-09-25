@@ -7,7 +7,7 @@
     = csrf_meta_tags
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
   %body
-    = render 'layouts/header' if user_session
+    = render 'layouts/header' if current_user
     = render 'sub_header'
     .container
       - flash.each do |key, value|
