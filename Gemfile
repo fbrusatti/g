@@ -36,18 +36,19 @@ group :development do
   gem 'letter_opener'
   gem 'quiet_assets'
   gem 'awesome_print'
-  gem 'debugger'
 end
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.4', group: :development
   gem 'factory_girl_rails', group: :development
+  gem 'debugger'
 end
 
 group :test do
   gem 'capybara','1.1.2'
   gem 'capybara-webkit', '0.12.0'
   gem 'database_cleaner'
+  gem 'capybara-email'
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'capybara-select2'
