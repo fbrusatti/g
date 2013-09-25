@@ -1,4 +1,4 @@
-Gg::Application.routes.draw do
+G::Application.routes.draw do
 
   resources :properties
 
