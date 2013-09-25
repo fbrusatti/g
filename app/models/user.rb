@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
+  # == Associations
+  has_many :customers
   has_many :appointments, foreign_key: "owner_id"
   has_many :properties
 

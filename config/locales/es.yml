@@ -61,6 +61,13 @@ es:
       new: Nuevo
       cancel: Cancelar
       print: Imprimir
+      save: Guardar
+      edit: Editar
+    new_customer_data:
+      phone: Telefono
+      mobile_phone: Celular
+      customer_data: Datos Personales
+      professional_data: Datos Profesionales
   layouts:
     header:
       search: Busqueda
@@ -118,6 +125,15 @@ es:
         city: Ciudad
         countri: País
         state: Provincia
+      customer:
+        name: Nombre
+        surname: Apellido
+        dni: D.N.I
+        phones: Telefonos
+        address: Dirección
+        dob: Nacimiento
+        email: Email
+        profession: Profesión
   active_admin:
     details_admin_user: Detalles de administrador
     details_user: Detalles de Usuario
@@ -219,6 +235,7 @@ es:
   flash:
     property: "Exitosamente se a %{message} la propiedad"
     appointment: "Exitosamente se a %{message} la cita"
+    customer: "Exitosamente se a %{message} el Cliente"
     error_update_form: Hubo un problema al actulizar
     error_create_form: Hubo un problema al crear
     created: creado
