@@ -26,5 +26,10 @@ class PropertiesController < ApplicationController
   end
 
   def update
+    @property = Property.find(params[:id])
+    if @property.update_attributes(params[:property])
+      flash[:success] = t('flash.property', message: t('flash.updated'))
+    end
+    respond_with @property
   end
 end

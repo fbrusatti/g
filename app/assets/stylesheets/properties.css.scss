@@ -32,7 +32,7 @@
   background-color: #E0DFDB !important;
 }
 
-#new_property {
+#new_property, form[id*='edit_property_'] {
   background-color: #E0DFDB;
   padding-left: 40px;
   padding-right: 40px;

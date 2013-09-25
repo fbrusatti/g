@@ -7,7 +7,7 @@
       %i.icon-remove-sign.icon-2x
       = t('.cancel')
   - elsif show_page?
-    %a.property-save{ href: "#" }
+    %a.property-save{ href: "#{edit_property_path(@property)}" }
       %i.icon-edit.icon-2x
       = t('.property_edit')
     %a.property-print{href: "#"}
