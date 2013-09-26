@@ -1,2 +1,7 @@
-%h1 Show
-= debug @customer
+%ul.customer-tabs
+  %li.active
+    %a{"data-toggle" => "tab", href: "#customer-data"}
+      = t('.customer_data')
+.tab-content
+  .tab-pane.active#customer-data
+    = render "show_customer_data"
