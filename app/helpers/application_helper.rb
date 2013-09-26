@@ -23,4 +23,13 @@ module ApplicationHelper
     html
   end
 
+ def edit_or_new_page?(object)
+    current_page?(action: 'new') ||
+    current_page?(action: 'edit', id: object || 0) ||
+    (object.errors.present? if object.present?)
+  end
+
+  def show_page?(object)
+    current_page?(action: 'show', id: object || 0)
+  end
 end

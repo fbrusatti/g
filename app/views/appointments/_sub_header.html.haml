@@ -1,12 +1,12 @@
 .sub-header
-  - if edit_or_new_page?
+  - if edit_or_new_page?(@appointment)
     %a.appointment-save{ href: "#" }
       %i.icon-save.icon-2x
       = t('.appointment_save')
     %a.appointment-danger{href: "#{appointments_path}"}
       %i.icon-remove-sign.icon-2x
       = t('.cancel')
-  - elsif show_page?
+  - elsif show_page?(@appointment)
     %a.appointment-save{ href: "#{edit_appointment_path(@appointment)}" }
       %i.icon-edit.icon-2x
       = t('.appointment_edit')
