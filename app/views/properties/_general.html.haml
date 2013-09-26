@@ -2,6 +2,10 @@
   .left
     .title= t(".title_left_1")
     %div
+    .title= t(".title_left_2")
+    %div
+      = f.label :status
+      = f.select :status, status, {}, { class: "pretty-input" }
 
   .right
     .title= t(".title_right_1")

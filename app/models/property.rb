@@ -6,6 +6,15 @@ class Property < ActiveRecord::Base
                   :price, :influence_zone, :type_property, :position,
                   :type_transaction, :key_possessor
 
+  # Public: the Integer status of the property.
+  #
+  # The diferents status are:
+  #   1: available
+  #   2: conclude
+  #   3: reserved
+  #   4: evaluation
+  attr_accessible :status
+
   # == Validations
   validates_presence_of :address
 

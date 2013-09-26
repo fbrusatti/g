@@ -1,8 +1,12 @@
 module PropertiesHelper
-
+  STATUS_PROPERTIES = %w(1 2 3 4)
   TYPE_PROPERTIES = %w{apartment house lot country_house storefront office barn garage}
   POSITIONS = %w(front_facade rear_facade interior_facade)
   KEY_POSSESSORS = %w(owner office agent none)
+
+  def status
+    STATUS_PROPERTIES.map { |s| [I18n.t(".properties.status.#{s}"), s]}
+  end
 
   def positions
     POSITIONS.map{ |p| [I18n.t(".properties.positions.#{p}"), p] }
