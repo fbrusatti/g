@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-datetimepicker.min
+//= require jquery.tokeninput.js
 //= require_tree .
 //= require twitter/bootstrap
