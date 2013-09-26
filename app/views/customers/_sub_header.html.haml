@@ -1,12 +1,12 @@
 .sub-header
-  -if edit_or_new_custumer_page?
+  -if edit_or_new_page?(@customer)
     %a.customer-save
       %i.icon-save.icon-2x
       = t('.save')
     %a.customer-danger{href: "#{customers_path}"}
       %i.icon-remove-sign.icon-2x
       = t('.cancel')
-  -elsif show_custumer_page?
+  -elsif show_page?(@customer)
     %a.customer-new{ href: "#" }
       %i.icon-edit.icon-2x
       = "editar"

@@ -30,13 +30,4 @@ module PropertiesHelper
     options_div = content_tag :div, options.html_safe, class: "pretty-check"
   end
 
-  def edit_or_new_page?()
-    current_page?(action: 'new') ||
-    current_page?(action: 'edit', id: @property || 0) ||
-    (@property.errors.present? if @property.present?)
-  end
-
-  def show_page?
-    current_page?(action: 'show', id: @property || 0)
-  end
 end

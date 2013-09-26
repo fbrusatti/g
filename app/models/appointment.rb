@@ -8,5 +8,5 @@ class Appointment < ActiveRecord::Base
   belongs_to :customer
   belongs_to :owner, class_name: "User"
 
-  validates_presence_of :title, :start_date, :model, :user
+  validates_presence_of :title, :model, :user
 end
