@@ -97,6 +97,13 @@ es:
       mobile_phone: Celular
       customer_data: Datos Personales
       professional_data: Datos Profesionales
+    edit:
+      customer_data: Datos Personales
+    edit_customer_data:
+      phone: Telefono
+      mobile_phone: Celular
+      customer_data: Datos Personales
+      professional_data: Datos Profesionales
   layouts:
     header:
       search: Busqueda

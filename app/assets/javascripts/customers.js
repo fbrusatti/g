@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $("a.customer-save").click( function() {
-    $("#new_customer").submit();
+    $("#new_customer, [id^=edit_customer_]").submit();
   });
 
   $('#customer-dob').datetimepicker({
