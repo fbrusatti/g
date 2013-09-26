@@ -2,9 +2,15 @@ class AppointmentsController < ApplicationController
   respond_to :html
 
   def edit
+     @appointment = Appointment.find(params[:id])
   end
 
   def update
+    @appointment = Appointment.find(params[:id])
+    if @appointment.update_attributes(params[:appointment])
+      flash[:success] = t('flash.appointment', message: t('flash.updated'))
+    end
+    respond_with @appointment
   end
 
   def create

@@ -1,0 +1,8 @@
+.panel-main
+  .panel-heading
+    = t('.title')
+  .panel-body
+    = form_for @appointment do |f|
+      = errors_for(@appointment).html_safe
+      = render 'form', f: f
+      = f.submit hidden: true

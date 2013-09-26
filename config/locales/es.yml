@@ -5,6 +5,12 @@ es:
       btn_submit: Agregar
     form:
       title: Titulo
+    sub_header:
+      appointment_save: Guardar
+      appointment_edit: Editar
+      print: Imprimir
+      new: Nueva
+      cancel: Cancelar
     model:
       Cita: Cita
       Informe: Informe
