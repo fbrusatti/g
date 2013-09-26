@@ -74,3 +74,22 @@
 .field_with_errors {
   display: inline;
 }
+
+// show customer
+.show-customer {
+  background-color: #E0DFDB;
+  @include make-row();
+  @extend .form-horizontal;
+  .input {
+    @extend .form-group;
+    label {
+      @extend .col-lg-3, .control-label;
+    }
+  }
+
+  .left, .right {
+  @include make-lg-column(6);
+  .title { font-size: 15pt;
+           margin: 20px; }
+  }
+}
