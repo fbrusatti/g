@@ -96,10 +96,10 @@ es:
     attributes:
       appointment:
         title: Titulo
-        user: De
+        user: Para
         customer: Cliente
         property: Propiedad
-        start_date: Inicio de Cita
+        start_date: Inicio
         end_date: Fin de Cita
         description: Descripcion
         priority: Prioridad

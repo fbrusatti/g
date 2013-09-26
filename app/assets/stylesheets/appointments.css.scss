@@ -1,5 +1,35 @@
 @import "twitter/bootstrap";
 
+// sub-header
+.sub-header {
+  display: block;
+}
+
+.sub-header a{
+  margin: 5px;
+}
+
+// sub-header customer
+.appointment-new {
+  @extend .btn, .btn-large, .btn-primary;
+}
+
+.appointment-print {
+  @extend .btn, .btn-large, .btn-primary, .pull-right;
+}
+
+.appointment-save {
+  @extend .btn, .btn-large, .btn-primary;
+}
+
+.appointment-danger {
+   @extend .btn, .btn-large, .btn-danger;
+}
+
+
+// Appointments
+
+
 .panel-main {
   @extend .panel, .panel-success;
   .panel-heading{
@@ -14,7 +44,7 @@
   @include make-row();
   @extend .form-horizontal;
     .title-appointments{
-      @include make-md-column(10);
+
       div {
         @extend .form-group;
       }
@@ -27,54 +57,49 @@
 
     }
     .form-left{
-      @include make-md-column(5);
+      @include make-lg-column(6);
     }
     .form-right{
-      @include make-md-column(5);
+      @include make-lg-column(6);
+    }
+    .description-appointments{// css
+      div {
+        @extend .form-group;
+      }
+      div label {
+        @extend .col-lg-3, .control-label;
+      }
+      div select, input ,textarea{
+        @extend .col-lg-5;
+      }
     }
 }
 
 .detail {// css
-  div {
+  .div {
     @extend .form-group;
   }
-  div label {
-    @extend .col-lg-3, .control-label;
-  }
-  div select, input {
-    @extend .col-lg-5;
-  }
-}
-
-.date-time {// css
-   div {
-    @extend .form-group;
-  }
-  div label {
-    @extend .col-lg-1, .control-label;
-  }
-  div select, input {
-    @extend .col-lg-2;
-  }
-}
-
-.description-appointments{// css
-  div {
-    @extend .form-group;
-  }
-  div label {
+  .div label {
     @extend .col-lg-2, .control-label;
   }
-  div select, input ,textarea{
+  .div select, input {
     @extend .col-lg-5;
   }
-
+.div .appointment_date_time_picker {
+      display : inline;
+      margin : 1px;
+  }
+  .div .appointment_date_time_picker #appointment_start_date {
+      @extend .col-lg-5;
+      margin : 1px;
+  }
+  .div .appointment_date_time_picker #appointment_end_date {
+      @extend .col-lg-5;
+      margin : 1px;
+  }
+  .input-group-addon {
+   font-size: 19px;
+  }
 }
 
 
-.button-accept{
-  @include clearfix();
-  @include make-md-column(1);
-  @include make-md-column-offset(1);
-  @extend .btn, .btn-success;
-}

@@ -1,0 +1,22 @@
+.sub-header
+  - if edit_or_new_page?
+    %a.appointment-save{ href: "#" }
+      %i.icon-save.icon-2x
+      = t('.appointment_save')
+    %a.appointment-danger{href: "#{appointments_path}"}
+      %i.icon-remove-sign.icon-2x
+      = t('.cancel')
+  - elsif show_page?
+    %a.appointment-save{ href: "#{edit_appointment_path(@appointment)}" }
+      %i.icon-edit.icon-2x
+      = t('.appointment_edit')
+    %a.appointment-print{href: "#"}
+      %i.icon-print.icon-2x
+      = t('.print')
+  - else
+    %a.appointment-new{ href: "#{new_appointment_path}" }
+      %i.icon-plus-sign.icon-2x
+      = t('.new')
+    %a.appointment-print{href: "#"}
+      %i.icon-print.icon-2x
+      = t('.print')
