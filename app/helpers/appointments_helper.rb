@@ -9,4 +9,16 @@ module AppointmentsHelper
   def status
     STATUS.map{ |s| [s, s] }
   end
+
+  def edit_customer
+    unless @appointment.customer.nil? || @appointment.customer.surname.nil?
+      (Array.new << @appointment.customer).map(&:attributes).to_json
+    end
+  end
+
+  def edit_property
+    unless @appointment.property.nil? || @appointment.property.address.nil?
+      (Array.new << @appointment.property).map(&:attributes).to_json
+    end
+  end
 end
