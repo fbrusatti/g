@@ -2,6 +2,14 @@ class PropertiesController < ApplicationController
   respond_to :html
   before_filter :authenticate_user!
 
+
+  def index
+    respond_to do |format|
+      format.html { @properties = Property.all}
+      format.json { render :json => Property.where("address ILIKE ?", "%#{params[:q]}%").map(&:attributes)}
+    end
+  end
+
   def new
     @property = Property.new
   end
@@ -14,8 +22,6 @@ class PropertiesController < ApplicationController
     respond_with @property
   end
 
-  def index
-  end
 
   def show
     @property = Property.find(params[:id])
