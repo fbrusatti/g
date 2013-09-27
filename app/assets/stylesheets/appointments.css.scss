@@ -1,5 +1,8 @@
 @import "twitter/bootstrap";
 
+$GREEN_BUTTON: #5CB85C;
+$GREEN: #4CAE4C;
+
 // sub-header
 .sub-header {
   display: block;
@@ -51,7 +54,7 @@
       div label {
         @extend .col-lg-3, .control-label;
       }
-      div select, input {
+      div select, input, ul {
         @extend .col-lg-5;
       }
 
@@ -63,13 +66,14 @@
       @include make-lg-column(6);
     }
     .description-appointments{// css
+      @include make-lg-column(12);
       div {
         @extend .form-group;
       }
       div label {
         @extend .col-lg-3, .control-label;
       }
-      div select, input ,textarea{
+      div textarea{
         @extend .col-lg-5;
       }
     }
@@ -85,7 +89,7 @@
   .div select, input {
     @extend .col-lg-5;
   }
-.div .appointment_date_time_picker {
+  .div .appointment_date_time_picker {
       display : inline;
       margin : 1px;
   }
@@ -100,6 +104,50 @@
   .input-group-addon {
    font-size: 19px;
   }
+  .div_customer {
+    display:inline;
+  }
+  .div_property {
+    display:inline;
+  }
+
+}
+
+div ul.token-input-list-facebook {
+  display: inline-block;
+  min-width: 42%;
+  margin-left: 15px;
+  font-size : 14px;
+}
+div.token-input-dropdown-facebook {
+  width: auto;
+  font-size : 14px;
+}
+div li.token-input-token-facebook {
+    font-size: 14px;
+    background-color: $GREEN_BUTTON;
+    color: white;
+}
+
+div li.token-input-selected-token-facebook {
+    background-color: $GREEN_BUTTON;
+    border: 1px solid $GREEN_BUTTON;
+    color: #fff;
+}
+
+// div li.token-input-token-facebook span {
+//     color: $GREEN_BUTTON;
+
+// }
+div li.token-input-token-facebook span {
+  color: white;
+}
+div.token-input-dropdown-facebook p {
+    color: $GREEN_BUTTON;
 }
 
 
+div.token-input-dropdown-facebook ul li.token-input-selected-dropdown-item-facebook {
+    background-color: $GREEN_BUTTON;
+    color: #fff;
+}
