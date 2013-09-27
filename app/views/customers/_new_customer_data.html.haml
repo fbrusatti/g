@@ -13,7 +13,7 @@
     .input
       = f.label :dob
       #customer-dob
-        = f.text_field :dob, class: "form-control"
+        = f.text_field :dob, class: "form-control", "data-format" => "dd-MM-yyyy"
         %span.input-group-addon.glyphicon.glyphicon-calendar
     .input
       = f.label :address

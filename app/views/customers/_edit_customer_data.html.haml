@@ -1,0 +1,39 @@
+.edit-customer
+  .left
+    .title= t('.customer_data')
+    .input
+      = f.label :name
+      = f.text_field :name, class: "pretty-input"
+    .input
+      = f.label :surname
+      = f.text_field :surname, class: "pretty-input"
+    .input
+      = f.label :dni
+      = f.text_field :dni, class: "pretty-input"
+    .input
+      = f.label :dob
+      #customer-dob
+        = f.text_field :dob, class: "pretty-input", "data-format" => "dd-MM-yyyy"
+        %span.input-group-addon.glyphicon.glyphicon-calendar
+    .input
+      = f.label :address
+      = f.text_field :address, class: "pretty-input"
+    .input
+      = f.label :email
+      = f.text_field :email, class: "pretty-input"
+    = f.fields_for :phones do |phone|
+      .input
+        = f.label t('.phone')
+        = phone.text_field :phone ,
+                            value: @customer.phones[:phone],
+                            class: "pretty-input"
+      .input
+        = f.label t('.mobile_phone')
+        = phone.text_field :mobile_phone ,
+                            value: @customer.phones[:mobile_phone],
+                            class: "pretty-input"
+  .right
+    .title= t('.professional_data')
+    .input
+      = f.label :profession
+      = f.text_field :profession, class: "pretty-input"

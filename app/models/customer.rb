@@ -8,6 +8,7 @@ class Customer < ActiveRecord::Base
 
   # == Validations
   validates_presence_of :name, :surname
+  validates_format_of :email, { :allow_blank => true, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
 
   # == Associations
   belongs_to :user

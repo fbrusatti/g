@@ -22,4 +22,16 @@ class CustomersController < ApplicationController
   def show
   @customer = Customer.find(params[:id])
   end
+
+  def edit
+    @customer = Customer.find(params[:id])
+  end
+
+  def update
+    @customer = Customer.find(params[:id])
+    if @customer.update_attributes(params[:customer])
+      flash[:success] = t('flash.customer', message: t('flash.updated'))
+    end
+    respond_with @customer
+  end
 end
