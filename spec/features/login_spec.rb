@@ -5,7 +5,7 @@ feature "Login" do
     user = create(:user)
     sign_in user.email, user.password
 
-    page.should have_content('Exit')
+    page.should have_content(I18n.t('layouts.header.exit', locale: 'es'))
   end
 
   scenario "with invalid credentials" do
