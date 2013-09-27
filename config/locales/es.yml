@@ -171,6 +171,10 @@ es:
         dob: Nacimiento
         email: Email
         profession: Profesión
+  token_input:
+    noResultsText: "No hay resultado"
+    hintText: "Ingrese el nombre"
+    searchingText: "Buscando"
   active_admin:
     details_admin_user: Detalles de administrador
     details_user: Detalles de Usuario

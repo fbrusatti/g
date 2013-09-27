@@ -4,7 +4,7 @@ class Property < ActiveRecord::Base
   attr_accessible :amount_rooms, :title_to_print, :address, :description,
                   :amount_bathrooms, :lot, :meters_constructed,
                   :price, :influence_zone, :type_property, :position,
-                  :type_transaction, :key_possessor
+                  :type_transaction, :key_possessor, :id
 
   # Public: the Integer status of the property.
   #
@@ -20,6 +20,7 @@ class Property < ActiveRecord::Base
 
   # == Associatons
   belongs_to :user
+  has_many :appointments
 
   serialize :key_possessor, Array
 end

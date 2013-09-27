@@ -12,9 +12,16 @@ class Customer < ActiveRecord::Base
 
   # == Associations
   belongs_to :user
+  has_many :appointments
+  has_many :properties
 
   def surname_with_name
     "#{surname}. #{name}"
   end
+
+  def customer_tokens=(ids)
+      self.property_id = ids
+  end
+
 
 end
