@@ -17,5 +17,9 @@
     #details.tab-pane
       = render "detail", f: f
     #pictures.tab-pane
-
+      .pictures
+        = f.fields_for :photos do |builder|
+          = render "photo_fields", f: builder
+        .picture-add
+          = link_to_add_fields t(".add_photo"), f, :photos
   = f.submit hidden: true
