@@ -1,0 +1,42 @@
+$(document).ready(function(){
+  $('.appointment_date_time_picker').datetimepicker();
+});
+
+$(document).ready(function() {
+  $("a.appointment-save").click(function() {
+    $("#new_appointment, [id^=edit_appointment_]").submit();
+  });
+})
+
+$(function () {
+  $('#appointment_customer_tokens').tokenInput('/customers.json', {
+    crossDomain: false,
+    prePopulate: $('#appointment_customer_tokens').data('pre'),
+    theme: "facebook",
+    tokenLimit: "1",
+    noResultsText: "<%= I18n.t('.token_input.noResultsText') %>",
+    hintText: "<%= I18n.t('.token_input.hintText')%>",
+    searchingText: "<%= I18n.t('.token_input.searchingText')%>",
+    // resultsFormatter: function(item){return "<li><p>" + item.name
+    // + " <b style='color: red'>" + item.owner.name+ "</b></p></li>" },
+    // tokenFormatter: function(item) { return "<li><p>" + item.name
+    // + " <b style='color: red'>" + item.email+ "</b></p></li>" }
+  });
+});
+
+$(function () {
+  $('#appointment_property_tokens').tokenInput('/properties.json', {
+    crossDomain: false,
+    prePopulate: $('#appointment_property_tokens').data('pre'),
+    theme: "facebook",
+    propertyToSearch: "address",
+    tokenLimit: "1",
+    noResultsText: "<%= I18n.t('.token_input.noResultsText') %>",
+    hintText: "<%= I18n.t('.token_input.hintText')%>",
+    searchingText: "<%= I18n.t('.token_input.searchingText')%>"
+    // resultsFormatter: function(item){return "<li><p>" + item.address
+    // + " <b style='color: red'>" + item.influence_zone+ "</b></p></li>" },
+    // tokenFormatter: function(item) { return "<li><p>" + item.address
+    // + " <b style='color: red'>" + item.influence_zone+ "</b></p></li>" }
+  });
+});

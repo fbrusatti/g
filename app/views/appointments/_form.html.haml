@@ -8,12 +8,15 @@
       .div
         = f.label :model
         = f.select :model,models, {:include_blank => false},{class: "form-control"}
-      .div
+      .div_token
         = f.label :customer
-        = f.collection_select :customer_id, Customer.all, :id, :surname_with_name, {include_blank:true},{class: "form-control"}
-      .div
+        .div_customer
+          = f.text_field :customer_tokens,"data-pre" => edit_customer, class: "form-control"
+      .div_token
         = f.label :property
-        = f.collection_select :property_id, Property.all, :id, :address, {include_blank: true},{class: "form-control"}
+        .div_property
+          = f.text_field :property_tokens,"data-pre" => edit_property, class: "form-control"
+
       .div
         = f.label :priority
         = f.select :priority, (1..5).to_a,{ include_blank: false },{ class: "form-control" }
