@@ -13,6 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-datetimepicker.min
+//= require jquery.fancybox
+//= require jquery.fancybox-buttons
+//= require jquery.fancybox-media
+//= require jquery.fancybox-thumbs
+//= require jquery.fancybox.pack
 //= require jquery.tokeninput.js
 //= require_tree .
 //= require twitter/bootstrap
