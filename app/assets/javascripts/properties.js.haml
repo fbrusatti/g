@@ -2,4 +2,28 @@ $(document).ready(function() {
   $("a.property-save").click(function() {
     $("#new_property, [id^=edit_property_]").submit();
   });
-})
+
+  $(".gallery").fancybox({
+    openEffect  : 'elastic',
+    closeEffect : 'elastic',
+    prevEffect  : 'elastic',
+    nextEffect  : 'elastic'
+  });
+
+  // close the photo and set _destroy
+  $('form').on('click', '.remove_fields', function(event) {
+    $(this).siblings().find("input[type=hidden]").val('1');
+    $(this).closest('.photo').hide();
+    return event.preventDefault();
+  });
+
+  // add new photo
+  $('form').on('click', '.add_fields', function(event) {
+    var regexp, time;
+    time = new Date().getTime();
+    regexp = new RegExp($(this).data('id'), 'g');
+    $(this).before($(this).data('fields').replace(regexp, time));
+    event.preventDefault();
+  });
+
+});

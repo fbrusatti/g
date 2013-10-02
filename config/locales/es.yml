@@ -68,6 +68,9 @@ es:
       general: General
       details: Detalles
       pictures: Fotos
+    edit:
+      add_photo: Agregar Foto
+      delete: Borrar
   customers:
     sub_header:
       new: Nuevo
@@ -117,11 +120,14 @@ es:
       confirm: ¿Está Seguro?
   activerecord:
     models:
+      photo: Foto
       location: Ubicación
       user: usuario
       admin_user: administrador
       appointment: Cita
     attributes:
+      photos:
+        image: "Fotos:"
       appointment:
         title: Titulo
         user: Para
@@ -381,6 +387,11 @@ es:
   errors: &errors
     format: ! '%{attribute} %{message}'
     messages:
+      carrierwave_processing_error: "No se puede redimensionar la Foto."
+      carrierwave_integrity_error: "No hay una foto"
+      carrierwave_download_error: "No se puede descagar la foto"
+      extension_white_list_error: "No se pudo cargar el archivo %{extension}, los tipos permitidos son: %{allowed_types}"
+      extension_black_list_error: "No se pudo cargar la foto %{extension}, tipo prohibido: %{prohibited_types}"
       accepted: debe ser aceptado
       blank: no puede estar en blanco
       confirmation: no coincide con la confirmación

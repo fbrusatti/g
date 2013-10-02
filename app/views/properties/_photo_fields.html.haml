@@ -1,0 +1,10 @@
+.photo
+  .image
+    - if f.object.new_record?
+      = f.file_field :image, class: "photo-upload"
+      = image_tag "default_new_photo.png", size: "200x200"
+    - else
+      %a{ href: f.object.image, class: "gallery", "rel" => "gallery" }
+        = image_tag(f.object.image.url(:thumb))
+        = f.hidden_field :_destroy
+      = link_to I18n.t("properties.edit.delete"), '#', class: "remove_fields"

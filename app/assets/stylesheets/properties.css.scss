@@ -11,22 +11,22 @@
 
 // sub-header customer
 .property-new {
-  @extend .btn, .btn-large, .btn-primary;
+  @extend .btn, .btn-lg, .btn-primary;
 }
 
 .property-print {
-  @extend .btn, .btn-large, .btn-primary, .pull-right;
+  @extend .btn, .btn-lg, .btn-primary, .pull-right;
 }
 
 .property-save {
-  @extend .btn, .btn-large, .btn-primary;
+  @extend .btn, .btn-lg, .btn-primary;
 }
 
 .property-danger {
-   @extend .btn, .btn-large, .btn-danger;
+   @extend .btn, .btn-lg, .btn-danger;
 }
 
-// New Property
+// New and Edit Property
 // ------------
 .nav-tabs > li.active > a, .nav-tabs > li.active > a {
   background-color: #E0DFDB !important;
@@ -67,10 +67,47 @@
 
 .property-tabs {
   @extend .nav, .nav-tabs;
-  li > a { @extend .btn, .btn-large, .btn-success }
+  li > a { @extend .btn, .btn-lg, .btn-success }
 }
 
 .property-tabs-content { @extend .tab-content }
+
+// Photo
+// -----
+.pictures {
+  @extend .container
+}
+.photo {
+  @extend .col-lg-3;
+  margin: 10px;
+  .image {
+    @extend .img-thumbnail;
+  }
+   a.remove_fields {
+    margin-left: 4px;
+    text-align: center;
+    margin-top: 10px;
+    max-width: 200px;
+    display: block;
+    @extend  .btn, .btn-danger, .btn-sm;
+  }
+  input {
+    margin-left: 4px;
+    text-align: center;
+    margin-top: 10px;
+    max-width: 200px;
+    display: block;
+  }
+}
+
+.photo input[type="file"] {
+  margin-top: 10px;
+}
+
+.picture-add > a{
+  margin: 10px;
+  @extend  .btn, .btn-primary, .btn-sm;
+}
 
 // handled errors
 // --------------
