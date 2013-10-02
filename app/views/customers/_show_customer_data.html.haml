@@ -12,7 +12,7 @@
       = label_tag  @customer.dni ,nil , class: "form-control"
     .input
       = label_tag t('.dob')
-      = label_tag @customer.dob.strftime("%d/%m/%Y"), nil, class: "form-control"
+      = label_tag dob(@customer), nil, class: "form-control"
     .input
       = label_tag t('.address')
       = label_tag @customer.address, nil, class: "form-control"
