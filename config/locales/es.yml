@@ -12,14 +12,31 @@ es:
       new: Nueva
       cancel: Cancelar
     model:
-      Cita: Cita
-      Informe: Informe
-      Email: Email
-      Nota_Seguimiento: Nota Seguimiento
-      Visita: Visita
-      Llamada_Seguimiento: Llamada Seguimiento
-      Tasacion: Tasación
-      LLamada_Telefonica: LLamada Telefónica
+      appointment: Cita
+      inform: Informe
+      email: Email
+      forward_note: Nota Seguimiento
+      visit: Visita
+      forward_call: Llamada Seguimiento
+      valuation: Tasación
+      phone_call: LLamada Telefónica
+    status:
+      avanced: Avanzado
+      canceled: Cancelado
+      completed: Completado
+      inited: Iniciado
+      not_inited: No iniciado
+      waited: Esperando
+    index:
+      title: Listado de Citas
+      title_column: Titulo
+      user: Usuario
+      model: Tipo
+      status: Estado
+      start_date: Inicio
+      priority: Prioridad
+      customer: Cliente
+      property: Propiedad
   properties:
     status:
       available: Disponible
