@@ -17,10 +17,12 @@ $(function () {
     noResultsText: "<%= I18n.t('.token_input.noResultsText') %>",
     hintText: "<%= I18n.t('.token_input.hintText')%>",
     searchingText: "<%= I18n.t('.token_input.searchingText')%>",
-    // resultsFormatter: function(item){return "<li><p>" + item.name
-    // + " <b style='color: red'>" + item.owner.name+ "</b></p></li>" },
-    // tokenFormatter: function(item) { return "<li><p>" + item.name
-    // + " <b style='color: red'>" + item.email+ "</b></p></li>" }
+    resultsFormatter: function(item){
+      return "<li><p style='color: black' >" + item.name
+      + " " + item.surname + " (" + item.dni + ") </p> </li>" },
+    tokenFormatter: function(item) {
+      return "<li><p>" + item.name + " " + item.surname +
+      " (" + item.dni + ") </p> </li>" }
   });
 });
 
@@ -33,10 +35,23 @@ $(function () {
     tokenLimit: "1",
     noResultsText: "<%= I18n.t('.token_input.noResultsText') %>",
     hintText: "<%= I18n.t('.token_input.hintText')%>",
-    searchingText: "<%= I18n.t('.token_input.searchingText')%>"
-    // resultsFormatter: function(item){return "<li><p>" + item.address
-    // + " <b style='color: red'>" + item.influence_zone+ "</b></p></li>" },
-    // tokenFormatter: function(item) { return "<li><p>" + item.address
-    // + " <b style='color: red'>" + item.influence_zone+ "</b></p></li>" }
+    searchingText: "<%= I18n.t('.token_input.searchingText')%>",
+     resultsFormatter: function(item){
+      return "<li><p style='color: black' >" + item.address
+      + " (" + item.id + ") </p> </li>" },
+     tokenFormatter: function(item) {
+       return "<li><p>" + item.address +
+       " (" + item.id + ") </p> </li>" }
   });
 });
+
+
+$(document).ready(function() {
+  $('#appointments').dataTable({
+    sPaginationType: "full_numbers",
+    bJQueryUI: true,
+    bProcessing: true,
+    bServerSide: true,
+    sAjaxSource: $('#appointments').data('source')
+  });
+ });

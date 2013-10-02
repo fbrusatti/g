@@ -1,0 +1,16 @@
+.panel-main
+  .panel-heading
+    = t('.title')
+  .panel-body
+    %table#appointments.display{"data-source" => appointments_url(format:"json")}
+      %thead
+        %tr
+          %th=t('.title_column')
+          %th=t('.user')
+          %th=t('.model')
+          %th=t('.status')
+          %th=t('.start_date')
+          %th=t('.priority')
+          %th=t('.customer')
+          %th=t('.title_column')
+      %tbody
