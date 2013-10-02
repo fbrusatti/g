@@ -1,5 +1,3 @@
-@import "twitter/bootstrap";
-
 .menu-head {
   @extend .nav, .nav-justified;
 }
@@ -10,4 +8,17 @@
 
 .menu-head li:last-child a  {
   @extend .btn-danger;
+}
+
+ul.menu-head {
+  a {
+    &:hover{
+      color: #0AC159;
+      background-color: #B7FCD5;
+    }
+    &.active{
+      color: #0AC159;
+      background-color: #B7FCD5;
+    }
+  }
 }

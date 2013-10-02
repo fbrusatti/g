@@ -42,4 +42,8 @@ module ApplicationHelper
     link_to(name, '#', class: "add_fields",
                        data: {id: id, fields: fields.gsub("\n", "")}, remote: true)
   end
+
+  def current_tag(tag)
+    'active' if controller_path == tag
+  end
 end
