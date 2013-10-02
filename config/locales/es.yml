@@ -22,10 +22,10 @@ es:
       LLamada_Telefonica: LLamada Telefónica
   properties:
     status:
-      "1": Disponible
-      "2": Archivada
-      "3": Reservada
-      "4": Evaluacion
+      available: Disponible
+      store: Archivada
+      reserved: Reservada
+      evaluation: Evaluacion
     detail:
       title_left_1: Habitaciones y tamaños
       title_right_1: Atributos
