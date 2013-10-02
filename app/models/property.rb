@@ -4,16 +4,8 @@ class Property < ActiveRecord::Base
   attr_accessible :amount_rooms, :title_to_print, :address, :description,
                   :amount_bathrooms, :lot, :meters_constructed,
                   :price, :influence_zone, :type_property, :position,
-                  :type_transaction, :key_possessor, :photos_attributes
-
-  # Public: the Integer status of the property.
-  #
-  # The diferents status are:
-  #   1: available
-  #   2: conclude
-  #   3: reserved
-  #   4: evaluation
-  attr_accessible :status
+                  :type_transaction, :key_possessor, :photos_attributes,
+                  :status
 
   # == Validations
   validates_presence_of :address
