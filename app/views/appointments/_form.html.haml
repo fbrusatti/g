@@ -27,7 +27,7 @@
         = f.collection_select :user_id, User.all, :id, :email,{include_blank:false},{class: "form-control"}
       .div
         = f.label :status
-        = f.select :status,status, {:include_blank => false}, {class: "form-control"}
+        = f.select :status,appointment_status, {:include_blank => false}, {class: "form-control"}
       .div
         = f.label :start_date
         .appointment_date_time_picker
