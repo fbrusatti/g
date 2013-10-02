@@ -7,7 +7,7 @@ class CustomersController < ApplicationController
   def index
     respond_to do |format|
       format.html { @customers = Customer.all}
-      format.json { render :json => Customer.where("surname ILIKE ?", "%#{params[:q]}%").map(&:attributes)}
+      format.json { render :json => Customer.where("surname ILIKE :search or name ILIKE :search", search: "%#{params[:q]}%").map(&:attributes)}
     end
   end
 
