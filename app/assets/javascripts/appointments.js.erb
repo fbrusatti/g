@@ -52,6 +52,16 @@ $(document).ready(function() {
     bJQueryUI: true,
     bProcessing: true,
     bServerSide: true,
+    "aoColumns": [
+                null,
+                null,
+                null,
+                null,
+                { "sType": "datetime-us-pre" },
+                null,
+                null,
+                null
+            ],
     sAjaxSource: $('#appointments').data('source')
   });
  });
