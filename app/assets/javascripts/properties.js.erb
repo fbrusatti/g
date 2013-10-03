@@ -1,0 +1,46 @@
+$(document).ready(function() {
+  $("a.property-save").click(function() {
+    $("#new_property, [id^=edit_property_]").submit();
+  });
+
+  $(".gallery").fancybox({
+    openEffect  : 'elastic',
+    closeEffect : 'elastic',
+    prevEffect  : 'elastic',
+    nextEffect  : 'elastic'
+  });
+
+  // close the photo and set _destroy
+  $('form').on('click', '.remove_fields', function(event) {
+    $(this).siblings().find("input[type=hidden]").val('1');
+    $(this).closest('.photo').hide();
+    return event.preventDefault();
+  });
+
+  // add new photo
+  $('form').on('click', '.add_fields', function(event) {
+    var regexp, time;
+    time = new Date().getTime();
+    regexp = new RegExp($(this).data('id'), 'g');
+    $(this).before($(this).data('fields').replace(regexp, time));
+    event.preventDefault();
+  });
+
+  // token to customer
+  $('#property_owner_tokens').tokenInput('/customers.json', {
+    crossDomain: false,
+    prePopulate: $('#property_owner_tokens').data('pre'),
+    theme: "facebook",
+    tokenLimit: "1",
+    noResultsText: "<%= I18n.t('.token_input.noResultsText') %>",
+    hintText: "<%= I18n.t('.token_input.hintText_surname')%>",
+    searchingText: "<%= I18n.t('.token_input.searchingText')%>",
+    resultsFormatter: function(item){
+      return "<li><p style='color: black' >" + item.name
+      + " " + item.surname +  " " + item.dni + " </p> </li>" },
+    tokenFormatter: function(item) {
+      return "<li><p>" + item.name + " " +
+      item.surname + " " + item.dni + " </p> </li>" }
+  });
+
+});
