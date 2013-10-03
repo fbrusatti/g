@@ -1,17 +1,19 @@
 .general
   .left
     .title= t(".title_left_1")
-    %div
+    .input
+      = f.label :owner
+      = f.text_field :owner_tokens,"data-pre" => edit_owner, class: "pretty-input"
     .title= t(".title_left_2")
-    %div
+    .input
       = f.label :status
       = f.select :status, status, {}, { class: "pretty-input" }
 
   .right
     .title= t(".title_right_1")
-    %div
+    .input
       = f.label :address
       = f.text_area :address, size: "1x2",  class: "pretty-input"
-    %div
+    .input
       = f.label :description
       = f.text_area :description, size: "1x10",  class: "pretty-input"
