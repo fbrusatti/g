@@ -125,6 +125,8 @@ es:
       user: usuario
       admin_user: administrador
       appointment: Cita
+      errors:
+        message_phones: "no ingresados, ingrese al menos un numero"
     attributes:
       photos:
         image: "Fotos:"
