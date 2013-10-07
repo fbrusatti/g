@@ -1,41 +1,42 @@
 .detail
   .left
     .title= t(".title_left_1")
-    %div
+    .input
       = f.label :amount_rooms
       = f.select :amount_rooms, (1..80).to_a,
                  { include_blank: true },
                  { class: "pretty-input"}
-    %div
+    .input
       = f.label :amount_bathrooms
       = f.select :amount_bathrooms, (1..40).to_a,
                  { include_blank: true },
                  { class: "pretty-input"}
-    %div
+    .input
       = f.label :lot
       = f.number_field :lot, class: "pretty-input"
-    %div
+    .input
       = f.label :meters_constructed
       = f.number_field :meters_constructed, class: "pretty-input"
     .title= t(".title_left_2")
 
   .right
     .title= t(".title_right_1")
-    %div
+    .input
       = f.label :title_to_print
       = f.text_area :title_to_print, size: "1x4",  class: "pretty-input"
-    %div
+    .input
       = f.label :influence_zone
       = f.text_field :influence_zone, class: "pretty-input"
-    %div
+    .input
       = f.label :position
       = f.select :position, positions,
                 { include_blank: true },
                 { class: "pretty-input" }
-    %div
+    .input
       = f.label :type_property
       = f.select :type_property, type_properties,
                 { include_blank: true },
                 { class: "pretty-input" }
     .title= t(".title_right_2")
-    = key_possessor(f)
+    .input
+      = key_possessor(f)

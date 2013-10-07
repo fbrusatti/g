@@ -4,7 +4,7 @@ es:
       title: Nueva Cita
       btn_submit: Agregar
     form:
-      title: Titulo
+      title: Título
     sub_header:
       appointment_save: Guardar
       appointment_edit: Editar
@@ -25,7 +25,7 @@ es:
       available: Disponible
       store: Archivada
       reserved: Reservada
-      evaluation: Evaluacion
+      evaluation: Evaluación
     detail:
       title_left_1: Habitaciones y tamaños
       title_right_1: Atributos
@@ -38,7 +38,7 @@ es:
       none: Otro
     general:
       title_left_1: Propietario
-      title_right_1: Direccion y notas
+      title_right_1: Dirección y notas
       title_left_2: Estado de la Propiedad
     positions:
       front_facade: Frente
@@ -129,21 +129,22 @@ es:
       photos:
         image: "Fotos:"
       appointment:
-        title: Titulo
+        title: Título
         user: Para
         customer: Cliente
         property: Propiedad
         start_date: Inicio
         end_date: Fin de Cita
-        description: Descripcion
+        description: Descripción
         priority: Prioridad
         model: Tipo
         status: Estado
       property:
+        owner: Dueño
         status: Estado
         key_possessor: LLaves
         amount_rooms: Habitaciones
-        title_to_print: Titulo para imprimir
+        title_to_print: Título para imprimir
         address: Direccion
         description: Nota
         amount_bathrooms: Baños
@@ -180,6 +181,7 @@ es:
   token_input:
     noResultsText: "No hay resultado"
     hintText: "Ingrese el nombre"
+    hintText_surname: "Ingrese el apellido"
     searchingText: "Buscando"
   active_admin:
     details_admin_user: Detalles de administrador

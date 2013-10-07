@@ -11,19 +11,19 @@
 
 // sub-header customer
 .property-new {
-  @extend .btn, .btn-lg, .btn-primary;
+  @extend .btn, .btn-primary;
 }
 
 .property-print {
-  @extend .btn, .btn-lg, .btn-primary, .pull-right;
+  @extend .btn, .btn-primary, .pull-right;
 }
 
 .property-save {
-  @extend .btn, .btn-lg, .btn-primary;
+  @extend .btn, .btn-primary;
 }
 
 .property-danger {
-   @extend .btn, .btn-lg, .btn-danger;
+   @extend .btn, .btn-danger;
 }
 
 // New and Edit Property
@@ -45,29 +45,29 @@
  @extend .checkbox
 }
 
-.detail, .general {
+#new_property .detail, .general {
   @extend .form-horizontal;
   @include make-row();
 
-  div {
+  .input {
     @extend .form-group;
   }
-  div label {
+  .input label {
     @extend .col-lg-2, .control-label;
   }
-  div select, input, textarea {
+  .input select, input, textarea {
     @extend .col-lg-6;
   }
 }
 
 .detail .left, .right, .general .left, .right {
   @include make-lg-column(6);
-  .title { font-size: 15pt; }
+  .title { font-size: 15pt; margin: 20px;}
 }
 
 .property-tabs {
   @extend .nav, .nav-tabs;
-  li > a { @extend .btn, .btn-lg, .btn-success }
+  li > a { @extend .btn, .btn-success }
 }
 
 .property-tabs-content { @extend .tab-content }

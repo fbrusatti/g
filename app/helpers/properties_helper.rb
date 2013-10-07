@@ -33,4 +33,10 @@ module PropertiesHelper
     end
     options_div = content_tag :div, options.html_safe, class: "pretty-check"
   end
+
+  def edit_owner
+    unless @property.owner.nil? || @property.owner.surname.nil?
+      [@property.owner].map(&:attributes).to_json
+    end
+  end
 end

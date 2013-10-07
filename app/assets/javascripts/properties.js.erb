@@ -26,4 +26,21 @@ $(document).ready(function() {
     event.preventDefault();
   });
 
+  // token to customer
+  $('#property_owner_tokens').tokenInput('/customers.json', {
+    crossDomain: false,
+    prePopulate: $('#property_owner_tokens').data('pre'),
+    theme: "facebook",
+    tokenLimit: "1",
+    noResultsText: "<%= I18n.t('.token_input.noResultsText') %>",
+    hintText: "<%= I18n.t('.token_input.hintText_surname')%>",
+    searchingText: "<%= I18n.t('.token_input.searchingText')%>",
+    resultsFormatter: function(item){
+      return "<li><p style='color: black' >" + item.name
+      + " " + item.surname +  " " + item.dni + " </p> </li>" },
+    tokenFormatter: function(item) {
+      return "<li><p>" + item.name + " " +
+      item.surname + " " + item.dni + " </p> </li>" }
+  });
+
 });
