@@ -21,6 +21,16 @@ es:
       Tasacion: Tasación
       LLamada_Telefonica: LLamada Telefónica
   properties:
+    moneys:
+      eeuu: Dolar
+      arg: Peso Argentino
+    transactions:
+      error: Los campos de Moneda o Precio no pueden estar vacios
+      price_to_sale: Precio
+      price_to_rent: Precio
+      money: Moneda
+      sale: Venta
+      rent: Alquiler
     status:
       available: Disponible
       store: Archivada
@@ -29,7 +39,7 @@ es:
     detail:
       title_left_1: Habitaciones y tamaños
       title_right_1: Atributos
-      title_left_2: Precio
+      title_left_2: Precios
       title_right_2: LLaves
     key_possessor:
       owner: Dueño
@@ -120,6 +130,7 @@ es:
       confirm: ¿Está Seguro?
   activerecord:
     models:
+      money: Moneda
       photo: Foto
       location: Ubicación
       user: usuario
@@ -128,6 +139,10 @@ es:
       errors:
         message_phones: "no ingresados, ingrese al menos un numero"
     attributes:
+      money:
+        symbol: Simbolo
+        name: nombre
+        quotation: cotización
       photos:
         image: "Fotos:"
       appointment:
@@ -142,6 +157,7 @@ es:
         model: Tipo
         status: Estado
       property:
+        type_transaction: La transacción(vta. o alq.)
         owner: Dueño
         status: Estado
         key_possessor: LLaves
