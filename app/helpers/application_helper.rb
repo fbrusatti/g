@@ -33,6 +33,10 @@ module ApplicationHelper
     current_page?(action: 'show', id: object || 0)
   end
 
+  def index_page?(object, controller)
+    current_page?(controller: controller, action: 'index')
+  end
+
   def link_to_add_fields(name, f, association)
     new_object = f.object.send(association).klass.new
     id = new_object.object_id

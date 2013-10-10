@@ -9,7 +9,7 @@ class Appointment < ActiveRecord::Base
   belongs_to :customer
   belongs_to :owner, class_name: "User"
 
-  validates_presence_of :title, :model, :user
+  validates_presence_of :title, :model, :user, :start_date
 
   # == attr reader
   attr_reader :customer_tokens, :property_tokens

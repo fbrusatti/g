@@ -17,6 +17,23 @@
     %a.appointment-new{ href: "#{new_appointment_path}" }
       %i.icon-plus-sign.icon-2x
       = t('.new')
+    - if index_page?(@appointment, "appointments")
+      %a.appointment-today{href: "#"}
+        %i.icon-calendar.icon-2x
+        = t('.today')
+      %a.appointment-week{href: "#"}
+        %i.icon-calendar.icon-2x
+        = t('.week')
+      %a.appointment-month{href: "#"}
+        %i.icon-calendar.icon-2x
+        = t('.month')
+      %a.appointment-all{href: "#"}
+        %i.icon-calendar.icon-2x
+        = t('.all')
+      %a.appointment-rank{href: "#"}
+        %i.icon-calendar.icon-2x
+        = t('.rank')
     %a.appointment-print{href: "#"}
       %i.icon-print.icon-2x
       = t('.print')
+
