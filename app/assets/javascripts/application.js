@@ -19,9 +19,9 @@
 //= require jquery.fancybox-thumbs
 //= require jquery.fancybox.pack
 //= require jquery.tokeninput.js
-//= require ColReorderWithResize.js
 //= require dataTables/jquery.dataTables
 //= require moment
 //= require daterangepicker
+//= require ColReorderWithResize.js
 //= require_tree .
 //= require twitter/bootstrap

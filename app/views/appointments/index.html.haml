@@ -5,6 +5,19 @@
     %table#appointments.display{"data-source" => appointments_url(format:"json")}
       %thead
         %tr
+          %th
+          %th
+            =select_tag nil, options_from_collection_for_select(User.all, "email", "email"),include_blank: true
+          %th
+            =select_tag nil, options_for_select(models),include_blank: true
+          %th
+            =select_tag nil, options_for_select(appointment_status),include_blank: true
+          %th
+          %th
+            =select_tag nil, options_for_select([ "1", "2","3","4","5" ]),include_blank: true
+          %th
+          %th
+        %tr
           %th=t('.title_column')
           %th=t('.user')
           %th=t('.model')
@@ -14,3 +27,5 @@
           %th=t('.customer')
           %th=t('.property')
       %tbody
+      %tfoot
+
