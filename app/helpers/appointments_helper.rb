@@ -2,6 +2,7 @@ module AppointmentsHelper
   MODEL = %w{appointment inform email forward_note visit valuation phone_call forward_call}
   STATUS = %w{avanced canceled completed inited not_inited waited}
 
+
   def models
     MODEL.map{ |m| [I18n.t(".appointments.model.#{m}"), I18n.t(".appointments.model.#{m}")] }
   end
