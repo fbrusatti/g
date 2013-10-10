@@ -40,10 +40,10 @@ private
     appointments = appointments.page(page).per_page(per_page)
     if params[:sSearch].present?
       # appointments = appointments.where("title ilike :search", search: "%#{params[:sSearch]}%")
-      appointments = ((appointments.joins(:customer)).joins).where(
+      appointments = ((appointments.joins(:customer)).joins(:property)).where(
         "title ilike :search
          or surname ilike :search
-         or address ilike :search", search: "%#{params[:sSearch]}%")
+         or properties.address ilike :search", search: "%#{params[:sSearch]}%")
     end
     if params[:sSearch_5].present?
       appointments = appointments.where(:priority =>params[:sSearch_5])
@@ -57,8 +57,42 @@ private
     if params[:sSearch_1].present?
       appointments = (appointments.joins(:user)).where(users: {:email =>params[:sSearch_1]})
     end
+    if params[:sSearch_4].present?
+      appointments = appointments.where('start_date BETWEEN ? AND ?', DateTime.now.beginning_of_day.to_s(:db), DateTime.now.end_of_day.to_s(:db))
+    end
+    if params[:dateType].present?
+      if params[:dateType]=="week"
+        appointments = appointments.where('start_date BETWEEN ? AND ?',
+          (get_first_monday(DateTime.now)).beginning_of_day.to_s(:db),
+          (get_next_saturday(DateTime.now)).end_of_day.to_s(:db))
+
+      elsif params[:dateType]=="today"
+        appointments = appointments.where('start_date BETWEEN ? AND ?',
+          DateTime.now.beginning_of_day.to_s(:db),
+          DateTime.now.end_of_day.to_s(:db))
+
+      elsif params[:dateType]=="month"
+        appointments = appointments.where('start_date BETWEEN ? AND ?', DateTime.now.beginning_of_month.to_s(:db), DateTime.now.end_of_month.to_s(:db))
+      end
+    end
     appointments
   end
+
+    def get_first_monday(start_date)
+      day = start_date
+      until day.monday? do
+        day -= 1.day
+      end
+      day
+    end
+
+    def get_next_saturday(start_date)
+      day = start_date
+      until day.saturday? do
+        day += 1.day
+      end
+      day
+    end
 
   def page
     params[:iDisplayStart].to_i/per_page + 1

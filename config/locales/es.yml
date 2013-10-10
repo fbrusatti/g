@@ -3,6 +3,7 @@ es:
     new:
       title: Nueva Cita
       btn_submit: Agregar
+      appointment_data: Información de Cita
     form:
       title: Título
     sub_header:
@@ -10,6 +11,11 @@ es:
       appointment_edit: Editar
       print: Imprimir
       new: Nueva
+      today: Hoy
+      week: Semana
+      month: Mes
+      all: Todas
+      rank: Rango
       cancel: Cancelar
     model:
       appointment: Cita

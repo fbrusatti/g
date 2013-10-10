@@ -1,5 +1,12 @@
 $(document).ready(function(){
-  $('.appointment_date_time_picker').datetimepicker();
+  $('.appointment_date_time_picker').datetimepicker({
+    language: 'es',
+    maskInput: true,
+    pick12HourFormat: true,
+    format: 'dd/MM/yyyy hh:mm',
+    startDate: new Date(),
+    endDate: Infinity
+  });
 
   $("a.appointment-save").click(function() {
     $("#new_appointment, [id^=edit_appointment_]").submit();
@@ -45,6 +52,8 @@ $(function () {
 
 
   $(document).ready(function() {
+    var dateType;
+
 
     var oTable = $('#appointments').dataTable({
       sPaginationType: "full_numbers",
@@ -63,17 +72,34 @@ $(function () {
              } );
 
         } );
+        $("a.appointment-today").click(function() {
+          dateType="today";
+          oTable.fnFilter("");
+        });
+        $("a.appointment-week").click(function() {
+           dateType="week";
+           oTable.fnFilter("");
+        });
+        $("a.appointment-month").click(function() {
+           dateType="month";
+           oTable.fnFilter("");
+        });
+        $("a.appointment-all").click(function() {
+           dateType= null;
+           oTable.fnFilter("");
+        });
       },
 
-    //   "fnServerData": function ( sSource, aoData, fnCallback ) {
+      "fnServerData": function ( sSource, aoData, fnCallback ) {
 
-    //     aoData.push( { "name": "HOLAAAASSSS", "value": "ASASS" });
-    //     $.getJSON( sSource, aoData, function (json) {
-    //       /* Do whatever additional processing you want on the callback, then tell DataTables */
-    //        fnCallback(json)
-    //     } );
-    //   } );
-    // }
+         aoData.push( { "name": "dateType", "value": dateType });
+
+         $.getJSON( sSource, aoData, function (json) {
+           /* Do whatever additional processing you want on the callback, then tell DataTables */
+            fnCallback(json)
+         } );
+
+     }
 
   });
 
