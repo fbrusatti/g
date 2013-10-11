@@ -56,7 +56,94 @@ $(document).ready(function() {
     $(this).parents(".thorizontal").siblings().toggle("show");
   });
 
-});
+    /*********
+    DATA-TABLE
+    **********/
+
+  // function principal
+  // ------------------
+  var oTable, bMyProperties;
+  bMyProperties = false;
+  oTable = $('#properties').dataTable({
+    sPaginationType: "full_numbers",
+    bJQueryUI: true,
+    bProcessing: true,
+    bServerSide: true,
+    sAjaxSource: $('#properties').data('source'),
+    fnInitComplete: function(oSettings, json){
+      $("a#tab-all-prop").click(function() {
+         bMyProperties = false;
+         oTable.fnFilter("");
+      });
+      $("a#tab-my-prop").click(function() {
+         bMyProperties = true;
+         oTable.fnFilter("");
+      });
+      // Add a select menu for each TH element in the table footer
+      $("thead th").each( function (i) {
+          $('select', this).change( function () {
+            oTable.fnFilter($(this).val(),i);
+           });
+      });
+    },
+    aoColumns: aColumnsOptions,
+    "fnServerParams": function ( aoData ) {
+      aoData.push( { "name": "bMyProperties", "value": bMyProperties } );
+    }
+  });
+
+  // row select
+  // ----------
+  var giRedraw = false
+  // Add a click handler to the rows - this could be used as a callback
+  $("#properties tbody").click(function(event) {
+    $(oTable.fnSettings().aoData).each(function (){
+      $(this.nTr).removeClass('row_selected');
+    });
+    $(event.target.parentNode).addClass('row_selected');
+  });
+  // Add a click handler for the delete row
+  $('#delete').click( function() {
+    var anSelected = fnGetSelected( oTable );
+    oTable.fnDeleteRow( anSelected[0] );
+  } );
+  // Init the table
+  oTable = $('#properties').dataTable( );
+
+});// END-$(document)
+
+  /*********
+  DATA-TABLE
+  **********/
+
+var aColumnsOptions =
+    [
+      { "sWidth": "5%", "sClass": "center", "bSearchable": true },
+      { "sWidth": "10%", "bSearchable": true },
+      { "sWidth": "10%", "bSearchable": true },
+      { "sWidth": "10%", "bSearchable": true },
+      { "bSearchable": true },
+      { "sWidth": "5%", "sClass": "center", "bSearchable": true },
+      { "bSearchable": true },
+      { "bSearchable": false, "bSortable": false}
+    ]
+
+// Get the rows which are currently selected
+function fnGetSelected( oTableLocal )
+{
+  var aReturn = new Array();
+  var aTrs = oTableLocal.fnGetNodes();
+
+  for ( var i=0 ; i<aTrs.length ; i++ )
+  {
+    if ( $(aTrs[i]).hasClass('row_selected') )
+    {
+      aReturn.push( aTrs[i] );
+    }
+  }
+  return aReturn;
+}
+// --- end data-table ----
 
 function validateTransactions(){
   var rent, sale, tinput, sale_ok, rent_ok;
@@ -77,6 +164,7 @@ function validateTransactions(){
   }
   return sale_ok && rent_ok
 }
+
 
 // clean up the input and select fields that aren't checked
 function cleanUpTransactionFields() {

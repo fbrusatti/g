@@ -7,7 +7,6 @@ class Property < ActiveRecord::Base
                   :type_transaction, :key_possessor, :photos_attributes,
                   :status, :owner_tokens, :prices, :rent_price, :sale_price,
                   :money_to_sale_attributes, :money_to_rent_attributes
-
   # == Validations
   validates_presence_of :address, :type_transaction
 
@@ -28,6 +27,22 @@ class Property < ActiveRecord::Base
 
   # == Attr reader
   attr_reader :owner_tokens
+
+  def pretty_address
+    "#{self.address} \n#{self.influence_zone}"
+  end
+
+  def pretty_price
+    pprice = ""
+    sale = I18n.t('properties.transactions.sale').downcase
+    rent = I18n.t('properties.transactions.rent').downcase
+    if type_transaction.downcase.include? sale
+      pprice << "vta: $#{prices[:to_sale]} #{self.money_to_sale.try(:name)}"
+    end
+    if type_transaction.downcase.include? rent
+      pprice << "\nalq: $#{prices[:to_rent]} #{self.money_to_rent.try(:name)}"
+    end
+  end
 
   def owner_tokens=(ids)
     self.owner_id = ids

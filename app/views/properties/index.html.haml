@@ -1,0 +1,33 @@
+%ul.property-tabs
+  %li.active
+    %a#tab-all-prop{"data-toggle" => "tab", href: "#all-properties"}
+      todas las propiedades
+  %li
+    %a#tab-my-prop{"data-toggle" => "tab", href: "#my-properties"}
+      mis propiedades
+
+.property-tabs-content
+  #all-properties.tab-pane.active
+  #my-properties.tab-pane
+
+  %table#properties.display{"data-source" => properties_url(format: "json")}
+    %thead
+      %tr
+        %th
+        %th= select_tag nil, options_for_select(status), include_blank: true
+        %th= select_tag nil, options_for_select(type_properties), include_blank: true
+        %th= select_tag nil, options_for_select(transactions), include_blank: true
+        %th
+        %th= select_tag nil, options_for_select((1..20).to_a), include_blank: true
+        %th
+        %th
+      %tr
+        %th= t('.nref')
+        %th= t('.status')
+        %th= t('.type')
+        %th= t('.transaction')
+        %th= t('.address')
+        %th= t('.rooms')
+        %th= t('.price')
+        %th= t('.owner')
+    %tbody
