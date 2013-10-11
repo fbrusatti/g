@@ -18,7 +18,7 @@
       = f.label :meters_constructed
       = f.number_field :meters_constructed, class: "pretty-input"
     .title= t(".title_left_2")
-
+    = render "transactions", f: f
   .right
     .title= t(".title_right_1")
     .input

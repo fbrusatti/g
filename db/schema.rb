@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131002202655) do
+ActiveRecord::Schema.define(:version => 20131007182051) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -89,6 +89,16 @@ ActiveRecord::Schema.define(:version => 20131002202655) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "money", :force => true do |t|
+    t.string   "name"
+    t.string   "symbol",                                   :default => "$"
+    t.decimal  "quotation",  :precision => 8, :scale => 2
+    t.integer  "p_rent_id"
+    t.integer  "p_sale_id"
+    t.datetime "created_at",                                                :null => false
+    t.datetime "updated_at",                                                :null => false
+  end
+
   create_table "photos", :force => true do |t|
     t.string   "image"
     t.integer  "property_id"
@@ -106,17 +116,17 @@ ActiveRecord::Schema.define(:version => 20131002202655) do
     t.integer  "amount_bathrooms"
     t.integer  "lot"
     t.integer  "meters_constructed"
-    t.decimal  "price",              :precision => 8, :scale => 2
     t.string   "influence_zone"
     t.string   "type_property"
     t.string   "position"
     t.string   "type_transaction"
-    t.datetime "created_at",                                                       :null => false
-    t.datetime "updated_at",                                                       :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.integer  "user_id"
     t.string   "key_possessor"
-    t.string   "status",                                           :default => ""
+    t.string   "status",             :default => ""
     t.integer  "owner_id"
+    t.string   "prices"
   end
 
   add_index "properties", ["key_possessor"], :name => "index_properties_on_key_possessor"

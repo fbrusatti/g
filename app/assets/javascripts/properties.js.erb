@@ -1,6 +1,14 @@
 $(document).ready(function() {
+
+  hiddenInputs();
+
+  // button save of form property
   $("a.property-save").click(function() {
-    $("#new_property, [id^=edit_property_]").submit();
+    if (validateTransactions()){
+      cleanUpTransactionFields();
+      $("#new_property, [id^=edit_property_]").submit();
+    } else
+      alert("<%= I18n.t('properties.transactions.error') %>");
   });
 
   $(".gallery").fancybox({
@@ -43,4 +51,60 @@ $(document).ready(function() {
       item.surname + " " + item.dni + " </p> </li>" }
   });
 
+  // changes the visibility of transactions inputs
+  $("#to_sale, #to_rent").on('click', function(e){
+    $(this).parents(".thorizontal").siblings().toggle("show");
+  });
+
 });
+
+function validateTransactions(){
+  var rent, sale, tinput, sale_ok, rent_ok;
+  sale_ok = true; rent_ok = true;
+  rent = $('#to_rent');
+  sale = $('#to_sale');
+  if (sale.prop('checked')){
+    tinput = sale.parents(".thorizontal").siblings().children(".tinput");
+    tinput.children().each( function(i, e){
+      sale_ok =  sale_ok && $(e).val() !=""
+    })
+  }
+  if (rent.prop('checked')){
+    tinput = rent.parents(".thorizontal").siblings().children(".tinput");
+    tinput.children().each( function(i, e){
+      rent_ok =  rent_ok && $(e).val() !=""
+    })
+  }
+  return sale_ok && rent_ok
+}
+
+// clean up the input and select fields that aren't checked
+function cleanUpTransactionFields() {
+ var rent, sale, tinput;
+  rent = $('#to_rent');
+  sale = $('#to_sale');
+  if (!sale.prop('checked')){
+    tinput = sale.parents(".thorizontal").siblings().children(".tinput");
+    tinput.children().each( function(i, e){
+      $(e).val("");
+    })
+  }
+  if (!rent.prop('checked')){
+    tinput = rent.parents(".thorizontal").siblings().children(".tinput");
+    tinput.children().each( function(i, e){
+      $(e).val("");
+    })
+  }
+}
+
+function hiddenInputs () {
+  var rent, sale;
+  rent = $('#to_rent');
+  sale = $('#to_sale');
+  if (!rent.prop('checked')){
+    rent.parents(".thorizontal").siblings().hide();
+  }
+  if (!sale.prop('checked')) {
+    sale.parents(".thorizontal").siblings().hide();
+  }
+}

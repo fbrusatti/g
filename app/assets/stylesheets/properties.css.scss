@@ -27,7 +27,7 @@
 }
 
 // New and Edit Property
-// ------------
+// ---------------------
 .nav-tabs > li.active > a, .nav-tabs > li.active > a {
   background-color: #E0DFDB !important;
 }
@@ -45,10 +45,13 @@
  @extend .checkbox
 }
 
-#new_property .detail, .general {
+form[id*='edit_property_'], #new_property .detail, .general {
   @extend .form-horizontal;
   @include make-row();
-
+  .left, .right {
+    @include make-lg-column(6);
+    .title { font-size: 15pt; margin: 20px;}
+  }
   .input {
     @extend .form-group;
   }
@@ -58,11 +61,13 @@
   .input select, input, textarea {
     @extend .col-lg-6;
   }
-}
-
-.detail .left, .right, .general .left, .right {
-  @include make-lg-column(6);
-  .title { font-size: 15pt; margin: 20px;}
+  .transaction { @extend .form-horizontal }
+  .transaction .thorizontal { @extend .form-group }
+  .transaction .tcheck { @extend .col-lg-2 }
+  .transaction .tcheckbox { @extend .checkbox }
+  .transaction .tinput > label { @extend .control-label }
+  .transaction .thorizontal .tlabel { @extend .col-lg-1, .col-sm-offset-1 }
+  .transaction .thorizontal .tinput { @extend .col-sm-5, .col-sm-offset-1 }
 }
 
 .property-tabs {

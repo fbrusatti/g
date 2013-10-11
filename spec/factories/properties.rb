@@ -1,4 +1,4 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
+price_hash = { to_sale: "150000", to_rent: "2500" }
 
 FactoryGirl.define do
   factory :property do
@@ -9,6 +9,7 @@ FactoryGirl.define do
     amount_bathrooms "2"
     lot "100"
     meters_constructed "80"
-    price "2900.00"
+    type_transaction 'Venta'
+    prices price_hash
   end
 end
