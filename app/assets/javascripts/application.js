@@ -19,5 +19,6 @@
 //= require jquery.fancybox-thumbs
 //= require jquery.fancybox.pack
 //= require jquery.tokeninput.js
+//= require dataTables/jquery.dataTables
 //= require_tree .
 //= require twitter/bootstrap
