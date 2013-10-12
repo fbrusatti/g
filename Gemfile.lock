@@ -185,6 +185,8 @@ GEM
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     orm_adapter (0.4.0)
+    paper_trail (3.0.0.beta1)
+      activerecord (>= 3.0, < 5.0)
     pg (0.17.0)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
@@ -314,6 +316,7 @@ DEPENDENCIES
   launchy
   letter_opener
   meta_search (>= 1.1.0.pre)
+  paper_trail (>= 3.0.0.beta1)
   pg
   quiet_assets
   rails (= 3.2.13)
