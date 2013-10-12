@@ -5,7 +5,12 @@ class PropertiesController < ApplicationController
   def index
     respond_to do |format|
       format.html { @properties = Property.all}
-      format.json { render :json => Property.where("address ILIKE ?", "%#{params[:q]}%").map(&:attributes)}
+      if params[:q].present?
+        format.json { render json: Property.where("address ILIKE ?",
+                                      "%#{params[:q]}%").map(&:attributes)}
+      else
+        format.json { render json: PropertiesDatatable.new(view_context) }
+      end
     end
   end
 

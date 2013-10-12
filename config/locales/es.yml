@@ -31,6 +31,7 @@ es:
       money: Moneda
       sale: Venta
       rent: Alquiler
+      sale_rent: Venta Alquiler
     status:
       available: Disponible
       store: Archivada
@@ -70,6 +71,14 @@ es:
       property_edit: Editar
       cancel: Cancelar
     index:
+      nref: Nmr Ref
+      status: Estado
+      type: Tipo
+      transaction: Transacción
+      address: Dirección-Zona
+      rooms: Habitaciones
+      price: Precio
+      owner: Propietario
       properties: Propiedades
       my_properties: Mis Propiedades
       my_rent_properties: Mis Alquileres
