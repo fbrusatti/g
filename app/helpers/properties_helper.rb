@@ -4,6 +4,12 @@ module PropertiesHelper
   POSITIONS = %w(front_facade rear_facade interior_facade)
   KEY_POSSESSORS = %w(owner office agent none)
   TYPE_MONEYS = %w(eeuu arg)
+  TYPE_TRANSACTIONS = %w(sale rent sale_rent)
+
+  def transactions
+    TYPE_TRANSACTIONS.map { |t| [I18n.t(".properties.transactions.#{t}"),
+                                 I18n.t(".properties.transactions.#{t}")]}
+  end
 
   def moneys
     TYPE_MONEYS.map { |m| [I18n.t(".properties.moneys.#{m}"),
