@@ -60,6 +60,8 @@ $(function () {
       bJQueryUI: true,
       bProcessing: true,
       bServerSide: true,
+
+      "aaSorting": [[ 4, "desc" ]],
       // "sDom": "Rlfrtip",
       sAjaxSource: $('#appointments').data('source'),
       "fnInitComplete": function(oSettings, json) {

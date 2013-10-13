@@ -104,8 +104,9 @@ private
 
   def sort_column
     columns = %w[title user model status start_date priority customer_id property_id]
+    debugger
     columns[params[:iSortCol_0].to_i]
-  end
+   end
 
   def sort_direction
      params[:sSortDir_0] == "desc" ? "desc" : "asc"
