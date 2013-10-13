@@ -50,4 +50,9 @@ module ApplicationHelper
   def current_tag(tag)
     'active' if controller_path == tag
   end
+
+  def print_date(date, format)
+    date.to_s(format) if date.present?
+  end
+
 end
