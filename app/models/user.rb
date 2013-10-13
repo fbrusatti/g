@@ -5,12 +5,17 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me,
+  :surname, :name
   # attr_accessible :title, :body
 
   # == Associations
   has_many :customers
   has_many :appointments, foreign_key: "owner_id"
   has_many :properties
+
+  def surname_with_name
+    "#{surname}, #{name}"
+  end
 
 end
