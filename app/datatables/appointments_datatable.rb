@@ -20,7 +20,7 @@ private
     appointments.map do |a|
       [
         link_to(a.title, a),
-        h(a.user.email),
+        h(a.user.surname_with_name),
         h(a.model),
         h(a.status),
         h("#{a.start_date.strftime("%d/%m/%Y %I:%M") if a.start_date}"),
@@ -55,7 +55,7 @@ private
       appointments = appointments.where(:model =>params[:sSearch_2])
     end
     if params[:sSearch_1].present?
-      appointments = (appointments.joins(:user)).where(users: {:email =>params[:sSearch_1]})
+      appointments = (appointments.joins(:user)).where(users: {:id =>params[:sSearch_1]})
     end
     if params[:sSearch_4].present?
       appointments = appointments.where('start_date BETWEEN ? AND ?', DateTime.now.beginning_of_day.to_s(:db), DateTime.now.end_of_day.to_s(:db))

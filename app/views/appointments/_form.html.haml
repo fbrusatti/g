@@ -20,7 +20,7 @@
   .right
     .input
       = f.label :user
-      = f.collection_select :user_id, User.all, :id, :email,{include_blank:false},{class: "form-control"}
+      = f.collection_select :user_id, User.all, :id, :surname_with_name,{include_blank:false},{class: "form-control"}
     .input
       = f.label :status
       = f.select :status,appointment_status, {:include_blank => false}, {class: "form-control"}

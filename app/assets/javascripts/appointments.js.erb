@@ -1,3 +1,6 @@
+  /*********
+    DATE-TIME-PICKER
+    **********/
 $(document).ready(function(){
   $('.appointment_date_time_picker').datetimepicker({
     language: 'es',
@@ -12,6 +15,10 @@ $(document).ready(function(){
     $("#new_appointment, [id^=edit_appointment_]").submit();
   });
 })
+
+  /*********
+    TOKEN- INPUT : to customer and property
+    **********/
 
 $(function () {
 
@@ -50,6 +57,12 @@ $(function () {
 });
 
 
+  /*********
+    DATA-TABLE
+    **********/
+
+  // function principal to show
+  // ---------------------------
 
   $(document).ready(function() {
     var dateType;
@@ -62,6 +75,16 @@ $(function () {
       bServerSide: true,
 
       "aaSorting": [[ 4, "desc" ]],
+      aoColumns: [
+      { "sWidth": "35%" },
+      { "sWidth": "5%" },
+      { "sWidth": "5%", "sClass": "center"},
+      { "sWidth": "5%", "sClass": "center"},
+      { "sWidth": "10%", "sClass": "center"},
+      { "sWidth": "5%", "sClass": "center"},
+      { "sWidth": "15%"},
+      { "sWidth": "20%"}
+      ],
       // "sDom": "Rlfrtip",
       sAjaxSource: $('#appointments').data('source'),
       "fnInitComplete": function(oSettings, json) {
@@ -100,139 +123,7 @@ $(function () {
            /* Do whatever additional processing you want on the callback, then tell DataTables */
             fnCallback(json)
          } );
-
      }
-
   });
 
  });
-
-
-
-
- // var asInitVals = new Array();
-
- //    $(document).ready(function() {
-
- //        /*
- //         * Support functions to provide a little bit of 'user friendlyness' to the textboxes in
- //         * the footer
- //         */
- //        $("tfoot input").each( function (i) {
- //            asInitVals[i] = this.value;
- //        } );
- //        $("tfoot input").focus( function () {
- //            if ( this.className == "search_init" )
- //            {
- //                this.className = "";
- //                this.value = "";
- //            }
- //        } );
- //        $("tfoot input").blur( function (i) {
- //            if ( this.value == "" )
- //            {
- //                this.className = "search_init";
- //                this.value = asInitVals[$("tfoot input").index(this)];
- //            }
- //        } );
-
- //        var oTable = $('#appointments').dataTable( {
- //            "oLanguage": {
- //                "sSearch": "Search all columns:"
- //            },
- //        sPaginationType: "full_numbers",
- //        bJQueryUI: true,
- //        bProcessing: true,
- //        bServerSide: true,
- //        // "sDom": "Rlfrtip",
- //        sAjaxSource: $('#appointments').data('source'),
-
- //        "fnInitComplete": function() {
- //            var oSettings = $('#appointments').dataTable().fnSettings();
- //            for ( var i=0 ; i<oSettings.aoPreSearchCols.length ; i++ ){
- //                if(oSettings.aoPreSearchCols[i].sSearch.length>0){
- //                    $("tfoot input")[i].value = oSettings.aoPreSearchCols[i].sSearch;
- //                    $("tfoot input")[i].className = "";
- //                }
- //            }
- //        }
- //    } );
-
- //        $("#appointments tfoot input").keyup( function () {
- //          var id = $(this).attr('id').split("-")[1];
- //          oTable.fnFilter( this.value, id );
- //        });
-
- //        // $("tfoot input").keyup( function () {
- //        //      Filter on the column (the index) of this element
- //        //     oTable.fnFilter( this.value, $("tfoot input").index(this) );
- //        // } );
-
- //    } );
-
-
-// (function($) {
-// /*
-//  * Function: fnGetColumnData
-//  * Purpose:  Return an array of table values from a particular column.
-//  * Returns:  array string: 1d data array
-//  * Inputs:   object:oSettings - dataTable settings object. This is always the last argument past to the function
-//  *           int:iColumn - the id of the column to extract the data from
-//  *           bool:bUnique - optional - if set to false duplicated values are not filtered out
-//  *           bool:bFiltered - optional - if set to false all the table data is used (not only the filtered)
-//  *           bool:bIgnoreEmpty - optional - if set to false empty values are not filtered from the result array
-//  * Author:   Benedikt Forchhammer <b.forchhammer /AT\ mind2.de>
-//  */
-// $.fn.dataTableExt.oApi.fnGetColumnData = function ( oSettings, iColumn, bUnique, bFiltered, bIgnoreEmpty ) {
-//     // check that we have a column id
-//     if ( typeof iColumn == "undefined" ) return new Array();
-
-//     // by default we only want unique data
-//     if ( typeof bUnique == "undefined" ) bUnique = true;
-
-//     // by default we do want to only look at filtered data
-//     if ( typeof bFiltered == "undefined" ) bFiltered = true;
-
-//     // by default we do not want to include empty values
-//     if ( typeof bIgnoreEmpty == "undefined" ) bIgnoreEmpty = true;
-
-//     // list of rows which we're going to loop through
-//     var aiRows;
-
-//     // use only filtered rows
-//     if (bFiltered == true) aiRows = oSettings.aiDisplay;
-//     // use all rows
-//     else aiRows = oSettings.aiDisplayMaster; // all row numbers
-
-//     // set up data array
-//     var asResultData = new Array();
-
-//     for (var i=0,c=aiRows.length; i<c; i++) {
-//         iRow = aiRows[i];
-//         var aData = this.fnGetData(iRow);
-//         var sValue = aData[iColumn];
-
-//         // ignore empty values?
-//         if (bIgnoreEmpty == true && sValue.length == 0) continue;
-
-//         // ignore unique values?
-//         else if (bUnique == true && jQuery.inArray(sValue, asResultData) > -1) continue;
-
-//         // else push the value onto the result data array
-//         else asResultData.push(sValue);
-//     }
-
-//     return asResultData;
-// }}(jQuery));
-
-
-// function fnCreateSelect( aData )
-// {
-//     var r='<select><option value=""></option>', i, iLen=aData.length;
-//     for ( i=0 ; i<iLen ; i++ )
-//     {
-
-//         r += '<option value="'+aData[i]+'">'+aData[i]+'</option>';
-//     }
-//     return r+'</select>';
-// }

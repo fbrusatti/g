@@ -4,7 +4,7 @@
       %tr
         %th
         %th
-          =select_tag nil, options_from_collection_for_select(User.all, "email", "email"),include_blank: true
+          =select_tag nil, options_from_collection_for_select(User.all, "id", "surname_with_name"),include_blank: true
         %th
           =select_tag nil, options_for_select(models),include_blank: true
         %th
