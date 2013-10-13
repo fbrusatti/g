@@ -26,6 +26,8 @@
    @extend .btn, .btn-danger;
 }
 
+div.property-tabs-content div.tab-pane { margin-left: 0px !important}
+
 // New and Edit Property
 // ---------------------
 .nav-tabs > li.active > a, .nav-tabs > li.active > a {
@@ -76,6 +78,48 @@ form[id*='edit_property_'], #new_property .detail, .general {
 }
 
 .property-tabs-content { @extend .tab-content }
+
+// Show Property
+// -------------
+ul.property-tabs .nmro-ref{
+  padding-top: 10px;
+  color: #357ebd;
+  font-weight:bold;
+  text-align: left;
+  &:hover { color: #4cae4c }
+}
+
+#general-show-property, #detail-show-property, #show-photos {
+  background-color: #E0DFDB;
+  @include make-row();
+  @extend .form-horizontal;
+  .input {
+    @extend .form-group;
+    label:first-child {
+      @extend .col-lg-2, .col-sm-offset-1, .control-label;
+    }
+    label:nth-of-type(2) {
+      @extend .col-lg-5, .control-label;
+    }
+  }
+  .left, .right {
+    @include make-lg-column(6);
+    .title { font-size: 15pt;
+           margin: 20px; }
+  }
+  .note{
+    @extend .col-lg-5;
+    font-weight: bold;
+    background-color: white;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 6px 12px;
+  }
+  a.gallery > img {
+    margin: 20px;
+    padding-top: 20px;
+  }
+}
 
 // Photo
 // -----

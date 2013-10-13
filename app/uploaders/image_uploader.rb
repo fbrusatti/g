@@ -5,7 +5,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   storage :file
 
-  # process :resize_to_limit => [600,600]
+  process :resize_to_fit => [1024,1024]
 
   def extension_white_list
     %w(jpg jpeg gif png)

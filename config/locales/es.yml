@@ -21,6 +21,26 @@ es:
       Tasacion: Tasación
       LLamada_Telefonica: LLamada Telefónica
   properties:
+    detail_show:
+      keys: Poseedor
+      type_transaction: Transacción
+      amount_rooms: Habitaciones
+      title_to_print: Título para imprimir
+      amount_bathrooms: Baños
+      lot: Parcela m²
+      meters_constructed: Construidos m²
+      influence_zone: Zona
+      type_property: Tipo Prop
+      position: Situacíon
+    general_show:
+      owner: Dueño
+      status: Estado
+      address: Dirección
+      description: Nota
+    history:
+      topic: Asunto
+      user: Usuario
+      date: Fecha
     moneys:
       eeuu: Dolar
       arg: Peso Argentino
@@ -90,6 +110,12 @@ es:
     edit:
       add_photo: Agregar Foto
       delete: Borrar
+    show:
+      nref: Nmr Referencia
+      general: General
+      detail: Detalles
+      photos: Fotos
+      history: Historial
   customers:
     sub_header:
       new: Nuevo
@@ -166,6 +192,7 @@ es:
         model: Tipo
         status: Estado
       property:
+        owner_id: Dueño
         type_transaction: La transacción(vta. o alq.)
         owner: Dueño
         status: Estado
@@ -177,7 +204,7 @@ es:
         amount_bathrooms: Baños
         lot: Parcela m²
         meters_constructed: Construidos m²
-        price: Precio
+        prices: Precio
         influence_zone: Zona
         type_property: Tipo Prop
         position: Situacíon

@@ -60,8 +60,26 @@ $(document).ready(function() {
     DATA-TABLE
     **********/
 
-  // function principal
-  // ------------------
+  // function principal to show
+  // ---------------------------
+  var oTable, bMyProperties;
+  bMyProperties = false;
+  oTable = $('#property-history').dataTable({
+    sPaginationType: "full_numbers",
+    bJQueryUI: true,
+    bProcessing: true,
+    bServerSide: true,
+    sAjaxSource: $('#property-history').data('source'),
+    bAutoWidth: false,
+    aoColumns: [
+      { "sWidth": "45%", "bSearchable": false },
+      { "sWidth": "10%", "sClass": "center", "bSearchable": true },
+      { "sWidth": "10%", "bSearchable": true }
+    ]
+  });
+
+  // function principal to index
+  // ---------------------------
   var oTable, bMyProperties;
   bMyProperties = false;
   oTable = $('#properties').dataTable({

@@ -1,0 +1,30 @@
+%ul.property-tabs
+  %li.active
+    %a{"data-toggle" => "tab", href: "#show-general"}
+      = t('.general')
+  %li
+    %a{"data-toggle" => "tab", href: "#show-detail"}
+      = t('.detail')
+  %li
+    %a{"data-toggle" => "tab", href: "#show-photos"}
+      = t('.photos')
+  %li
+    %a{"data-toggle" => "tab", href: "#show-history"}
+      = t('.history')
+  .nmro-ref
+    = "#{t('.nref')} #{@property.id}"
+.property-tabs-content
+
+  #show-general.tab-pane.active
+    = render "general_show", p: @property
+
+  #show-detail.tab-pane
+    = render "detail_show", p: @property
+
+  #show-photos.tab-pane
+    - @property.photos.each do |p|
+      %a{ href: p.image, class: "gallery", "rel" => "gallery" }
+        = image_tag(p.image.url(:thumb))
+
+  #show-history.tab-pane
+    = render "history"

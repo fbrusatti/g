@@ -32,6 +32,11 @@ class PropertiesController < ApplicationController
 
   def show
     @property = Property.find(params[:id])
+    @versions = @property.versions
+    respond_to do |format|
+      format.html
+      format.json { render json: PropertyVersionDatatable.new(view_context, @versions) }
+    end
   end
 
   def edit
@@ -42,7 +47,6 @@ class PropertiesController < ApplicationController
   def update
     @property = Property.find(params[:id])
     type_transaction(params)
-
     if @property.update_attributes(params[:property])
       flash[:success] = t('flash.property', message: t('flash.updated'))
     else
@@ -60,5 +64,9 @@ class PropertiesController < ApplicationController
     def set_up_money
       @property.build_money_to_sale if @property.money_to_sale.nil?
       @property.build_money_to_rent if @property.money_to_rent.nil?
+    end
+
+    def user_for_paper_trail
+      current_user.email
     end
 end

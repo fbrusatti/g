@@ -1,0 +1,39 @@
+#detail-show-property
+  .left
+    .title= t("properties.detail.title_left_1")
+    .input
+      = label_tag t('.amount_rooms')
+      = label_tag p.amount_rooms, nil, class: "pretty-input"
+    .input
+      = label_tag t('.amount_bathrooms')
+      = label_tag p.amount_bathrooms, nil,  class: "pretty-input"
+    .input
+      = label_tag t('.lot')
+      = label_tag p.lot, nil,  class: "pretty-input"
+    .input
+      = label_tag t('.meters_constructed')
+      = label_tag p.meters_constructed, nil, class: "pretty-input"
+    .title= t("properties.detail.title_left_2")
+    .input
+      = prices_to_show("sale")
+    .input
+      = prices_to_show("rent")
+
+  .right
+    .title= t("properties.detail.title_right_1")
+    .input
+      = label_tag t('.title_to_print')
+      .note=p.title_to_print
+    .input
+      = label_tag t('.influence_zone')
+      = label_tag p.influence_zone, nil, class: "pretty-input"
+    .input
+      = label_tag t('.position')
+      = label_tag p.position, nil, class: "pretty-input"
+    .input
+      = label_tag t('.type_property')
+      = label_tag p.type_property, nil, class: "pretty-input"
+    .title= t("properties.detail.title_right_2")
+    .input
+      = label_tag t('.keys')
+      = label_tag keys, nil, class: "pretty-input"
