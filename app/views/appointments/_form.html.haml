@@ -27,12 +27,12 @@
     .input
       = f.label :start_date
       .appointment_date_time_picker
-        = f.text_field :start_date, class: "form-control"
+        = f.text_field :start_date, {class: "form-control", value: print_date(f.object.start_date, :date_and_time)}
         %span.input-group-addon.glyphicon.glyphicon-calendar
     .input
       = f.label :end_date
       .appointment_date_time_picker
-        = f.text_field :end_date, {class: "form-control"}
+        = f.text_field :end_date, {class: "form-control", value: print_date(f.object.end_date, :date_and_time)}
         %span.input-group-addon.glyphicon.glyphicon-calendar
     .input
       = f.label :description

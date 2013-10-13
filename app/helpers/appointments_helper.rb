@@ -21,4 +21,12 @@ module AppointmentsHelper
       (Array.new << @appointment.property).map(&:attributes).to_json
     end
   end
+
+  def show_customer(customer)
+    customer.surname_with_name if customer.present?
+  end
+
+  def show_property(property)
+    property.address if property.present?
+  end
 end

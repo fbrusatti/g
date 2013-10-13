@@ -4,6 +4,14 @@ es:
       title: Nueva Cita
       btn_submit: Agregar
       appointment_data: Información de Cita
+    show:
+      title: Cita
+      btn_submit: Editar
+      appointment_data: Información de Cita
+    edit:
+      title: Cita
+      btn_submit: Guardar
+      appointment_data: Información de Cita
     form:
       title: Título
     sub_header:

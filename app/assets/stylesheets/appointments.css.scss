@@ -83,8 +83,16 @@
         width:33%;
         float:left;
       }
+      .textareawhite{
+        // @extend .form-group;
+        textarea {
+          @extend .col-lg-4;
+          background-color: white;
+      }
+    }
 
     }
+
 
     .input-group-addon {
       font-size: 19px;
