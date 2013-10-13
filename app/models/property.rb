@@ -28,6 +28,9 @@ class Property < ActiveRecord::Base
   # == Attr reader
   attr_reader :owner_tokens
 
+  # == Tracking
+  has_paper_trail
+
   def pretty_address
     "#{self.address} \n#{self.influence_zone}"
   end

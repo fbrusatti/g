@@ -1,0 +1,12 @@
+%table#property-history.display{"data-source" => property_url(id: @property,
+                                 format: "json")}
+  %thead
+    %tr
+      %th
+      %th
+      %th
+    %tr
+      %th= t('.topic')
+      %th= t('.user')
+      %th= t('.date')
+  %tbody
