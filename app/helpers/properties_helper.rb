@@ -71,4 +71,27 @@ module PropertiesHelper
                 {},
                 options
   end
+
+  def prices_to_show(t)
+    html, type = "", I18n.t(".properties.transactions.#{t}").downcase
+    if (@property.type_transaction.downcase.include? type)
+      money = t == "sale" ? @property.money_to_sale.name : @property.money_to_rent.name
+      tag = label_tag type
+      price = label_tag "$"+@property.prices["to_#{t}"]+" #{money}",
+                         nil, class: "pretty-input"
+      html << tag + price
+    end
+    html.html_safe
+  end
+
+  def keys
+    @property.key_possessor.map{ |kp| " #{kp}" }.join(",")
+  end
+
+  def owner
+    path = @property.owner.present? ? customer_path(@property.owner) : ""
+    link_to @property.owner.try(:surname_with_name),
+            path,
+            class: "note"
+  end
 end
