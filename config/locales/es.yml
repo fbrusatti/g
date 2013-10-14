@@ -1,4 +1,16 @@
 es:
+  landing:
+    index:
+      search_by: Buscar por
+      create: Creado
+      update: Actualizado
+      topic: Asunto
+      user: Usuario
+      date: Fecha
+      last_date: Ultimas Fechas
+    history:
+      create: Se creo
+      update: Se actulizo
   appointments:
     datatables:
       delete: Se borro
