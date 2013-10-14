@@ -64,6 +64,10 @@
 
 }
 
+.edit-customer {
+  background-color: #E0DFDB;
+}
+
 .new-customer .left, .right, .edit-customer .left, .right {
   @include make-lg-column(6);
   .title { font-size: 15pt;
@@ -96,4 +100,5 @@
   .title { font-size: 15pt;
            margin: 20px; }
   }
+
 }

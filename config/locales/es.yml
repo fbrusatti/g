@@ -111,11 +111,16 @@ es:
       add_photo: Agregar Foto
       delete: Borrar
     show:
-      nref: Nmr Referencia
+      nref: Nro de Referencia
       general: General
       detail: Detalles
       photos: Fotos
       history: Historial
+    datatables:
+      delete: Se borro
+      create: Se Creo La Propiedad con direccion
+      change: Se Cambio
+      add: Se Agrego
   customers:
     sub_header:
       new: Nuevo
@@ -132,6 +137,7 @@ es:
       professional_data: Datos Profesionales
     show:
       customer_data: Datos Personales
+      history: Historial
     show_customer_data:
       name: Nombre
       surname: Apellido
@@ -152,6 +158,34 @@ es:
       mobile_phone: Celular
       customer_data: Datos Personales
       professional_data: Datos Profesionales
+    show_customer_history:
+      topic: Asunto
+      user: Usuario
+      date: Fecha
+      user_search: Buscar por Usuario
+      search_by: Buscar por ..
+      last_date: Ultimas Fechas
+    datatables:
+      today: Hoy
+      yesterday: Ayer
+      last_7_days: Ultimos 7 Dias
+      last_30_days: Ultimos 30 Dias
+      this_month: Este Mes
+      last_month: Ultimo Mes
+      delete: Se borro
+      create: Se Creo el Cliente
+      change: Se Cambio
+      add: Se Agrego
+      name: Nombre
+      surname: Apellido
+      dni: D.N.I
+      phones: Telefonos
+      address: Direccion
+      dob: Nacimiento
+      email: Email
+      profession: Profesion
+      phone: Telefono
+      mobile_phone: Celular
   layouts:
     header:
       search: Busqueda

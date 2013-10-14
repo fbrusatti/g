@@ -1,0 +1,77 @@
+$(document).ready(function() {
+
+  $("a.customer-save").click( function() {
+    $("#new_customer, [id^=edit_customer_]").submit();
+  });
+
+  $('#customer-dob').datetimepicker({
+    maskInput: true,
+    pickDate: true,
+    pickTime: false,
+    pick12HourFormat: false,
+    pickSeconds: false,
+    startDate: 1910,
+    endDate:  Date.today
+  });
+
+  $('input[name="daterange"]').daterangepicker(
+    { format: 'DD/MM/YYYY',
+      ranges: {
+        "<%= I18n.t('customers.datatables.today') %>":
+          [moment(), moment()],
+        "<%= I18n.t('customers.datatables.yesterday') %>":
+          [moment().subtract('days', 1),
+          moment().subtract('days', 1)],
+        "<%= I18n.t('customers.datatables.last_7_days') %>":
+          [moment().subtract('days', 6), moment()],
+        "<%= I18n.t('customers.datatables.last_30_days') %>":
+          [moment().subtract('days', 29), moment()],
+        "<%= I18n.t('customers.datatables.this_month') %>":
+          [moment().startOf('month'), moment().endOf('month')],
+        "<%= I18n.t('customers.datatables.last_month') %>":
+          [moment().subtract('month', 1).startOf('month'),
+          moment().subtract('month', 1).endOf('month')]
+      },
+      startDate: moment().subtract('days', 29),
+      endDate: moment()
+    },
+    function(start, end) {
+      $('#reportrange span').html(start.format + '-' + end);
+    }
+  );
+
+  var oTable = $('#history').dataTable({
+    sPaginationType: "full_numbers",
+    bJQueryUI: true,
+    bProcessing: true,
+    bServerSide: true,
+    "aaSorting": [[ 2, "asc" ]],
+    // "sDom": "Rlfrtip",
+    sAjaxSource: $('#history').data('source'),
+    oLanguage: {
+      sUrl: "/datatables/spanish.txt"
+    },
+    "fnInitComplete": function(oSettings, json) {
+      /* Add a select menu for each TH element in the table footer */
+      var column = 2;
+      $('button').click( function () {
+        start = $('input[name="daterangepicker_start"]').val();
+        end = $('input[name="daterangepicker_end"]').val();
+        oTable.fnFilter(start+" "+end, column);
+       });
+
+      $('.ranges ul > li').click( function () {
+        start = $('input[name="daterangepicker_start"]').val();
+        end = $('input[name="daterangepicker_end"]').val();
+        oTable.fnFilter(start+" "+end, column);
+       });
+
+      $("thead th").each( function ( i ) {
+        $('select', this).change( function () {
+          oTable.fnFilter( $(this).val(),i);
+         });
+      });
+    }
+  });
+
+});

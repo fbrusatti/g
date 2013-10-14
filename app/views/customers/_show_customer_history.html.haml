@@ -1,0 +1,15 @@
+%table#history.display{"data-source" => customer_url(format: "json")}
+  %thead
+    %tr
+      %th=select_tag nil,options_for_select(customer_attributes),
+        include_blank: true, prompt: t('.search_by')
+      %th=select_tag nil,
+        options_from_collection_for_select(@users, "email", "email"),
+        include_blank: true, prompt: t('.user_search')
+      %th= text_field_tag nil, nil,
+        type: "text", :name => "daterange", placeholder: t('.last_date')
+    %tr
+      %th= t('.topic')
+      %th= t('.user')
+      %th= t('.date')
+  %tbody
