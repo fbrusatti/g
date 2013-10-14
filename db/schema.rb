@@ -73,9 +73,10 @@ ActiveRecord::Schema.define(:version => 20131014191217) do
     t.date     "dob"
     t.string   "email"
     t.string   "profession"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "user_id"
+    t.text     "description"
   end
 
   add_index "customers", ["dni"], :name => "index_customers_on_dni"
