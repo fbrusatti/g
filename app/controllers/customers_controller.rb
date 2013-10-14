@@ -25,7 +25,13 @@ class CustomersController < ApplicationController
   end
 
   def show
-  @customer = Customer.find(params[:id])
+    @customer = Customer.find(params[:id])
+    @versions = @customer.versions
+    @users = User.all
+    respond_to do |format|
+      format.html
+      format.json { render json: CustomerVersionsDatatable.new(view_context, @versions) }
+    end
   end
 
   def edit
@@ -39,4 +45,9 @@ class CustomersController < ApplicationController
     end
     respond_with @customer
   end
+
+  def user_for_paper_trail
+    current_user.email
+  end
+
 end

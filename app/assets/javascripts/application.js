@@ -20,5 +20,7 @@
 //= require jquery.fancybox.pack
 //= require jquery.tokeninput.js
 //= require dataTables/jquery.dataTables
+//= require moment
+//= require daterangepicker
 //= require_tree .
 //= require twitter/bootstrap

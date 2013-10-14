@@ -1,6 +1,7 @@
 class Customer < ActiveRecord::Base
 
   serialize :phones, Hash
+  has_paper_trail
 
   # == Accessors
   attr_accessible :name, :surname, :dni, :phones, :phone, :mobile_phone,
