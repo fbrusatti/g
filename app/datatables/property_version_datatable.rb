@@ -62,18 +62,34 @@ private
 
   def changes_tohuman(version)
     changes = version.changeset
-    return "Creado" if version.event == "create"
+    return "#{i18n("create")} #{changes[:address].last}" if version.event=="create"
     r=""
     changes.each do |k|
       key = I18n.t("activerecord.attributes.property.#{k[0]}")
-      r << "Cambio #{key}, de #{k[1].first} a #{k[1].last} \n" unless k[0]=="prices"
+      r <<  messages(k[1].first, k[1].last, key) unless k[0]=="prices"
       if k[0]=="prices"
         sale_b, sale_a = k[1].first[:to_sale], k[1].last[:to_sale]
         rent_b, rent_a = k[1].first[:to_rent], k[1].last[:to_rent]
-        r << "Cambio #{key} de vta, de $#{sale_b} a $#{sale_a} \n" if sale_b != sale_a
-        r << "Cambio #{key} de alq, de $#{rent_b} a $#{rent_a} \n" if rent_b != rent_a
+        r << messages(sale_b, sale_a, "#{key} de vta") if sale_b != sale_a
+        r << messages(rent_b, rent_a, "#{key} de alq") if rent_b != rent_a
       end
     end
     simple_format r
+  end
+
+  def messages(before, after, name_attr)
+    res = ""
+    if before.blank?
+      res << "#{i18n("add")} #{name_attr.upcase} : #{after} \n"
+    elsif after.blank?
+      res << "#{i18n("delete")} #{name_attr.upcase} : #{before} \n"
+    else
+      res << "#{i18n("change")} #{name_attr.upcase} : #{before} a #{after}\n"
+    end
+    res
+  end
+
+  def i18n(data)
+    "#{I18n.t("properties.datatables.#{data}")} "
   end
 end
