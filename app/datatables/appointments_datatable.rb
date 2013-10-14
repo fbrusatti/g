@@ -42,7 +42,7 @@ private
       # appointments = appointments.where("title ilike :search", search: "%#{params[:sSearch]}%")
       appointments = ((appointments.joins(:customer)).joins(:property)).where(
         "title ilike :search
-         or surname ilike :search
+         or customers.surname ilike :search
          or properties.address ilike :search", search: "%#{params[:sSearch]}%")
     end
     if params[:sSearch_5].present?
