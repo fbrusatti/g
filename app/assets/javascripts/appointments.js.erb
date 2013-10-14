@@ -14,6 +14,33 @@ $(document).ready(function(){
   $("a.appointment-save").click(function() {
     $("#new_appointment, [id^=edit_appointment_]").submit();
   });
+
+  $('input[name="daterange"]').daterangepicker(
+    { format: 'DD/MM/YYYY',
+      ranges: {
+        "<%= I18n.t('customers.datatables.today') %>":
+          [moment(), moment()],
+        "<%= I18n.t('customers.datatables.yesterday') %>":
+          [moment().subtract('days', 1),
+          moment().subtract('days', 1)],
+        "<%= I18n.t('customers.datatables.last_7_days') %>":
+          [moment().subtract('days', 6), moment()],
+        "<%= I18n.t('customers.datatables.last_30_days') %>":
+          [moment().subtract('days', 29), moment()],
+        "<%= I18n.t('customers.datatables.this_month') %>":
+          [moment().startOf('month'), moment().endOf('month')],
+        "<%= I18n.t('customers.datatables.last_month') %>":
+          [moment().subtract('month', 1).startOf('month'),
+          moment().subtract('month', 1).endOf('month')]
+      },
+      startDate: moment().subtract('days', 29),
+      endDate: moment()
+    },
+    function(start, end) {
+      $('#reportrange span').html(start.format + '-' + end);
+    }
+  );
+
 })
 
   /*********
@@ -73,6 +100,9 @@ $(function () {
       bJQueryUI: true,
       bProcessing: true,
       bServerSide: true,
+      oLanguage: {
+        sUrl: "/datatables/spanish.txt"
+      },
 
       "aaSorting": [[ 4, "desc" ]],
       aoColumns: [
@@ -113,6 +143,20 @@ $(function () {
            dateType= null;
            oTable.fnFilter("");
         });
+
+        var column = 4;
+        $('button').click( function () {
+          start = $('input[name="daterangepicker_start"]').val();
+          end = $('input[name="daterangepicker_end"]').val();
+        oTable.fnFilter(start+" "+end, column);
+       });
+
+        $('.ranges ul > li').click( function () {
+          start = $('input[name="daterangepicker_start"]').val();
+          end = $('input[name="daterangepicker_end"]').val();
+          oTable.fnFilter(start+" "+end, column);
+        });
+
       },
 
       "fnServerData": function ( sSource, aoData, fnCallback ) {

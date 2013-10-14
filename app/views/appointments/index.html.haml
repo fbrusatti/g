@@ -10,6 +10,8 @@
         %th
           =select_tag nil, options_for_select(appointment_status),include_blank: true
         %th
+          = text_field_tag nil, nil,
+        type: "text", :name => "daterange", placeholder: t('.last_date')
         %th
           =select_tag nil, options_for_select([ "1", "2","3","4","5" ]),include_blank: true
         %th

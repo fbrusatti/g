@@ -58,41 +58,52 @@ private
       appointments = (appointments.joins(:user)).where(users: {:id =>params[:sSearch_1]})
     end
     if params[:sSearch_4].present?
-      appointments = appointments.where('start_date BETWEEN ? AND ?', DateTime.now.beginning_of_day.to_s(:db), DateTime.now.end_of_day.to_s(:db))
+      time = params[:sSearch_4].split(" ")
+      appointments = appointments.where('created_at BETWEEN ? AND ?',
+                                "#{time.first} 00:00:00",
+                                "#{time.last} 22:59:59")
     end
     if params[:dateType].present?
-      if params[:dateType]=="week"
-        appointments = appointments.where('start_date BETWEEN ? AND ?',
-          (get_first_monday(DateTime.now)).beginning_of_day.to_s(:db),
-          (get_next_saturday(DateTime.now)).end_of_day.to_s(:db))
-
-      elsif params[:dateType]=="today"
-        appointments = appointments.where('start_date BETWEEN ? AND ?',
-          DateTime.now.beginning_of_day.to_s(:db),
-          DateTime.now.end_of_day.to_s(:db))
-
-      elsif params[:dateType]=="month"
-        appointments = appointments.where('start_date BETWEEN ? AND ?', DateTime.now.beginning_of_month.to_s(:db), DateTime.now.end_of_month.to_s(:db))
-      end
+      appointments = filterDate(appointments, params[:dateType])
     end
     appointments
   end
 
-    def get_first_monday(start_date)
-      day = start_date
-      until day.monday? do
-        day -= 1.day
-      end
-      day
-    end
 
-    def get_next_saturday(start_date)
-      day = start_date
-      until day.saturday? do
-        day += 1.day
-      end
-      day
+  def filterDate (ap, dateType)
+    if dateType=="week"
+        ap = ap.where('start_date BETWEEN ? AND ?',
+          (get_first_monday(DateTime.now)).beginning_of_day.to_s(:db),
+          (get_next_saturday(DateTime.now)).end_of_day.to_s(:db))
+
+      elsif dateType=="today"
+        ap = ap.where('start_date BETWEEN ? AND ?',
+          DateTime.now.beginning_of_day.to_s(:db),
+          DateTime.now.end_of_day.to_s(:db))
+
+      elsif dateType=="month"
+        ap = ap.where('start_date BETWEEN ? AND ?',
+          DateTime.now.beginning_of_month.to_s(:db),
+          DateTime.now.end_of_month.to_s(:db))
     end
+    ap
+  end
+
+  def get_first_monday(start_date)
+    day = start_date
+    until day.monday? do
+      day -= 1.day
+    end
+    day
+  end
+
+  def get_next_saturday(start_date)
+    day = start_date
+    until day.saturday? do
+      day += 1.day
+    end
+    day
+  end
 
   def page
     params[:iDisplayStart].to_i/per_page + 1

@@ -51,6 +51,7 @@ es:
       priority: Prioridad
       customer: Cliente
       property: Propiedad
+      last_date: Ultimas Fechas
   properties:
     detail_show:
       keys: Poseedor
