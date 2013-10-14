@@ -6,15 +6,20 @@ class CustomersController < ApplicationController
 
   def index
     respond_to do |format|
-      format.html { @customers = Customer.all}
-      format.json { render :json => Customer.where("surname ILIKE :search or name ILIKE :search", search: "%#{params[:q]}%").map(&:attributes)}
+      format.html
+      if params[:q].present?
+        format.json { render :json => Customer.where("surname ILIKE ?",
+                                      "%#{params[:q]}%").map(&:attributes)}
+      else
+        @users = User.all
+        format.json { render json: CustomersDatatable.new(view_context) }
+      end
     end
   end
 
   def new
     @customer = Customer.new
   end
-
 
   def create
     @customer = current_user.customers.build(params[:customer])

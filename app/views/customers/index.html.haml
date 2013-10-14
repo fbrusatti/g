@@ -1,1 +1,7 @@
-%h1 index new customer
+%ul.customer-tabs
+  %li.active
+    %a{"data-toggle" => "tab", href: "#customers-data"}
+      = t('.customers_data')
+.tab-content
+  .tab-pane.active#customers-data
+    = render "index_customer_data"
