@@ -2,33 +2,33 @@
 
   // sub-header customer
   .appointment-new {
-    @extend .btn, .btn-large, .btn-primary;
+    @extend .btn,  .btn-primary;
   }
   .appointment-rank {
-    @extend .btn, .btn-large, .btn-default;
+    @extend .btn,  .btn-default;
   }
   .appointment-all {
-    @extend .btn, .btn-large, .btn-default;
+    @extend .btn,  .btn-default;
   }
   .appointment-month {
-    @extend .btn, .btn-large, .btn-default;
+    @extend .btn,  .btn-default;
   }
   .appointment-week {
-    @extend .btn, .btn-large, .btn-default;
+    @extend .btn,  .btn-default;
   }
   .appointment-today {
-    @extend .btn, .btn-large, .btn-default;
+    @extend .btn,  .btn-default;
   }
   .appointment-print {
-    @extend .btn, .btn-large, .btn-primary, .pull-right;
+    @extend .btn,  .btn-primary, .pull-right;
   }
 
   .appointment-save {
-    @extend .btn, .btn-large, .btn-primary;
+    @extend .btn,  .btn-primary;
   }
 
   .appointment-danger {
-     @extend .btn, .btn-large, .btn-danger;
+     @extend .btn,  .btn-danger;
   }
 
 #appointment{
@@ -161,13 +161,5 @@
   .field_with_errors {
     display: inline;
   }
-
-
-  // .div_property {
-  //   display:inline-block;
-  // }
-
-
-
 
 }

@@ -23,7 +23,8 @@
     .title= t("properties.detail.title_right_1")
     .input
       = label_tag t('.title_to_print')
-      .note=p.title_to_print
+      .textareawhite
+        = text_area_tag p.title_to_print,nil, { class: "form-control",disabled: true}
     .input
       = label_tag t('.influence_zone')
       = label_tag p.influence_zone, nil, class: "pretty-input"

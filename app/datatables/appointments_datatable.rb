@@ -59,7 +59,7 @@ private
     end
     if params[:sSearch_4].present?
       time = params[:sSearch_4].split(" ")
-      appointments = appointments.where('created_at BETWEEN ? AND ?',
+      appointments = appointments.where('start_date BETWEEN ? AND ?',
                                 "#{time.first} 00:00:00",
                                 "#{time.last} 22:59:59")
     end
