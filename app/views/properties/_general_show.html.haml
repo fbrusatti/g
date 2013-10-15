@@ -16,4 +16,6 @@
     .input
       = label_tag t('.description')
       .textareawhite
-        = text_area_tag p.description,nil, { class: "form-control",disabled: true}
+        = text_area_tag "#", p.description,
+                        class: "form-control",
+                        size: "5x6", disabled: true

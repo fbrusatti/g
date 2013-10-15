@@ -1,11 +1,12 @@
-  /*********
+    /***************
     DATE-TIME-PICKER
-    **********/
+    ****************/
 $(document).ready(function(){
   $('.appointment_date_time_picker').datetimepicker({
     language: 'es',
     maskInput: true,
     pick12HourFormat: true,
+    pickSeconds: false,
     format: 'dd/MM/yyyy hh:mm',
     startDate: new Date(),
     endDate: Infinity
@@ -43,12 +44,11 @@ $(document).ready(function(){
 
 })
 
-  /*********
-    TOKEN- INPUT : to customer and property
-    **********/
+  /***********
+  TOKEN- INPUT - to customer and property
+  ************/
 
 $(function () {
-
   $('#appointment_customer_tokens').tokenInput('/customers.json', {
     crossDomain: false,
     prePopulate: $('#appointment_customer_tokens').data('pre'),
@@ -83,18 +83,14 @@ $(function () {
   });
 });
 
-
   /*********
-    DATA-TABLE
-    **********/
+  DATA-TABLE
+  **********/
 
   // function principal to show
   // ---------------------------
-
   $(document).ready(function() {
     var dateType;
-
-
     var oTable = $('#appointments').dataTable({
       sPaginationType: "full_numbers",
       bJQueryUI: true,
@@ -122,33 +118,32 @@ $(function () {
         /* Add a select menu for each TH element in the table footer */
         $("thead th").each( function ( i ) {
             $('select', this).change( function () {
-
               oTable.fnFilter( $(this).val(),i);
              } );
+        });
 
-        } );
         $("a.appointment-today").click(function() {
           dateType="today";
-          oTable.fnFilter("");
+          oTable.fnFilter("",4);
         });
         $("a.appointment-week").click(function() {
            dateType="week";
-           oTable.fnFilter("");
+           oTable.fnFilter("",4);
         });
         $("a.appointment-month").click(function() {
            dateType="month";
-           oTable.fnFilter("");
+           oTable.fnFilter("",4);
         });
         $("a.appointment-all").click(function() {
            dateType= null;
-           oTable.fnFilter("");
+           oTable.fnFilter("",4);
         });
 
         var column = 4;
         $('button').click( function () {
           start = $('input[name="daterangepicker_start"]').val();
           end = $('input[name="daterangepicker_end"]').val();
-        oTable.fnFilter(start+" "+end, column);
+          oTable.fnFilter(start+" "+end, column);
        });
 
         $('.ranges ul > li').click( function () {
@@ -160,7 +155,7 @@ $(function () {
       },
     "fnServerParams": function ( aoData ) {
          aoData.push( { "name": "dateType", "value": dateType });
-     }
+    }
   });
 
  });

@@ -88,69 +88,22 @@
         textarea {
           @extend .col-lg-4;
           background-color: white;
+        }
       }
     }
-
-    }
-
-
     .input-group-addon {
       font-size: 19px;
     }
-
   }
 
-  .form-appointments .left, .right{
+  .form-appointments .left, .right {
     @include make-lg-column(6);
-    .title { font-size: 15pt;
-             margin: 20px; }
-
-    // ul.token-input-list-facebook {
-    //   @extend .form-group;
-    //   @extend .col-lg-4;
-    //   display: inline-block;
-    //   min-width: 42%;
-    //   margin-left: 15px;
-    //   font-size : 14px;
-    // }
-    // .token-input-dropdown-facebook {
-    //   width: auto;
-    //   font-size : 14px;
-    // }
-    // li.token-input-token-facebook {
-    //     font-size: 14px;
-    //     background-color: $GREEN_BUTTON;
-    //     color: white;
-    // }
-
-    // li.token-input-selected-token-facebook {
-    //     background-color: $GREEN_BUTTON;
-    //     border: 1px solid $GREEN_BUTTON;
-    //     color: #fff;
-    // }
-
-    // // div li.token-input-token-facebook span {
-    // //     color: $GREEN_BUTTON;
-
-    // // }
-    // li.token-input-token-facebook span {
-    //   color: white;
-    // }
-    // .token-input-dropdown-facebook p {
-    //     color: $GREEN_BUTTON;
-    // }
-
-
-    // .token-input-dropdown-facebook ul li.token-input-selected-dropdown-item-facebook {
-    //     background-color: $GREEN_BUTTON;
-    //     color: #fff;
-    // }
+    .title { font-size: 15pt; margin: 20px }
   }
 
   .form-appointments .description-appointments{
     @include make-lg-column(6);
-    .title { font-size: 15pt;
-             margin: 20px; }
+    .title { font-size: 15pt; margin: 20px }
   }
 
  .pretty-input {
@@ -161,5 +114,4 @@
   .field_with_errors {
     display: inline;
   }
-
 }
