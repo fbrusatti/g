@@ -190,6 +190,24 @@ es:
       mobile_phone: Celular
       customer_data: Datos Personales
       professional_data: Datos Profesionales
+    index:
+      customers_data: Datos de Clientes
+      history: Historial
+    index_customer_data:
+      id: Referencia
+      name: Nombre
+      surname: Apellido
+      profession: Profesion
+      phones: Telefonos
+      address: Direccion
+      dni: D.N.I
+      email: Email
+      user: Agente
+      create: Registrado
+      update: Actualizado
+      search_date: "Buscar Fechas:"
+      from_to: Desde...Hasta
+      search_by: Buscar por Agente
     show_customer_history:
       topic: Asunto
       user: Usuario
