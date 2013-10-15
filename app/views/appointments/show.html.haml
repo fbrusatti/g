@@ -1,0 +1,8 @@
+#appointment
+  %ul.appointment-tabs
+    %li.active
+      %a{"data-toggle" => "tab", href: "#appointment-data"}
+        = t('.appointment_data')
+  .tab-content
+    .tab-pane.active#appointment-data
+      = render 'detail_show', f: @appointment

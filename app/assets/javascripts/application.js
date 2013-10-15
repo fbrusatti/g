@@ -22,5 +22,6 @@
 //= require dataTables/jquery.dataTables
 //= require moment
 //= require daterangepicker
+//= require ColReorderWithResize.js
 //= require_tree .
 //= require twitter/bootstrap
