@@ -3,10 +3,15 @@
     %a{"data-toggle" => "tab", href: "#customer-data"}
       = t('.customer_data')
     %li
+      %a{"data-toggle" => "tab", href: "#customer-property"}
+        = t('.properties')
+    %li
       %a{"data-toggle" => "tab", href: "#customer-history"}
         = t('.history')
 .tab-content
   .tab-pane.active#customer-data
     = render "show_customer_data"
+  .tab-pane#customer-property
+    = render "show_customer_properties"
   .tab-pane#customer-history
     = render "show_customer_history"

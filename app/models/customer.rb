@@ -15,7 +15,7 @@ class Customer < ActiveRecord::Base
   # == Associations
   belongs_to :user
   has_many :appointments
-  has_many :properties
+  has_many :properties, foreign_key: "owner_id"
 
   def surname_with_name
     "#{surname}. #{name}"
