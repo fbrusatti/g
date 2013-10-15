@@ -1,8 +1,11 @@
-.panel-main
-  .panel-heading
-    = t('.title')
-  .panel-body
-    = form_for @appointment do |f|
-      = errors_for(@appointment).html_safe
-      = render 'form', f: f
-      = f.submit hidden: true
+#appointment
+  %ul.appointment-tabs
+    %li.active
+      %a{"data-toggle" => "tab", href: "#appointment-data"}
+        = t('.appointment_data')
+  = form_for @appointment do |f|
+    = errors_for(@appointment).html_safe
+    .tab-content
+      .tab-pane.active#appointment-data
+        = render 'form', f: f
+    = f.submit hidden: true

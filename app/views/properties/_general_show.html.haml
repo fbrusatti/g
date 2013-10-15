@@ -15,4 +15,7 @@
       = label_tag p.address, nil, class: "pretty-input"
     .input
       = label_tag t('.description')
-      .note= p.description
+      .textareawhite
+        = text_area_tag "#", p.description,
+                        class: "form-control",
+                        size: "5x6", disabled: true

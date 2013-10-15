@@ -10,7 +10,6 @@
  *
  *= require_self
  *= require bootstrap-datetimepicker.min
- *= require token-input-facebook
  *= require token-input-bootstrappy
  *= require jquery.fancybox
  *= require jquery.fancybox-buttons
@@ -26,6 +25,7 @@
 @import "twitter/bootstrap";
 
 @import "header";
+// @import "appointments";
 
 body {
   background-color: #eee !important;

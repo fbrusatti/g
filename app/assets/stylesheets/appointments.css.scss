@@ -1,153 +1,117 @@
 @import "twitter/bootstrap";
 
-$GREEN_BUTTON: #5CB85C;
-$GREEN: #4CAE4C;
-
-// sub-header
-.sub-header {
-  display: block;
-}
-
-.sub-header a{
-  margin: 5px;
-}
-
-// sub-header customer
-.appointment-new {
-  @extend .btn, .btn-large, .btn-primary;
-}
-
-.appointment-print {
-  @extend .btn, .btn-large, .btn-primary, .pull-right;
-}
-
-.appointment-save {
-  @extend .btn, .btn-large, .btn-primary;
-}
-
-.appointment-danger {
-   @extend .btn, .btn-large, .btn-danger;
-}
-
-
-// Appointments
-
-
-.panel-main {
-  @extend .panel, .panel-success;
-  .panel-heading{
-    @extend .panel-heading;
+  // sub-header customer
+  .appointment-new {
+    @extend .btn,  .btn-primary;
   }
-  .panel-body{
-    @extend .panel-body;
+  .appointment-rank {
+    @extend .btn,  .btn-default;
   }
-}
+  .appointment-all {
+    @extend .btn,  .btn-default;
+  }
+  .appointment-month {
+    @extend .btn,  .btn-default;
+  }
+  .appointment-week {
+    @extend .btn,  .btn-default;
+  }
+  .appointment-today {
+    @extend .btn,  .btn-default;
+  }
+  .appointment-print {
+    @extend .btn,  .btn-primary, .pull-right;
+  }
 
-.form-appointments{
-  @include make-row();
-  @extend .form-horizontal;
-    .title-appointments{
+  .appointment-save {
+    @extend .btn,  .btn-primary;
+  }
 
-      div {
-        @extend .form-group;
-      }
-      div label {
-        @extend .col-lg-3, .control-label;
-      }
-      div select, input, ul {
-        @extend .col-lg-5;
-      }
+  .appointment-danger {
+     @extend .btn,  .btn-danger;
+  }
 
+#appointment{
+  $GREEN_BUTTON: #5CB85C;
+  $GREEN: #4CAE4C;
+
+  // sub-header
+  .sub-header {
+    display: block;
+  }
+
+  .sub-header a{
+    margin: 5px;
+  }
+
+  // active color of the tabs
+  .nav-tabs > li.active > a, .nav-tabs > li.active > a {
+    background-color: #E0DFDB !important;
+  }
+
+  // tabs customer
+  .appointment-tabs {
+    @extend .nav, .nav-tabs;
+    li > a {
+      @extend .btn, .btn-success;
     }
-    .form-left{
-      @include make-lg-column(6);
-    }
-    .form-right{
-      @include make-lg-column(6);
-    }
-    .description-appointments{// css
-      @include make-lg-column(12);
-      div {
-        @extend .form-group;
+  }
+
+  // Appointments
+  .form-appointments{
+    background-color: #E0DFDB;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 25px;
+    @include make-row();
+    @extend .form-horizontal;
+    .input {
+      @extend .form-group;
+      label {
+        @extend .col-lg-4, .control-label;
       }
-      div label {
-        @extend .col-lg-3, .control-label;
+      input {
+        @extend .col-lg-4;
       }
-      div textarea{
-        @extend .col-lg-5;
+      select {
+        @extend .col-lg-4;
+      }
+      textarea {
+        @extend .col-lg-4;
+      }
+      .token_field {
+        width:33%;
+        float:left;
+      }
+      .textareawhite{
+        // @extend .form-group;
+        textarea {
+          @extend .col-lg-4;
+          background-color: white;
+        }
       }
     }
-}
-
-.detail {// css
-  .div {
-    @extend .form-group;
-  }
-  .div label {
-    @extend .col-lg-2, .control-label;
-  }
-  .div select, input {
-    @extend .col-lg-5;
-  }
-  .div .appointment_date_time_picker {
-      display : inline;
-      margin : 1px;
-  }
-  .div .appointment_date_time_picker #appointment_start_date {
-      @extend .col-lg-5;
-      margin : 1px;
-  }
-  .div .appointment_date_time_picker #appointment_end_date {
-      @extend .col-lg-5;
-      margin : 1px;
-  }
-  .input-group-addon {
-   font-size: 19px;
-  }
-  .div_customer {
-    display:inline;
-  }
-  .div_property {
-    display:inline;
+    .input-group-addon {
+      font-size: 19px;
+    }
   }
 
-}
+  .form-appointments .left, .right {
+    @include make-lg-column(6);
+    .title { font-size: 15pt; margin: 20px }
+  }
 
-div ul.token-input-list-facebook {
-  display: inline-block;
-  min-width: 42%;
-  margin-left: 15px;
-  font-size : 14px;
-}
-div.token-input-dropdown-facebook {
-  width: auto;
-  font-size : 14px;
-}
-div li.token-input-token-facebook {
-    font-size: 14px;
-    background-color: $GREEN_BUTTON;
-    color: white;
-}
+  .form-appointments .description-appointments{
+    @include make-lg-column(6);
+    .title { font-size: 15pt; margin: 20px }
+  }
 
-div li.token-input-selected-token-facebook {
-    background-color: $GREEN_BUTTON;
-    border: 1px solid $GREEN_BUTTON;
-    color: #fff;
-}
+ .pretty-input {
+  @extend .form-control
+  }
 
-// div li.token-input-token-facebook span {
-//     color: $GREEN_BUTTON;
-
-// }
-div li.token-input-token-facebook span {
-  color: white;
-}
-div.token-input-dropdown-facebook p {
-    color: $GREEN_BUTTON;
-}
-
-
-div.token-input-dropdown-facebook ul li.token-input-selected-dropdown-item-facebook {
-    background-color: $GREEN_BUTTON;
-    color: #fff;
+  // handled errors
+  .field_with_errors {
+    display: inline;
+  }
 }

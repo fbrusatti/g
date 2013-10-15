@@ -1,24 +1,32 @@
 module AppointmentsHelper
-  MODEL = %w{Cita Informe Email Nota_Seguimiento Visita Tasacion
-    LLamada_Telefonica Llamada_Seguimiento}
-  STATUS = %w{avanzado cancelado completado iniciado no_iniciado esperando}
+  MODEL = %w{appointment inform email forward_note visit valuation phone_call forward_call}
+  STATUS = %w{avanced canceled completed inited not_inited waited}
 
   def models
-    MODEL.map{ |m| [I18n.t("appointments.model.#{m}"), m] }
+    MODEL.map{ |m| [I18n.t(".appointments.model.#{m}"), I18n.t(".appointments.model.#{m}")] }
   end
-  def status
-    STATUS.map{ |s| [s, s] }
+
+  def appointment_status
+    STATUS.map{ |s| [I18n.t(".appointments.status.#{s}"), I18n.t(".appointments.status.#{s}")] }
   end
 
   def edit_customer
     unless @appointment.customer.nil? || @appointment.customer.surname.nil?
-      (Array.new << @appointment.customer).map(&:attributes).to_json
+      [@appointment.customer].map(&:attributes).to_json
     end
   end
 
   def edit_property
     unless @appointment.property.nil? || @appointment.property.address.nil?
-      (Array.new << @appointment.property).map(&:attributes).to_json
+      [@appointment.property].map(&:attributes).to_json
     end
+  end
+
+  def show_customer(customer)
+    customer.surname_with_name if customer.present?
+  end
+
+  def show_property(property)
+    property.address if property.present?
   end
 end

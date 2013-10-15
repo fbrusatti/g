@@ -63,6 +63,10 @@ form[id*='edit_property_'], #new_property .detail, .general {
   .input select, input, textarea {
     @extend .col-lg-6;
   }
+  .token_field {
+    width:50%;
+    float:left;
+  }
   .transaction { @extend .form-horizontal }
   .transaction .thorizontal { @extend .form-group }
   .transaction .tcheck { @extend .col-lg-2 }
@@ -114,6 +118,12 @@ ul.property-tabs .nmro-ref{
     border: 1px solid #cccccc;
     border-radius: 4px;
     padding: 6px 12px;
+  }
+  .textareawhite{
+    textarea {
+    @extend .col-lg-5;
+    background-color: white;
+    }
   }
   a.gallery > img {
     margin: 20px;

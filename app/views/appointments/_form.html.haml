@@ -1,44 +1,49 @@
 .form-appointments
-  .title-appointments
-    .div
+  .left
+    .input
       = f.label :title
-      = f.text_field :title , { class: "form-control" }
-  .form-left
-    .detail
-      .div
-        = f.label :model
-        = f.select :model,models, {:include_blank => false},{class: "form-control"}
-      .div_token
-        = f.label :customer
-        .div_customer
-          = f.text_field :customer_tokens,"data-pre" => edit_customer, class: "form-control"
-      .div_token
-        = f.label :property
-        .div_property
-          = f.text_field :property_tokens,"data-pre" => edit_property, class: "form-control"
-
-      .div
-        = f.label :priority
-        = f.select :priority, (1..5).to_a,{ include_blank: false },{ class: "form-control" }
-  .form-right
-    .detail
-      .div
-        = f.label :user
-        = f.collection_select :user_id, User.all, :id, :email,{include_blank:false},{class: "form-control"}
-      .div
-        = f.label :status
-        = f.select :status,status, {:include_blank => false}, {class: "form-control"}
-      .div
-        = f.label :start_date
-        .appointment_date_time_picker
-          = f.text_field :start_date, {class: "form-control"}
-          %span.input-group-addon.glyphicon.glyphicon-calendar
-      .div
-        = f.label :end_date
-        .appointment_date_time_picker
-          = f.text_field :end_date, {class: "form-control"}
-          %span.input-group-addon.glyphicon.glyphicon-calendar
-  .description-appointments
-    .div
+      = f.text_field :title, class: "pretty-input"
+    .input
+      = f.label :model
+      = f.select :model, models, { :include_blank => false }, class: "pretty-input"
+    .input
+      = f.label :customer
+      .token_field
+        = f.text_field :customer_tokens,
+                       "data-pre" => edit_customer,
+                       class: "pretty-input"
+    .input
+      = f.label :property
+      .token_field
+        = f.text_field :property_tokens,
+                       "data-pre" => edit_property,
+                        class: "pretty-input"
+    .input
+      = f.label :priority
+      = f.select :priority, (1..5).to_a, {}, class: "pretty-input"
+  .right
+    .input
+      = f.label :user
+      = f.collection_select :user_id,
+                            User.all,
+                            :id, :surname_with_name,
+                            {}, class: "pretty-input"
+    .input
+      = f.label :status
+      = f.select :status, appointment_status,
+                          {}, class: "pretty-input"
+    .input
+      = f.label :start_date
+      .appointment_date_time_picker
+        = f.text_field :start_date, { class: "pretty-input",
+                                      value: print_date(f.object.start_date, :date_and_time) }
+        %span.input-group-addon.glyphicon.glyphicon-calendar
+    .input
+      = f.label :end_date
+      .appointment_date_time_picker
+        = f.text_field :end_date, { class: "pretty-input",
+                                    value: print_date(f.object.end_date, :date_and_time) }
+        %span.input-group-addon.glyphicon.glyphicon-calendar
+    .input
       = f.label :description
-      = f.text_area :description, { class: "form-control",size: "100%x5"}
+      = f.text_area :description, class: "pretty-input", size: "1x5"

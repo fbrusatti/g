@@ -1,6 +1,13 @@
 class AppointmentsController < ApplicationController
   respond_to :html
 
+  def index
+   respond_to do |format|
+      format.html
+      format.json { render json: AppointmentsDatatable.new(view_context) }
+    end
+  end
+
   def edit
      @appointment = Appointment.find(params[:id])
   end
@@ -26,8 +33,7 @@ class AppointmentsController < ApplicationController
   end
 
   def show
+    @appointment = Appointment.find(params[:id])
   end
 
-  def destroy
-  end
 end

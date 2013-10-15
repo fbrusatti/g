@@ -3,6 +3,15 @@ es:
     new:
       title: Nueva Cita
       btn_submit: Agregar
+      appointment_data: Información de Cita
+    show:
+      title: Cita
+      btn_submit: Editar
+      appointment_data: Información de Cita
+    edit:
+      title: Cita
+      btn_submit: Guardar
+      appointment_data: Información de Cita
     form:
       title: Título
     sub_header:
@@ -10,16 +19,39 @@ es:
       appointment_edit: Editar
       print: Imprimir
       new: Nueva
+      today: Hoy
+      week: Semana
+      month: Mes
+      all: Todas
+      rank: Rango
       cancel: Cancelar
     model:
-      Cita: Cita
-      Informe: Informe
-      Email: Email
-      Nota_Seguimiento: Nota Seguimiento
-      Visita: Visita
-      Llamada_Seguimiento: Llamada Seguimiento
-      Tasacion: Tasación
-      LLamada_Telefonica: LLamada Telefónica
+      appointment: Cita
+      inform: Informe
+      email: Email
+      forward_note: Nota Seguimiento
+      visit: Visita
+      forward_call: Llamada Seguimiento
+      valuation: Tasación
+      phone_call: LLamada Telefónica
+    status:
+      avanced: Avanzado
+      canceled: Cancelado
+      completed: Completado
+      inited: Iniciado
+      not_inited: No iniciado
+      waited: Esperando
+    index:
+      title: Listado de Citas
+      title_column: Titulo
+      user: Usuario
+      model: Tipo
+      status: Estado
+      start_date: Inicio
+      priority: Prioridad
+      customer: Cliente
+      property: Propiedad
+      last_date: Ultimas Fechas
   properties:
     detail_show:
       keys: Poseedor

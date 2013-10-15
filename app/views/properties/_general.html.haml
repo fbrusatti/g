@@ -3,7 +3,8 @@
     .title= t(".title_left_1")
     .input
       = f.label :owner
-      = f.text_field :owner_tokens,"data-pre" => edit_owner, class: "pretty-input"
+      .token_field
+        = f.text_field :owner_tokens,"data-pre" => edit_owner, class: "pretty-input"
     .title= t(".title_left_2")
     .input
       = f.label :status
