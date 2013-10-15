@@ -1,0 +1,29 @@
+%br
+%table#customers.display{"data-source" => customers_url(format: "json")}
+  %thead
+    %tr
+      %th
+      %th
+      %th
+      %th
+      %th
+      %th
+      %th
+      %th=select_tag nil,
+        options_from_collection_for_select(@users, "email", "email"),
+        include_blank: true, prompt: t('.search_by')
+      %th= t('.search_date')
+      %th= text_field_tag nil, nil,
+        type: "text", :name => "daterange", placeholder: t('.from_to')
+    %tr
+      %th= t('.id')
+      %th= t('.surname')
+      %th= t('.name')
+      %th= t('.profession')
+      %th= t('.address')
+      %th= t('.phones')
+      %th= t('.email')
+      %th= t('.user')
+      %th= t('.create')
+      %th= t('.update')
+  %tbody

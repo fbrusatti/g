@@ -14,6 +14,39 @@ $(document).ready(function() {
     endDate:  Date.today
   });
 
+  var oTableIndex = $('#customers').dataTable({
+    sPaginationType: "full_numbers",
+    bJQueryUI: true,
+    bProcessing: true,
+    bServerSide: true,
+    "aaSorting": [[ 0, "desc" ]],
+    sAjaxSource: $('#customers').data('source'),
+    oLanguage: {
+      sUrl: "/datatables/spanish.txt"
+    },
+    "fnInitComplete": function(oSettings, json) {
+      /* Add a select menu for each TH element in the table footer */
+      var column = 9;
+      $('button').click( function () {
+        start = $('input[name="daterangepicker_start"]').val();
+        end = $('input[name="daterangepicker_end"]').val();
+        oTableIndex.fnFilter(start+" "+end, column);
+       });
+
+      $('.ranges ul > li').click( function () {
+        start = $('input[name="daterangepicker_start"]').val();
+        end = $('input[name="daterangepicker_end"]').val();
+        oTableIndex.fnFilter(start+" "+end, column);
+       });
+
+      $("thead th").each( function ( i ) {
+        $('select', this).change( function () {
+          oTableIndex.fnFilter( $(this).val(),i);
+         });
+      });
+    }
+  });
+
   $('input[name="daterange"]').daterangepicker(
     { format: 'DD/MM/YYYY',
       ranges: {
