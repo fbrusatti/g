@@ -144,7 +144,7 @@ $(function () {
           start = $('input[name="daterangepicker_start"]').val();
           end = $('input[name="daterangepicker_end"]').val();
           oTable.fnFilter(start+" "+end, column);
-       });
+        });
 
         $('.ranges ul > li').click( function () {
           start = $('input[name="daterangepicker_start"]').val();
@@ -153,9 +153,43 @@ $(function () {
         });
 
       },
-    "fnServerParams": function ( aoData ) {
+      "fnServerParams": function ( aoData ) {
          aoData.push( { "name": "dateType", "value": dateType });
-    }
+      }
   });
 
- });
+
+    var ooTable = $('#appointment-history').dataTable({
+      sPaginationType: "full_numbers",
+      bJQueryUI: true,
+      bProcessing: true,
+      bServerSide: true,
+      "aaSorting": [[ 2, "asc" ]],
+      // "sDom": "Rlfrtip",
+      sAjaxSource: $('#appointment-history').data('source'),
+      oLanguage: {
+        sUrl: "/datatables/spanish.txt"
+      },
+      "fnInitComplete": function(oSettings, json) {
+        /* Add a select menu for each TH element in the table footer */
+        var column = 2;
+        $('button').click( function () {
+          start = $('input[name="daterangepicker_start"]').val();
+          end = $('input[name="daterangepicker_end"]').val();
+          ooTable.fnFilter(start+" "+end, column);
+         });
+
+        $('.ranges ul > li').click( function () {
+          start = $('input[name="daterangepicker_start"]').val();
+          end = $('input[name="daterangepicker_end"]').val();
+          ooTable.fnFilter(start+" "+end, column);
+         });
+
+        $("thead th").each( function ( i ) {
+          $('select', this).change( function () {
+            ooTable.fnFilter( $(this).val(),i);
+           });
+        });
+      }
+    });
+});

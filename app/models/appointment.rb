@@ -22,6 +22,7 @@ class Appointment < ActiveRecord::Base
       self.property_id = ids
   end
 
-
+  # == Tracking
+  has_paper_trail
 
 end

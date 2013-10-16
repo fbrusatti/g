@@ -1,5 +1,10 @@
 es:
   appointments:
+    datatables:
+      delete: Se borro
+      create: Se Creo La Cita
+      change: Se Cambio
+      add: Se Agrego
     new:
       title: Nueva Cita
       btn_submit: Agregar
@@ -8,12 +13,20 @@ es:
       title: Cita
       btn_submit: Editar
       appointment_data: Información de Cita
+      history: Historial
     edit:
       title: Cita
       btn_submit: Guardar
       appointment_data: Información de Cita
     form:
       title: Título
+    history:
+      topic: Asunto
+      user: Usuario
+      date: Fecha
+      user_search: Buscar por Usuario
+      search_by: Buscar por ..
+      last_date: Ultimas Fechas
     sub_header:
       appointment_save: Guardar
       appointment_edit: Editar
@@ -275,6 +288,9 @@ es:
         priority: Prioridad
         model: Tipo
         status: Estado
+        user_id: Usuario
+        property_id: Propiedad
+        customer_id: Cliente
       property:
         owner_id: Dueño
         type_transaction: La transacción(vta. o alq.)
