@@ -1,7 +1,7 @@
 class Customer < ActiveRecord::Base
 
   serialize :phones, Hash
-  has_paper_trail
+  has_paper_trail meta: { primary_information: :information_primary }
 
   # == Accessors
   attr_accessible :name, :surname, :dni, :phones, :phone, :mobile_phone,
@@ -25,11 +25,14 @@ class Customer < ActiveRecord::Base
       self.property_id = ids
   end
 
+  def information_primary
+    " Cliente #{self.surname_with_name}. Num cliente:#{self.id}".slice(0..254)
+  end
+
   private
     def presence_phone_or_mobile
       if phones[:phone].blank? && phones[:mobile_phone].blank?
         errors.add(:phones, I18n.t('activerecord.models.errors.message_phones'))
       end
     end
-
 end

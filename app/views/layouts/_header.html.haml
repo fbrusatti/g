@@ -1,24 +1,20 @@
 %ul.menu-head
   %li
+    %a{href: "#{landing_page_path}", class: current_tag('landing')}
+      %i.icon-reorder.icon-3x
+      = t('.main')
+  %li
     %a{href: "#{properties_path}", class: current_tag('properties')}
       %i.icon-home.icon-3x
       = t('.properties')
   %li
-    %a{href: "#", class: current_tag('archived_properties')}
-      %i.icon-folder-open-alt.icon-3x
-      = t('.archived_properties')
-  %li
-    %a{href: "#", class: current_tag('search') }
-      %i.icon-search.icon-3x
-      = t('.search')
+    %a#client{href: "#{customers_path}", class: current_tag('customers') }
+      %i.icon-user.icon-3x
+      = t('.clients')
   %li
     %a{href: "#{appointments_path}", class: current_tag('appointments')}
       %i.icon-calendar.icon-3x
       = t('.calendar')
-  %li
-    %a#client{href: "#{customers_path}", class: current_tag('customers') }
-      %i.icon-user.icon-3x
-      = t('.clients')
   %li
     %a{href: "#", class: current_tag('calculator')}
       %i.icon-cog.icon-3x
