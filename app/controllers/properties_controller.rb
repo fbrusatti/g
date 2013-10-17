@@ -4,7 +4,7 @@ class PropertiesController < ApplicationController
 
   def index
     respond_to do |format|
-      format.html { @properties = Property.all}
+      format.html
       if params[:q].present?
         format.json { render json: Property.where(
                                     "address ILIKE ? or properties.id =  ?",

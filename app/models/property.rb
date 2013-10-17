@@ -3,7 +3,7 @@ class Property < ActiveRecord::Base
   # == Accessors
   attr_accessible :amount_rooms, :title_to_print, :address, :description,
                   :amount_bathrooms, :lot, :meters_constructed,
-                  :price, :influence_zone, :type_property, :position,
+                  :influence_zone, :type_property, :position,
                   :type_transaction, :key_possessor, :photos_attributes,
                   :status, :owner_tokens, :prices, :rent_price, :sale_price,
                   :money_to_sale_attributes, :money_to_rent_attributes
@@ -29,7 +29,7 @@ class Property < ActiveRecord::Base
   attr_reader :owner_tokens
 
   # == Tracking
-  has_paper_trail
+  has_paper_trail meta: { primary_information: :information_primary }
 
   def pretty_address
     "#{self.address} \n#{self.influence_zone}"
@@ -51,4 +51,7 @@ class Property < ActiveRecord::Base
     self.owner_id = ids
   end
 
+  def information_primary
+    " Propiedad #{self.pretty_address}. Num ref:#{self.id}".slice(0..254)
+  end
 end
