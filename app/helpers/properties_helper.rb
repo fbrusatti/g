@@ -1,6 +1,6 @@
 module PropertiesHelper
   STATUS_PROPERTIES = %w(available store reserved evaluation)
-  TYPE_PROPERTIES = %w{apartment house lot country_house storefront office barn garage}
+  TYPE_PROPERTIES = %w{apartment house lot country_house storefront office barn garage pasture}
   POSITIONS = %w(front_facade rear_facade interior_facade)
   KEY_POSSESSORS = %w(owner office agent none)
   TYPE_MONEYS = %w(eeuu arg)
@@ -77,7 +77,7 @@ module PropertiesHelper
     if (@property.type_transaction.downcase.include? type)
       money = t == "sale" ? @property.money_to_sale.name : @property.money_to_rent.name
       tag = label_tag type
-      price = label_tag "$"+@property.prices["to_#{t}"]+" #{money}",
+      price = label_tag "$" + @property.prices["to_#{t}"] + " #{money}",
                          nil, class: "pretty-input"
       html << tag + price
     end
