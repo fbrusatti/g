@@ -34,6 +34,16 @@ class AppointmentsController < ApplicationController
 
   def show
     @appointment = Appointment.find(params[:id])
+    @versions = @appointment.versions
+    @users = User.all
+    respond_to do |format|
+      format.html
+      format.json { render json: AppointmentVersionDatatable.new(view_context, @versions) }
+    end
+  end
+
+  def user_for_paper_trail
+    current_user.surname_with_name
   end
 
 end

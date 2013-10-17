@@ -3,6 +3,12 @@
     %li.active
       %a{"data-toggle" => "tab", href: "#appointment-data"}
         = t('.appointment_data')
+    %li
+      %a{"data-toggle" => "tab", href: "#history-appointment"}
+        = t('.history')
   .tab-content
     .tab-pane.active#appointment-data
       = render 'detail_show', f: @appointment
+
+    .tab-pane#history-appointment
+      = render "history"

@@ -1,0 +1,15 @@
+%table#appointment-history.display{"data-source" => appointment_url(format: "json")}
+  %thead
+    %tr
+      %th=select_tag nil,options_for_select(appointment_attributes),
+        include_blank: true, prompt: t('.search_by')
+      %th=select_tag nil,
+        options_from_collection_for_select(@users, "id", "surname_with_name"),
+        include_blank: true, prompt: t('.user_search')
+      %th=text_field_tag "dateranges", nil,
+        type: "text", :name => "daterange", placeholder: t('.last_date')
+    %tr
+      %th= t('.topic')
+      %th= t('.user')
+      %th= t('.date')
+  %tbody
