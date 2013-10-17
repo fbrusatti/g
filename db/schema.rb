@@ -11,8 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
-ActiveRecord::Schema.define(:version => 20131015175108) do
+ActiveRecord::Schema.define(:version => 20131017143056) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -115,7 +114,7 @@ ActiveRecord::Schema.define(:version => 20131015175108) do
   create_table "properties", :force => true do |t|
     t.integer  "amount_rooms"
     t.string   "title_to_print"
-    t.string   "address"
+    t.text     "address"
     t.text     "description"
     t.integer  "amount_bathrooms"
     t.integer  "lot"

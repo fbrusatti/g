@@ -141,6 +141,7 @@ es:
       office: Oficina
       barn: Galpon
       garage: Cochera
+      pasture: Campo
     sub_header:
       print: Imprimir
       new: Nueva
