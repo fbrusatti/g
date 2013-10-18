@@ -7,15 +7,13 @@
     .title= t("properties.general.title_left_2")
     .input
       = label_tag t('.status')
-      = label_tag p.status, nil, { class: "pretty-input" }
+      = text_area_tag nil, p.status, { class: "form-control", rows: "1", readonly: true}
   .right
     .title= t("properties.general.title_right_1")
     .input
       = label_tag t('.address')
-      = label_tag p.address, nil, class: "pretty-input"
+      = text_area_tag nil, p.address, { class: "form-control", rows: "1", readonly: true}
+
     .input
       = label_tag t('.description')
-      .textareawhite
-        = text_area_tag "#", p.description,
-                        class: "form-control",
-                        size: "5x6", disabled: true
+      = text_area_tag nil, p.description, { class: "form-control", rows: "6", readonly: true}

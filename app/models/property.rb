@@ -1,7 +1,7 @@
 class Property < ActiveRecord::Base
 
   # == Accessors
-  attr_accessible :amount_rooms, :title_to_print, :address, :description,
+  attr_accessible :amount_rooms, :title_to_print, :address, :description,:description_to_print,
                   :amount_bathrooms, :lot, :meters_constructed,
                   :influence_zone, :type_property, :position,
                   :type_transaction, :key_possessor, :photos_attributes,
@@ -9,6 +9,7 @@ class Property < ActiveRecord::Base
                   :money_to_rent_attributes
   # == Validations
   validates_presence_of :address, :type_transaction
+  validates :title_to_print, length: {maximum: 255}
 
   # == Associatons
   belongs_to :owner, class_name: "Customer"

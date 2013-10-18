@@ -1,6 +1,6 @@
 .detail
   .left
-    .title= t(".title_left_1")
+    .title= t(".title_attributes")
     .input
       = f.label :amount_rooms
       = f.select :amount_rooms, (1..80).to_a,
@@ -17,13 +17,6 @@
     .input
       = f.label :meters_constructed
       = f.number_field :meters_constructed, class: "pretty-input"
-    .title= t(".title_left_2")
-    = render "transactions", f: f
-  .right
-    .title= t(".title_right_1")
-    .input
-      = f.label :title_to_print
-      = f.text_area :title_to_print, size: "1x4",  class: "pretty-input"
     .input
       = f.label :influence_zone
       = f.text_field :influence_zone, class: "pretty-input"
@@ -37,6 +30,17 @@
       = f.select :type_property, type_properties,
                 { include_blank: true },
                 { class: "pretty-input" }
+
+    .title= t(".title_left_2")
+    = render "transactions", f: f
+  .right
+    .title= t(".title_attributes_to_print")
+    .input
+      = f.label :title_to_print
+      = f.text_area :title_to_print, size: "1x4", class: "pretty-input"
+    .input
+      = f.label :description_to_print
+      = f.text_area :description_to_print, size: "1x8",  class: "pretty-input"
     .title= t(".title_right_2")
     .input
       = key_possessor(f)
