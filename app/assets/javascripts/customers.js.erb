@@ -73,6 +73,11 @@ $(document).ready(function() {
     }
   );
 
+  $('#show-customer-property').dataTable({
+    sPaginationType: "full_numbers",
+    bJQueryUI: true
+  });
+
   var oTable = $('#history').dataTable({
     sPaginationType: "full_numbers",
     bJQueryUI: true,

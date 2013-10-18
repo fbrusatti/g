@@ -1,0 +1,19 @@
+%h3= "Propiedades de #{@customer.name} #{@customer.surname}"
+%table#show-customer-property.display
+  %thead
+    %tr
+      %th= t('.ref')
+      %th= t('.status')
+      %th= t('.type')
+      %th= t('.transaction')
+      %th= t('.address')
+      %th= t('.price')
+  %tbody
+    - @customer.properties.each do |property|
+      %tr
+        %th= link_to(property.id, property)
+        %th= property.status
+        %th= property.type_property
+        %th= property.type_transaction
+        %th= link_to(property.address, property)
+        %th= simple_format property.pretty_price
