@@ -1,4 +1,5 @@
 class PropertyVersionDatatable
+  include ApplicationHelper
   delegate :simple_format, :current_user, :params,
            :h, :link_to, :number_to_currency,
            to: :@view
@@ -24,7 +25,7 @@ private
       [
         changes_tohuman(version),
         h(version.whodunnit),
-        h(version.created_at)
+        print_date(version.created_at, :date_and_time)
       ]
     end
   end

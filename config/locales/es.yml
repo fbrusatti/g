@@ -195,6 +195,7 @@ es:
       mobile_phone: Celular
       customer_data: Datos Personales
       professional_data: Datos Profesionales
+      description_data: Descripcion del Cliente
     show:
       customer_data: Datos Personales
       history: Historial
@@ -209,8 +210,10 @@ es:
       profession: Profesión
       phone: Telefono
       mobile_phone: Celular
+      description: Descripción
       customer_data: Datos Personales
       professional_data: Datos Profesionales
+      description_data: Descripcion del Cliente
     edit:
       customer_data: Datos Personales
     edit_customer_data:
@@ -218,6 +221,7 @@ es:
       mobile_phone: Celular
       customer_data: Datos Personales
       professional_data: Datos Profesionales
+      description_data: Descripcion del Cliente
     index:
       customers_data: Datos de Clientes
       history: Historial
@@ -230,12 +234,12 @@ es:
       address: Direccion
       dni: D.N.I
       email: Email
-      user: Agente
+      user: Usuario
       create: Registrado
       update: Actualizado
       search_date: "Buscar Fechas:"
       from_to: Desde...Hasta
-      search_by: Buscar por Agente
+      search_by: Buscar por Usuario
     show_customer_history:
       topic: Asunto
       user: Usuario
@@ -355,6 +359,7 @@ es:
         dob: Nacimiento
         email: Email
         profession: Profesión
+        description: Descripción
   token_input:
     noResultsText: "No hay resultado"
     hintText: "Ingrese el nombre"
