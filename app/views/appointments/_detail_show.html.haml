@@ -2,16 +2,16 @@
   .left
     .input
       = label_tag t('activerecord.attributes.appointment.title')
-      = label_tag f.title , nil, class: "pretty-input"
+      = text_area_tag nil,f.title, { class: "form-control",rows: "1", readonly: true}
     .input
       = label_tag t('activerecord.attributes.appointment.model')
       = label_tag f.model, nil, class: "pretty-input"
     .input
       = label_tag t('activerecord.attributes.appointment.customer')
-      = label_tag show_customer(f.customer), nil, class: "pretty-input"
+      = link_customer(f.customer)
     .input
       = label_tag t('activerecord.attributes.appointment.property')
-      = label_tag show_property(f.property), nil, class: "pretty-input"
+      = link_property(f.property)
     .input
       = label_tag t('activerecord.attributes.appointment.priority')
       = label_tag f.priority, nil, class: "pretty-input"
@@ -30,7 +30,4 @@
       = label_tag print_date(f.end_date, :date_and_time), nil, class: "pretty-input"
     .input
       = label_tag t('activerecord.attributes.appointment.description')
-      .textareawhite
-        = text_area_tag "#", f.description,
-                             class: "pretty-input",
-                             size: "5x6", disabled: true
+      = text_area_tag nil,f.description, { class: "form-control",rows: "8", readonly: true}
