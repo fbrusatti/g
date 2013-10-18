@@ -89,9 +89,13 @@ module PropertiesHelper
   end
 
   def owner
-    path = @property.owner.present? ? customer_path(@property.owner) : ""
-    link_to @property.owner.try(:surname_with_name),
-            path,
-            class: "note"
+    path, link = "",""
+    if @property.owner.present?
+      path = customer_path(@property.owner)
+      link = @property.owner.try(:surname_with_name).truncate(35)
+      link_to link,path,class: "note"
+    else
+      label_tag ""
+    end
   end
 end

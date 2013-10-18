@@ -1,6 +1,6 @@
 #detail-show-property
   .left
-    .title= t("properties.detail.title_left_1")
+    .title= t("properties.detail.title_attributes")
     .input
       = label_tag t('.amount_rooms')
       = label_tag p.amount_rooms, nil, class: "pretty-input"
@@ -13,6 +13,15 @@
     .input
       = label_tag t('.meters_constructed')
       = label_tag p.meters_constructed, nil, class: "pretty-input"
+    .input
+      = label_tag t('.influence_zone')
+      = text_area_tag nil,p.influence_zone, { class: "form-control",rows: "1", readonly: true}
+    .input
+      = label_tag t('.position')
+      = label_tag p.position, nil, class: "pretty-input"
+    .input
+      = label_tag t('.type_property')
+      = label_tag p.type_property, nil, class: "pretty-input"
     .title= t("properties.detail.title_left_2")
     .input
       = prices_to_show("sale")
@@ -20,20 +29,13 @@
       = prices_to_show("rent")
 
   .right
-    .title= t("properties.detail.title_right_1")
+    .title= t("properties.detail.title_attributes_to_print")
     .input
       = label_tag t('.title_to_print')
-      .textareawhite
-        = text_area_tag p.title_to_print,nil, { class: "form-control",disabled: true}
+      = text_area_tag nil, p.title_to_print, { class: "form-control", rows: "4", readonly: true}
     .input
-      = label_tag t('.influence_zone')
-      = label_tag p.influence_zone, nil, class: "pretty-input"
-    .input
-      = label_tag t('.position')
-      = label_tag p.position, nil, class: "pretty-input"
-    .input
-      = label_tag t('.type_property')
-      = label_tag p.type_property, nil, class: "pretty-input"
+      = label_tag t('.description_to_print')
+      = text_area_tag nil,p.description_to_print, { class: "form-control",rows: "8", readonly: true}
     .title= t("properties.detail.title_right_2")
     .input
       = label_tag t('.keys')

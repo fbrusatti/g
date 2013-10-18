@@ -47,8 +47,8 @@ $(document).ready(function() {
       return "<li><p style='color: black' >" + item.name
       + " " + item.surname +  " " + item.dni + " </p> </li>" },
     tokenFormatter: function(item) {
-      return "<li><p>" + item.name + " " +
-      item.surname + " " + item.dni + " </p> </li>" }
+      return "<li><p>" + (item.name + " " +
+      item.surname ).substring(0,22)+ " " + item.dni + " </p> </li>" }
   });
 
   // changes the visibility of transactions inputs

@@ -62,6 +62,7 @@ form[id*='edit_property_'], #new_property .detail, .general {
   }
   .input select, input, textarea {
     @extend .col-lg-6;
+    resize: none;
   }
   .token_field {
     width:50%;
@@ -103,7 +104,15 @@ ul.property-tabs .nmro-ref{
       @extend .col-lg-2, .col-sm-offset-1, .control-label;
     }
     label:nth-of-type(2) {
-      @extend .col-lg-5, .control-label;
+      @extend .col-lg-6, .control-label;
+      text-align: left;
+    }
+
+    textarea {
+      @extend .col-lg-6;
+      background-color: white;
+      font-weight:bold;
+      resize: none;
     }
   }
   .left, .right {
@@ -112,19 +121,14 @@ ul.property-tabs .nmro-ref{
            margin: 20px; }
   }
   .note{
-    @extend .col-lg-5;
+    @extend .col-lg-6;
     font-weight: bold;
     background-color: white;
     border: 1px solid #cccccc;
     border-radius: 4px;
     padding: 6px 12px;
   }
-  .textareawhite{
-    textarea {
-    @extend .col-lg-5;
-    background-color: white;
-    }
-  }
+
   a.gallery > img {
     margin: 20px;
     padding-top: 20px;

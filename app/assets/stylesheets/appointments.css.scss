@@ -4,9 +4,6 @@
   .appointment-new {
     @extend .btn,  .btn-primary;
   }
-  .appointment-rank {
-    @extend .btn,  .btn-default;
-  }
   .appointment-all {
     @extend .btn,  .btn-default;
   }
@@ -67,28 +64,39 @@
     @extend .form-horizontal;
     .input {
       @extend .form-group;
-      label {
-        @extend .col-lg-4, .control-label;
+      label:first-child {
+        @extend .col-lg-2, .col-sm-offset-1, .control-label;
       }
+
+      label:nth-of-type(2) {
+        @extend .col-lg-6, .control-label;
+        text-align: left;
+      }
+
+
       input {
-        @extend .col-lg-4;
+        @extend .col-lg-6;
       }
       select {
-        @extend .col-lg-4;
+        @extend .col-lg-6;
       }
       textarea {
-        @extend .col-lg-4;
+        @extend .col-lg-6;
+        background-color: white;
+        font-weight:bold;
+        resize: none;
       }
       .token_field {
-        width:33%;
+        width:50%;
         float:left;
       }
-      .textareawhite{
-        // @extend .form-group;
-        textarea {
-          @extend .col-lg-4;
-          background-color: white;
-        }
+      .note{
+        @extend .col-lg-6;
+        font-weight: bold;
+        background-color: white;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        padding: 6px 12px;
       }
     }
     .input-group-addon {
