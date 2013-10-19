@@ -21,8 +21,8 @@ private
     customers.map do |customer|
       [
         link_to(customer.id, customer),
-        link_to(customer.surname, customer),
-        link_to(customer.name, customer),
+        link_to(short_string(customer.surname), customer),
+        link_to(short_string(customer.name), customer),
         h(customer.profession),
         h(customer.address),
         phones(customer.phones),

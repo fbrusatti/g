@@ -55,4 +55,7 @@ module ApplicationHelper
     date.to_s(format) if date.present?
   end
 
+  def short_string(string)
+    "#{string.slice(0..13)}#{"..." if string.size > 13}"
+  end
 end

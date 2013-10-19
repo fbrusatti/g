@@ -26,7 +26,7 @@ private
         h(a.status),
         print_date(a.start_date, :date_and_time),
         h(a.priority),
-        link_to("#{a.customer.surname_with_name if a.customer}", a.customer),
+        link_to(short_string("#{a.customer.surname_with_name if a.customer}"), a.customer),
         link_to("#{a.property.address if a.property}", a.property)
       ]
     end

@@ -238,7 +238,7 @@ es:
       create: Registrado
       update: Actualizado
       search_date: "Buscar Fechas:"
-      from_to: Desde...Hasta
+      from_to: Ultimas Fechas
       search_by: Buscar por Usuario
     show_customer_history:
       topic: Asunto
