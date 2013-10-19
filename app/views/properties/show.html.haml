@@ -22,9 +22,9 @@
     = render "detail_show", p: @property
 
   #show-photos.tab-pane
+    %h3= photos?(@property.photos)
     - @property.photos.each do |p|
       %a{ href: p.image, class: "gallery", "rel" => "gallery" }
         = image_tag(p.image.url(:thumb))
-
   #show-history.tab-pane
     = render "history"

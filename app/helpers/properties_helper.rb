@@ -98,4 +98,8 @@ module PropertiesHelper
       label_tag ""
     end
   end
+
+  def photos?(photos)
+    @property.photos.empty? ? I18n.t(".properties.show.not_photos") : ""
+  end
 end

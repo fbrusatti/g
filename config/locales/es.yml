@@ -151,7 +151,7 @@ es:
       property_edit: Editar
       cancel: Cancelar
     index:
-      nref: Nmr Ref
+      nref: Referencia
       status: Estado
       type: Tipo
       transaction: Transacción
@@ -176,6 +176,7 @@ es:
       detail: Detalles
       photos: Fotos
       history: Historial
+      not_photos: Esta Propiedad No Posee Fotos
     datatables:
       delete: Se borro
       create: Se Creo La Propiedad con direccion
