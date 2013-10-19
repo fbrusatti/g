@@ -13,6 +13,7 @@ $(document).ready(function(){
   });
 
   $("a.appointment-save").click(function() {
+    $("a.appointment-save").attr("disabled", true);
     $("#new_appointment, [id^=edit_appointment_]").submit();
   });
 

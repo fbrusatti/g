@@ -4,6 +4,7 @@ $(document).ready(function() {
 
   // button save of form property
   $("a.property-save").click(function() {
+    $("a.property-save").attr("disabled", true);
     if (validateTransactions()){
       cleanUpTransactionFields();
       $("#new_property, [id^=edit_property_]").submit();
@@ -88,6 +89,7 @@ $(document).ready(function() {
     bProcessing: true,
     bServerSide: true,
     sAjaxSource: $('#properties').data('source'),
+    aaSorting: [[ 0, "desc" ]],
     fnInitComplete: function(oSettings, json){
       $("a#tab-all-prop").click(function() {
          bMyProperties = false;

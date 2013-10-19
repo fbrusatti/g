@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
   $("a.customer-save").click( function() {
+    $("a.customer-save").attr("disabled", true);
     $("#new_customer, [id^=edit_customer_]").submit();
   });
 
