@@ -62,8 +62,7 @@ private
     end
 
     if params[:sSearch_7].present?
-      user_id = User.where(email: params[:sSearch_7])
-      customers = customers.where(user_id: user_id.first[:id])
+      customers = customers.where(user_id: params[:sSearch_7])
     end
 
     if params[:sSearch_9].present?
