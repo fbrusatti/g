@@ -37,3 +37,8 @@
     .input
       = f.label :profession
       = f.text_field :profession, class: "pretty-input"
+  .right
+    .title= t('.description_data')
+    .input
+      = f.label :description
+      = f.text_area :description, {class: "pretty-input", rows: "7"}

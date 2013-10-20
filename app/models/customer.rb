@@ -5,7 +5,7 @@ class Customer < ActiveRecord::Base
 
   # == Accessors
   attr_accessible :name, :surname, :dni, :phones, :phone, :mobile_phone,
-                  :address, :dob, :email, :profession
+                  :address, :dob, :email, :profession, :description
 
   # == Validations
   validates_presence_of :name, :surname

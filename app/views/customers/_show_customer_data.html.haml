@@ -3,30 +3,46 @@
     .title= t('.customer_data')
     .input
       = label_tag t('.name')
-      = label_tag  @customer.name ,nil , class: "form-control"
+      = text_area_tag nil, @customer.name,
+                      { class: "pretty-input", rows: "1", readonly: true}
     .input
       = label_tag t('.surname')
-      = label_tag  @customer.surname ,nil , class: "form-control"
+      = text_area_tag nil, @customer.surname,
+                      { class: "pretty-input", rows: "1", readonly: true}
     .input
       = label_tag t('.dni')
-      = label_tag  @customer.dni ,nil , class: "form-control"
+      = text_area_tag nil, @customer.dni,
+                          { class: "pretty-input", rows: "1", readonly: true}
     .input
       = label_tag t('.dob')
-      = label_tag dob(@customer), nil, class: "form-control"
+      = text_area_tag nil, dob(@customer),
+                      { class: "pretty-input", rows: "1", readonly: true}
     .input
       = label_tag t('.address')
-      = label_tag @customer.address, nil, class: "form-control"
+      = text_area_tag nil, @customer.address,
+                      { class: "pretty-input", rows: "1", readonly: true}
     .input
       = label_tag t('.email')
-      = label_tag @customer.email, nil, class: "form-control"
+      = text_area_tag nil, @customer.email,
+                      { class: "pretty-input", rows: "1", readonly: true}
     .input
       = label_tag t('.phone')
-      = label_tag  @customer.phones[:phone] , nil, class: "form-control"
+      = text_area_tag nil, @customer.phones[:phone],
+                      { class: "pretty-input", rows: "1", readonly: true}
     .input
       = label_tag t('.mobile_phone')
-      = label_tag  @customer.phones[:mobile_phone] , nil, class: "form-control"
+      = text_area_tag nil, @customer.phones[:mobile_phone],
+                      { class: "pretty-input", rows: "1", readonly: true}
   .right
     .title= t('.professional_data')
     .input
       = label_tag t('.profession')
-      = label_tag @customer.profession, nil, class: "form-control"
+      = text_area_tag nil, @customer.profession,
+                      { class: "pretty-input", rows: "1", readonly: true}
+  .right
+    .title= t('.description_data')
+    .input
+      = label_tag t('.description')
+      .textarea-description
+        = text_area_tag nil, @customer.description,
+                      { class: "pretty-input", rows: "7", readonly: true}

@@ -69,6 +69,6 @@ class PropertiesController < ApplicationController
     end
 
     def user_for_paper_trail
-      current_user.email
+      current_user.surname_with_name
     end
 end

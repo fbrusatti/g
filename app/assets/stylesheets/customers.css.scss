@@ -51,10 +51,10 @@
   .input {
     @extend .form-group;
     label {
-      @extend .col-lg-4, .control-label;
+      @extend .col-lg-3, .control-label;
     }
     input {
-      @extend .col-lg-4;
+      @extend .col-lg-6;
     }
   }
 
@@ -72,6 +72,21 @@
   @include make-lg-column(6);
   .title { font-size: 15pt;
            margin: 20px; }
+
+  .input {
+    @extend .form-group;
+    label {
+      @extend .col-lg-3, .control-label;
+    }
+
+    input {
+      @extend .col-lg-6, .control-label;
+    }
+
+    textarea {
+      @extend .col-lg-6;
+    }
+  }
 }
 
 .pretty-input {
@@ -86,19 +101,38 @@
 // show customer
 .show-customer {
   background-color: #E0DFDB;
-  @include make-row();
+  @include make-row(6);
   @extend .form-horizontal;
   .input {
     @extend .form-group;
     label {
-      @extend .col-lg-4, .control-label;
+      @extend .col-lg-3, .control-label;
+    }
+
+    .label-input {
+      label {
+        @extend .col-lg-6, .control-label;
+      }
+    }
+
+    textarea {
+      @extend .col-lg-6;
+      background-color: white;
+      font-weight:bold;
+      resize: none;
+    }
+
+    .textarea-description {
+      textarea {
+        resize:both;
+      }
     }
   }
 
   .left, .right {
   @include make-lg-column(6);
   .title { font-size: 15pt;
-           margin: 20px; }
+           margin: 10px; }
   }
 
 }
@@ -107,3 +141,13 @@
   text-align: center;
 }
 
+#customer-property {
+  background-color: #E0DFDB;
+
+  h3 {
+    margin-top: 0px;
+    margin-bottom: 28px;
+    padding-top: 19px;
+    margin-left: 15px;
+  }
+}

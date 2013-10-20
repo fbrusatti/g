@@ -1,4 +1,5 @@
 class PropertiesDatatable
+  include ApplicationHelper
   delegate :simple_format, :current_user, :params,
            :h, :link_to, :number_to_currency,
            to: :@view
@@ -28,7 +29,7 @@ private
         h(address(property)),
         h(property.amount_rooms),
         h(prices(property)),
-        link_to("#{property.owner.try(:surname_with_name)}", property.owner)
+        link_to(short_string("#{property.owner.try(:surname_with_name)}"), property.owner)
       ]
     end
   end

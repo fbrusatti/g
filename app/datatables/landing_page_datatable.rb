@@ -66,7 +66,7 @@ private
   end
 
   def sort_direction
-    params[:sSortDir_0] == "asc" ? "desc" : "asc"
+    params[:sSortDir_0] == "desc" ? "desc" : "asc"
   end
 
   def changes_tohuman(version)

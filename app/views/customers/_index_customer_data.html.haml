@@ -1,4 +1,3 @@
-%br
 %table#customers.display{"data-source" => customers_url(format: "json")}
   %thead
     %tr
@@ -10,7 +9,7 @@
       %th
       %th
       %th=select_tag nil,
-        options_from_collection_for_select(@users, "email", "email"),
+        options_from_collection_for_select(@users, "id", "surname_with_name"),
         include_blank: true, prompt: t('.search_by')
       %th= t('.search_date')
       %th= text_field_tag nil, nil,
