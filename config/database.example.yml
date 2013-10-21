@@ -21,6 +21,5 @@ production:
   host: localhost
   port: 5432
   database: g_production
-  username: user
-  password: psw
-  pool: 5
+  username: postgres
+  password: root
