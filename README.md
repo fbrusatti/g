@@ -37,6 +37,7 @@ G
 
     ## lib/taks/data_to_db_photos.rake
     # file_f = "your_pathresultsetFotos.csv"
+    # photo.image = File.open("your_path_where_are_photos/#{rowf[1].strip}_#{rowf[2]}.jpg")
 
 ####run migration
 

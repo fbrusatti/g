@@ -40,9 +40,11 @@ private
     appointments = Appointment.order("#{sort_column} #{sort_direction}")
     appointments = appointments.page(page).per_page(per_page)
     if params[:sSearch].present?
-      appointments = appointments.joins(:customer).joins(:property)
-      appointments.where("title ilike :search
+      appointments = appointments.joins("LEFT OUTER JOIN customers ON customers.id = appointments.customer_id")
+      appointments = appointments.joins("LEFT OUTER JOIN properties ON properties.id = appointments.property_id")
+      appointments = appointments.where("title ilike :search
                          or customers.surname ilike :search
+                         or customers.name ilike :search
                          or properties.address ilike :search",
                          search: "%#{params[:sSearch]}%")
     end

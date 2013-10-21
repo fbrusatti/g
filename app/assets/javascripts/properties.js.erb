@@ -70,6 +70,9 @@ $(document).ready(function() {
     bJQueryUI: true,
     bProcessing: true,
     bServerSide: true,
+    oLanguage: {
+        sUrl: "/datatables/spanish.txt"
+    },
     sAjaxSource: $('#property-history').data('source'),
     bAutoWidth: false,
     aoColumns: [
@@ -88,6 +91,9 @@ $(document).ready(function() {
     bJQueryUI: true,
     bProcessing: true,
     bServerSide: true,
+    oLanguage: {
+        sUrl: "/datatables/spanish.txt"
+    },
     sAjaxSource: $('#properties').data('source'),
     aaSorting: [[ 0, "desc" ]],
     fnInitComplete: function(oSettings, json){

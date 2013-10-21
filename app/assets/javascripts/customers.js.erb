@@ -76,7 +76,10 @@ $(document).ready(function() {
 
   $('#show-customer-property').dataTable({
     sPaginationType: "full_numbers",
-    bJQueryUI: true
+    bJQueryUI: true,
+    oLanguage: {
+      sUrl: "/datatables/spanish.txt"
+    }
   });
 
   var oTable = $('#history').dataTable({

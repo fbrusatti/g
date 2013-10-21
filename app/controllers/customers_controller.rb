@@ -8,8 +8,8 @@ class CustomersController < ApplicationController
     respond_to do |format|
       format.html
       if params[:q].present?
-        format.json { render :json => Customer.where("surname ILIKE ?",
-                                      "%#{params[:q]}%").map(&:attributes)}
+        format.json { render :json => Customer.where("surname ILIKE ? or name ILIKE ?",
+                                      "%#{params[:q]}%","%#{params[:q]}%").map(&:attributes)}
       else
         @users = User.all
         format.json { render json: CustomersDatatable.new(view_context) }
