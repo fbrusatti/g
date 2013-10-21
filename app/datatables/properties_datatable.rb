@@ -69,7 +69,7 @@ private
       properties = properties.where("users.email ilike :search",
                                      search: current_user.email)
     end
-    properties.includes(:money_to_rent, :money_to_sale)
+    properties.includes(:money_to_rent, :money_to_sale, :owner)
   end
 
   def per_page

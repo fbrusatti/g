@@ -11,6 +11,8 @@
     = render 'sub_header'
     .container
       - flash.each do |key, value|
+        - key = key.to_s
+        - key.gsub!(/alert|notice/, 'notice' => :info, 'alert' => :warning) || key
         %div(class="alert alert-#{key}")
           = value
     = yield
