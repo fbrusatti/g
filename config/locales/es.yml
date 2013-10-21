@@ -200,6 +200,7 @@ es:
     show:
       customer_data: Datos Personales
       history: Historial
+      properties: Propiedades
     show_customer_data:
       name: Nombre
       surname: Apellido

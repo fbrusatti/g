@@ -105,7 +105,7 @@ $(document).ready(function() {
         oTable.fnFilter(start+" "+end, column);
        });
 
-      $("thead th").each( function ( i ) {
+      $("thead#customer-history-head th").each( function ( i ) {
         $('select', this).change( function () {
           oTable.fnFilter( $(this).val(),i);
          });
