@@ -16,7 +16,9 @@ gem 'thin'
 gem 'will_paginate','>=3.0.pre3'
 gem 'paper_trail', '>= 3.0.0.beta1'
 gem 'bootstrap-daterangepicker-rails'
-
+gem 'unicorn'
+gem 'capistrano', '2.15.5'
+gem 'rvm-capistrano'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
