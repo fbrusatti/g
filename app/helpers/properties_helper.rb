@@ -59,7 +59,7 @@ module PropertiesHelper
 
   def transaction_price(form, attr_name)
     options = { class: "pretty-input" }
-    options[:value] = @property.prices["#{attr_name}"] unless @property.new_record?
+    options[:value] = @property.send("#{attr_name}") unless @property.new_record?
     form.number_field attr_name, options
   end
 
@@ -77,7 +77,7 @@ module PropertiesHelper
     if (@property.type_transaction.downcase.include? type)
       money = t == "sale" ? @property.money_to_sale.name : @property.money_to_rent.name
       tag = label_tag type
-      price = label_tag "$" + @property.prices["to_#{t}"] + " #{money}",
+      price = label_tag "$" + @property.send("to_#{t}").to_s + " #{money}",
                          nil, class: "pretty-input"
       html << tag + price
     end

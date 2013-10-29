@@ -157,6 +157,8 @@ es:
       transaction: Transacción
       address: Dirección-Zona
       rooms: Habitaciones
+      rent: Alq
+      sale: Vta
       price: Precio
       owner: Propietario
       properties: Propiedades
@@ -320,6 +322,8 @@ es:
         property_id: Propiedad
         customer_id: Cliente
       property:
+        to_sale: Venta
+        to_rent: Alquiler
         owner_id: Dueño
         type_transaction: La transacción(vta. o alq.)
         owner: Dueño

@@ -6,7 +6,7 @@ class Property < ActiveRecord::Base
                   :influence_zone, :type_property, :position,
                   :type_transaction, :key_possessor, :photos_attributes,
                   :status, :owner_tokens, :prices, :money_to_sale_attributes,
-                  :money_to_rent_attributes
+                  :money_to_rent_attributes, :to_sale, :to_rent
   # == Validations
   validates_presence_of :address, :type_transaction
   validates :title_to_print, length: {maximum: 255}
@@ -36,17 +36,11 @@ class Property < ActiveRecord::Base
     "#{self.address} \n#{self.influence_zone}"
   end
 
-  def pretty_price
-    pprice = ""
-    sale = I18n.t('properties.transactions.sale').downcase
-    rent = I18n.t('properties.transactions.rent').downcase
-    if type_transaction.downcase.include? sale
-      pprice << "vta: $#{prices['to_sale']} #{self.money_to_sale.try(:name)}"
-    end
-    if type_transaction.downcase.include? rent
-      pprice << "\nalq: $#{prices['to_rent']} #{self.money_to_rent.try(:name)}"
-    end
-    pprice
+  def pretty_price(transaction)
+    t = I18n.t("properties.transactions.#{transaction}").downcase
+    price, money = self.send("to_#{transaction}"),
+                   self.send("money_to_#{transaction}").try(:name)
+    "$#{price} #{money}" if price
   end
 
   def owner_tokens=(ids)
