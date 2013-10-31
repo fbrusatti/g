@@ -28,7 +28,8 @@ private
         h(property.type_transaction),
         h(address(property)),
         h(property.amount_rooms),
-        h(prices(property)),
+        h(prices(property, 'rent')),
+        h(prices(property, 'sale')),
         link_to(short_string("#{property.owner.try(:surname_with_name)}"), property.owner)
       ]
     end
@@ -39,7 +40,7 @@ private
   end
 
   def fetch_properties
-    properties = Property.order("#{sort_column} #{sort_direction}")
+    properties = Property.order("#{sort_column} #{sort_direction} nulls last")
     properties = properties.page(page).per_page(per_page)
     if params[:sSearch].present?
       properties = properties.joins("LEFT OUTER JOIN customers ON customers.id = properties.owner_id")
@@ -81,7 +82,7 @@ private
   end
 
   def sort_column
-    columns = %w[properties.id status type_property type_transaction address amount_rooms prices owner]
+    columns = %w[properties.id status type_property type_transaction address amount_rooms to_rent to_sale owner]
     columns[params[:iSortCol_0].to_i]
   end
 
@@ -93,7 +94,7 @@ private
     simple_format(property.pretty_address)
   end
 
-  def prices(property)
-    simple_format(property.pretty_price)
+  def prices(property, t)
+    simple_format(property.pretty_price t)
   end
 end

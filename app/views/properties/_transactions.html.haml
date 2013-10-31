@@ -1,35 +1,34 @@
-= f.fields_for :prices do |p|
-  .transaction
-    .thorizontal
-      .tcheck
-        .tcheckbox
-          = label_tag :to_sale, t('.sale')
-          = transaction_checkbox :to_sale, t('.sale')
-    .thorizontal
-      .tlabel
-        = p.label t('.money')
-      .tinput
-        = f.fields_for :money_to_sale do |m|
-          = transaction_money m, :money_to_sale
-    .thorizontal
-      .tlabel
-        = p.label t('.price_to_sale')
-      .tinput
-        = transaction_price p, :to_sale
-  .transaction
-    .thorizontal
-      .tcheck
-        .tcheckbox
-          = label_tag :to_rent, t('.rent')
-          = transaction_checkbox :to_rent, t('.rent')
-    .thorizontal
-      .tlabel
-        = p.label t('.money')
-      .tinput
-        = f.fields_for :money_to_rent do |m|
-          = transaction_money m, :money_to_rent
-    .thorizontal
-      .tlabel
-        = p.label t('.price_to_rent')
-      .tinput
-        = transaction_price p, :to_rent
+.transaction
+  .thorizontal
+    .tcheck
+      .tcheckbox
+        = f.label :to_sale
+        = transaction_checkbox :to_sale, t('.sale')
+  .thorizontal
+    .tlabel
+      = f.label t('.money')
+    .tinput
+      = f.fields_for :money_to_sale do |m|
+        = transaction_money m, :money_to_sale
+  .thorizontal
+    .tlabel
+      = f.label t('.price_to_sale')
+    .tinput
+      = transaction_price f, :to_sale
+.transaction
+  .thorizontal
+    .tcheck
+      .tcheckbox
+        = f.label :to_rent
+        = transaction_checkbox :to_rent, t('.rent')
+  .thorizontal
+    .tlabel
+      = f.label t('.money')
+    .tinput
+      = f.fields_for :money_to_rent do |m|
+        = transaction_money m, :money_to_rent
+  .thorizontal
+    .tlabel
+      = f.label t('.price_to_rent')
+    .tinput
+      = transaction_price f, :to_rent
