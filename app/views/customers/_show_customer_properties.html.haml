@@ -7,7 +7,8 @@
       %th= t('.type')
       %th= t('.transaction')
       %th= t('.address')
-      %th= t('.price')
+      %th= t('.sale')
+      %th= t('.rent')
   %tbody
     - @customer.properties.each do |property|
       %tr
@@ -16,4 +17,5 @@
         %th= property.type_property
         %th= property.type_transaction
         %th= link_to(property.address, property)
-        %th= simple_format property.pretty_price
+        %th= property.pretty_price 'sale'
+        %th= property.pretty_price 'rent'

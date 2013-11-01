@@ -133,8 +133,45 @@ $(document).ready(function() {
     var anSelected = fnGetSelected( oTable );
     oTable.fnDeleteRow( anSelected[0] );
   } );
-  // Init the table
-  // oTable = $('#properties').dataTable();
+
+  // handle the datatable with keyboard
+  $(document).keydown(function (event) {
+    var currentRow = $("#properties .row_selected").get(0);
+    switch(event.keyCode){
+
+      case 9: // tab
+        event.preventDefault();
+        $('#properties_filter input').focus();
+        break;
+      case 40: //arrow down
+        if ($(currentRow).next().length != 0) {
+          $(currentRow).next().addClass("row_selected");
+          $(currentRow).removeClass("row_selected");
+        }
+        break;
+      case 38: //arrow up
+        if ($(currentRow).prev().length != 0) {
+          $(currentRow).prev().addClass("row_selected");
+          $(currentRow).removeClass("row_selected");
+        }
+        break;
+      case 13: //enter
+        var row = $(".row_selected .sorting_1 a");
+        if (row.length) {
+          row[0].click()
+        }
+        break;
+     }
+  });
+
+  // select the first datatable's row when enter is pressed
+  $(document).on('keyup', '#properties_filter input', function(event){
+    var nothingSelected = $('#properties .row_selected').length == 0;
+    if (event.which == 13 && nothingSelected){
+      $('#properties tbody tr:first td:first').click()
+    }
+  });
+
 
 });// END-$(document)
 
@@ -156,15 +193,11 @@ var aColumnsOptions =
     ]
 
 // Get the rows which are currently selected
-function fnGetSelected( oTableLocal )
-{
+function fnGetSelected( oTableLocal ){
   var aReturn = new Array();
   var aTrs = oTableLocal.fnGetNodes();
-
-  for ( var i=0 ; i<aTrs.length ; i++ )
-  {
-    if ( $(aTrs[i]).hasClass('row_selected') )
-    {
+  for ( var i=0 ; i<aTrs.length ; i++ ){
+    if ( $(aTrs[i]).hasClass('row_selected') ){
       aReturn.push( aTrs[i] );
     }
   }

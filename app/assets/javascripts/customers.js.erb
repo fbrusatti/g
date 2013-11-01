@@ -48,6 +48,61 @@ $(document).ready(function() {
     }
   });
 
+  // row select
+  // ----------
+  var giRedraw = false
+  // Add a click handler to the rows - this could be used as a callback
+  $("#customers tbody").click(function(event) {
+    $(oTableIndex.fnSettings().aoData).each(function (){
+      $(this.nTr).removeClass('row_selected');
+    });
+    $(event.target.parentNode).addClass('row_selected');
+  });
+  // Add a click handler for the delete row
+  $('#delete').click( function() {
+    var anSelected = fnGetSelected( oTableIndex );
+    oTableIndex.fnDeleteRow( anSelected[0] );
+  });
+
+
+  // handle the datatable with keyboard
+  $(document).keydown(function (event) {
+    var currentRow = $("#customers .row_selected").get(0);
+    switch(event.keyCode){
+
+      case 9: // tab
+        event.preventDefault();
+        $('#customers_filter input').focus();
+        break;
+      case 40: //arrow down
+        if ($(currentRow).next().length != 0) {
+          $(currentRow).next().addClass("row_selected");
+          $(currentRow).removeClass("row_selected");
+        }
+        break;
+      case 38: //arrow up
+        if ($(currentRow).prev().length != 0) {
+          $(currentRow).prev().addClass("row_selected");
+          $(currentRow).removeClass("row_selected");
+        }
+        break;
+      case 13: //enter
+        var row = $(".row_selected .sorting_1 a");
+        if (row.length) {
+          row[0].click()
+        }
+        break;
+     }
+  });
+
+  // select the first datatable's row when enter is pressed
+  $(document).on('keyup', '#customers_filter input', function(event){
+    var nothingSelected = $('#customers .row_selected').length == 0;
+    if (event.which == 13 && nothingSelected){
+      $('#customers tbody tr:first td:first').click()
+    }
+  });
+
   $('input[name="daterange"]').daterangepicker(
     { format: 'DD/MM/YYYY',
       ranges: {
