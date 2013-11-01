@@ -4,4 +4,8 @@
     font-weight: bold;
     &:hover { color: #2a6496 }
   }
+
+  .dataTables_wrapper .ui-toolbar {
+    padding: 0px;
+  }
 }

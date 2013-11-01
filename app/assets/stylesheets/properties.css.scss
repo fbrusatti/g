@@ -11,19 +11,19 @@
 
 // sub-header customer
 .property-new {
-  @extend .btn, .btn-primary;
+  @extend .btn, .btn-primary, .btn-xs;
 }
 
 .property-print {
-  @extend .btn, .btn-primary, .pull-right;
+  @extend .btn, .btn-primary, .btn-xs, .pull-right;
 }
 
 .property-save {
-  @extend .btn, .btn-primary;
+  @extend .btn, .btn-primary, .btn-xs;
 }
 
 .property-danger {
-   @extend .btn, .btn-danger;
+   @extend .btn, .btn-danger, .btn-xs;
 }
 
 div.property-tabs-content div.tab-pane { margin-left: 0px !important}
@@ -78,8 +78,12 @@ form[id*='edit_property_'], #new_property .detail, .general {
 }
 
 .property-tabs {
+   border-bottom: 8px solid #dddddd;
   @extend .nav, .nav-tabs;
-  li > a { @extend .btn, .btn-success }
+  li > a {
+    padding: 5px;
+    @extend .btn, .btn-success
+  }
 }
 
 .property-tabs-content { @extend .tab-content }
@@ -170,6 +174,10 @@ ul.property-tabs .nmro-ref{
 .picture-add > a{
   margin: 10px;
   @extend  .btn, .btn-primary, .btn-sm;
+}
+
+.dataTables_wrapper .ui-toolbar {
+  padding: 0px;
 }
 
 // handled errors

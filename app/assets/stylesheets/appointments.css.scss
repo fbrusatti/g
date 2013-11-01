@@ -2,30 +2,30 @@
 
   // sub-header customer
   .appointment-new {
-    @extend .btn,  .btn-primary;
+    @extend .btn,  .btn-primary, .btn-xs;
   }
   .appointment-all {
-    @extend .btn,  .btn-default;
+    @extend .btn,  .btn-default, .btn-xs;
   }
   .appointment-month {
-    @extend .btn,  .btn-default;
+    @extend .btn,  .btn-default, .btn-xs;
   }
   .appointment-week {
-    @extend .btn,  .btn-default;
+    @extend .btn,  .btn-default, .btn-xs;
   }
   .appointment-today {
-    @extend .btn,  .btn-default;
+    @extend .btn,  .btn-default, .btn-xs;
   }
   .appointment-print {
-    @extend .btn,  .btn-primary, .pull-right;
+    @extend .btn,  .btn-primary, .pull-right, .btn-xs;
   }
 
   .appointment-save {
-    @extend .btn,  .btn-primary;
+    @extend .btn,  .btn-primary, .btn-xs;
   }
 
   .appointment-danger {
-     @extend .btn,  .btn-danger;
+     @extend .btn,  .btn-danger, .btn-xs;
   }
 
 #appointment{
@@ -48,8 +48,10 @@
 
   // tabs customer
   .appointment-tabs {
+    border-bottom: 7px solid #dddddd;
     @extend .nav, .nav-tabs;
     li > a {
+      padding: 5px;
       @extend .btn, .btn-success;
     }
   }
@@ -125,5 +127,9 @@
 
   .dateranges{
     width: 35%;
+  }
+
+  .dataTables_wrapper .ui-toolbar {
+    padding: 0px;
   }
 }
