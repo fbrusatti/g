@@ -2,6 +2,7 @@ $(document).ready(function() {
 
   // SELECT TO ROWS
   $('.multiselect').multiselect({
+      maxHeight: 400,
       buttonText: function(options, select) {
         if (options.length == 0) {
           return ""+'<b class="caret"></b>';
