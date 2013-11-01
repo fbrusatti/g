@@ -16,19 +16,19 @@
 
 // sub-header customer
 .customer-new {
-  @extend .btn, .btn-primary;
+  @extend .btn, .btn-primary, .btn-xs;
 }
 
 .customer-print {
-  @extend .btn, .btn-primary, .pull-right;
+  @extend .btn, .btn-primary, .btn-xs, .pull-right;
 }
 
 .customer-danger {
-   @extend .btn, .btn-danger;
+   @extend .btn, .btn-danger, .btn-xs;
 }
 
 .customer-save {
-   @extend .btn, .btn-primary;
+   @extend .btn, .btn-primary, .btn-xs;
 }
 
 #new_customer {
@@ -38,8 +38,10 @@
 }
 // tabs customer
 .customer-tabs {
+  border-bottom: 7px solid #dddddd;
   @extend .nav, .nav-tabs;
   li > a {
+    padding: 5px;
     @extend .btn, .btn-success;
   }
 }
@@ -142,8 +144,12 @@
 
   h3 {
     margin-top: 0px;
-    margin-bottom: 28px;
-    padding-top: 19px;
+    margin-bottom: 10px;
+    padding-top: 10px;
     margin-left: 15px;
   }
+}
+
+.dataTables_wrapper .ui-toolbar {
+  padding: 0px;
 }

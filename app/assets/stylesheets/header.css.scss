@@ -4,11 +4,12 @@
 
 .menu-head li > a {
   @extend .btn, .btn-success;
+  padding: 0px;
+  border-radius: 0px;
 }
 
 .menu-head li:last-child a  {
   @extend .btn-danger;
-
 }
 
 ul.menu-head {
