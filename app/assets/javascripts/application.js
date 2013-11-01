@@ -25,3 +25,4 @@
 //= require ColReorderWithResize.js
 //= require_tree .
 //= require twitter/bootstrap
+//= require bootstrap-multiselect

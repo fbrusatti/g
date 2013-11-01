@@ -62,9 +62,11 @@ private
       properties = properties.where("type_transaction ilike :search",
                                      search: "%#{params[:sSearch_3]}%")
     end
-    if params[:sSearch_5].present?
-      properties = properties.where(amount_rooms: params[:sSearch_5])
+    if params[:sSearch_5].present? & (params[:sSearch_5] !='null')
+      rooms = params[:sSearch_5].split(",")
+      properties =  properties.where("amount_rooms IN (?)",rooms)
     end
+
     if params[:bMyProperties] == 'true'
       properties = properties.joins(:user)
       properties = properties.where("users.email ilike :search",
@@ -97,4 +99,5 @@ private
   def prices(property, t)
     simple_format(property.pretty_price t)
   end
+
 end

@@ -78,6 +78,9 @@ es:
       property: Propiedad
       last_date: Ultimas Fechas
   properties:
+    selected_rooms:
+      not_select:
+      selected: seleccionados
     detail_show:
       keys: Poseedor
       type_transaction: Transacción

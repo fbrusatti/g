@@ -167,6 +167,19 @@ ul.property-tabs .nmro-ref{
   }
 }
 
+.multiselect{
+   @extend  .btn, .btn-default, .btn-sm;
+   width:100%;
+   font-size: 14px;
+}
+
+div.btn-group{
+    width:100%;
+   button.multiselect.dropdown-toggle.btn{
+      width:100% !important;
+    }
+}
+
 .photo input[type="file"] {
   margin-top: 10px;
 }
