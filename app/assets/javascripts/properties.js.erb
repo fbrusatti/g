@@ -4,9 +4,9 @@ $(document).ready(function() {
 
   // button save of form property
   $("a.property-save").click(function() {
-    $("a.property-save").attr("disabled", true);
     if (validateTransactions()){
       cleanUpTransactionFields();
+      $("a.property-save").attr("disabled", true);
       $("#new_property, [id^=edit_property_]").submit();
     } else
       alert("<%= I18n.t('properties.transactions.error') %>");
