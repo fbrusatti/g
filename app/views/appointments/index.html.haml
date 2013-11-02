@@ -5,14 +5,14 @@
         %th
         %th= select_tag nil,
                         options_from_collection_for_select(User.all, "id", "surname_with_name"),
-                        include_blank: true
-        %th= select_tag nil, options_for_select(models), include_blank: true
-        %th= select_tag nil, options_for_select(appointment_status), include_blank: true
-        %th= text_field_tag nil, nil,
+                        {include_blank: true ,class: "pretty-input-data-table"}
+        %th= select_tag nil, options_for_select(models), {include_blank: true ,class: "pretty-input-data-table"}
+        %th= select_tag nil, options_for_select(appointment_status), {include_blank: true ,class: "pretty-input-data-table"}
+        %th= text_field_tag nil, nil,class: "pretty-input-data-table",
                             type: "text",
                             name: "daterange",
                             placeholder: t('.last_date')
-        %th= select_tag nil, options_for_select((1..5).to_a), include_blank: true
+        %th= select_tag nil, options_for_select((1..5).to_a), {include_blank: true ,class: "pretty-input-data-table"}
         %th
         %th
       %tr

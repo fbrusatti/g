@@ -8,4 +8,10 @@
   .dataTables_wrapper .ui-toolbar {
     padding: 0px;
   }
+  .pretty-input-data-table {
+    height :25px;
+    padding:1px 12px;
+    @extend .form-control;
+    width: 190px;
+  }
 }

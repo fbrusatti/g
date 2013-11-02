@@ -5,10 +5,10 @@
         %th= select_tag nil,
                         options_for_select(changes),
                         include_blank: true,
-                        prompt: t('.search_by')
+                        prompt: t('.search_by'),class: "pretty-input-data-table"
         %th
         %th= text_field_tag nil, nil, type: "text", name: "daterange",
-                            placeholder: t('.last_date')
+                            placeholder: t('.last_date'),class: "pretty-input-data-table"
       %tr
         %th= t('.topic')
         %th= t('.user')

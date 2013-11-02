@@ -10,10 +10,10 @@
       %th
       %th=select_tag nil,
         options_from_collection_for_select(@users, "id", "surname_with_name"),
-        include_blank: true, prompt: t('.search_by')
+        include_blank: true, prompt: t('.search_by'),class: "pretty-input-data-table"
       %th= t('.search_date')
       %th= text_field_tag nil, nil,
-        type: "text", :name => "daterange", placeholder: t('.from_to')
+        type: "text", :name => "daterange", placeholder: t('.from_to'),class: "pretty-input-data-table"
     %tr
       %th= t('.id')
       %th= t('.surname')

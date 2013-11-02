@@ -1,5 +1,26 @@
 $(document).ready(function() {
 
+  // SELECT TO ROWS
+  $('.multiselect').multiselect({
+      maxHeight: 400,
+      buttonText: function(options, select) {
+        if (options.length == 0) {
+          return ""+'<b class="caret"></b>';
+        }
+        else if (options.length > 3) {
+          return options.length + " <%=I18n.t('properties.selected_rooms.selected') %>" + '<b class="caret"></b>';
+        }
+        else {
+          var selected = '';
+          options.each(function() {
+            selected += $(this).text() + ', ';
+          });
+          return selected.substr(0, selected.length -2) + ' <b class="caret"></b>';
+        }
+      }
+  });
+
+
   hiddenInputs();
 
   // button save of form property

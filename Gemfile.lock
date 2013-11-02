@@ -66,6 +66,8 @@ GEM
       erubis (>= 2.6.6)
     bootstrap-daterangepicker-rails (0.0.6)
       railties (>= 3.1)
+    bootstrap-multiselect-rails (0.0.2)
+      rails (~> 3.2.13)
     bourbon (3.1.8)
       sass (>= 3.2.0)
       thor
@@ -318,6 +320,7 @@ DEPENDENCIES
   awesome_print
   better_errors
   bootstrap-daterangepicker-rails
+  bootstrap-multiselect-rails
   brakeman
   capistrano (= 2.15.5)
   capybara (= 1.1.2)
