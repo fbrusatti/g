@@ -12,6 +12,8 @@ G
 
 ``` delete from money;```
 
+``` delete from photos;```
+
 ``` delete from versions;```
 
 ``` ALTER SEQUENCE photos_id_seq RESTART WITH 1;```
@@ -47,3 +49,5 @@ G
 * rake db:import_photos["a"] ~120min
 * rake db:import_customers
 * rake db:set_up_owner
+* rake db:migrate_to_new_prices
+* rake db:take_off_ceros
