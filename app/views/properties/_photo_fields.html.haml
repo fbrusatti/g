@@ -1,7 +1,7 @@
 .photo
   .image
     - if f.object.new_record?
-      = f.file_field :image, class: "photo-upload"
+      = f.file_field :image, class: "photo-upload", onchange: "loadPreview(this)"
       = image_tag "default_new_photo.png", size: "200x200"
     - else
       %a{ href: f.object.image, class: "gallery", "rel" => "gallery" }
