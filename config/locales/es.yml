@@ -255,12 +255,13 @@ es:
       search_by: Buscar por ..
       last_date: Ultimas Fechas
     show_customer_properties:
+      sale: Venta
+      rent: Alquiler
       ref: Referencia
       status: Estado
       type: Tipo
       transaction: Transacción
       address: Dirección-Zona
-      price: Precio
     datatables:
       today: Hoy
       yesterday: Ayer
