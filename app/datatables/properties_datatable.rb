@@ -68,9 +68,7 @@ private
     end
 
     if params[:bMyProperties] == 'true'
-      properties = properties.joins(:user)
-      properties = properties.where("users.email ilike :search",
-                                     search: current_user.email)
+      properties = properties.where("properties.user_id = ?", current_user.id)
     end
     properties.includes(:money_to_rent, :money_to_sale, :owner)
   end
