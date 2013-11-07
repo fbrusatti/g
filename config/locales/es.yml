@@ -198,6 +198,7 @@ es:
       print: Imprimir
       save: Guardar
       edit: Editar
+      remove: Borrar
     new:
       customer_data: Datos Personales
     new_customer_data:

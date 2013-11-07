@@ -1,8 +1,18 @@
+<%# @encoding: UTF-8 %>
 $(document).ready(function() {
 
   $("a.customer-save").click( function() {
     $("a.customer-save").attr("disabled", true);
     $("#new_customer, [id^=edit_customer_]").submit();
+  });
+
+  // button remove of form customer
+  $("a.customer-remove").click(function() {
+    if (confirm("<%= I18n.t('confirm_remove.confirm') %>")){
+      $("a.customer-save, a.customer-remove").attr("disabled", true);
+      $('#customer_active').prop('value',0);
+      $("[id^=edit_customer_]").submit();
+    }
   });
 
   $('#customer-dob').datetimepicker({

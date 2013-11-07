@@ -30,7 +30,11 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @customer = Customer.find(params[:id])
+    begin
+      @customer = Customer.find params[:id]
+    rescue ActiveRecord::RecordNotFound => e
+      return redirect_to customers_path
+    end
     @versions = @customer.versions
     @users = User.all
     respond_to do |format|
