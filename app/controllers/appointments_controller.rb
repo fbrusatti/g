@@ -33,7 +33,11 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-    @appointment = Appointment.find(params[:id])
+    begin
+      @appointment = Appointment.find params[:id]
+    rescue ActiveRecord::RecordNotFound => e
+      return redirect_to appointments_path
+    end
     @versions = @appointment.versions
     @users = User.all
     respond_to do |format|

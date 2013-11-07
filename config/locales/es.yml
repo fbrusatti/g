@@ -43,6 +43,7 @@ es:
       search_by: Buscar por ..
       last_date: Ultimas Fechas
     sub_header:
+      remove: Borrar
       appointment_save: Guardar
       appointment_edit: Editar
       print: Imprimir
