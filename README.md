@@ -5,6 +5,8 @@ G
 
 
 #### clean up your db
+```delete from appointments;```
+
 
 ``` delete from properties;```
 
