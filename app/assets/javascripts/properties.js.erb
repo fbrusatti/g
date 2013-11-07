@@ -1,3 +1,4 @@
+<%# @encoding: UTF-8 %>
 $(document).ready(function() {
 
   // SELECT TO ROWS
@@ -20,8 +21,15 @@ $(document).ready(function() {
       }
   });
 
-
   hiddenInputs();
+  // button remove of form property
+  $("a.property-remove").click(function() {
+    if (confirm("<%= I18n.t('confirm_remove.confirm') %>")){
+      $("a.property-save, a.property-remove").attr("disabled", true);
+      $('#property_active').prop('value',0);
+      $("[id^=edit_property_]").submit();
+    }
+  });
 
   // button save of form property
   $("a.property-save").click(function() {

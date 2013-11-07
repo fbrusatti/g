@@ -1,4 +1,6 @@
 class Property < ActiveRecord::Base
+  # == Scopes
+  default_scope { where active: true }
 
   # == Accessors
   attr_accessible :amount_rooms, :title_to_print, :address, :description,:description_to_print,
@@ -6,7 +8,7 @@ class Property < ActiveRecord::Base
                   :influence_zone, :type_property, :position,
                   :type_transaction, :key_possessor, :photos_attributes,
                   :status, :owner_tokens, :prices, :money_to_sale_attributes,
-                  :money_to_rent_attributes, :to_sale, :to_rent
+                  :money_to_rent_attributes, :to_sale, :to_rent, :active
   # == Validations
   validates_presence_of :address, :type_transaction
   validates :title_to_print, length: {maximum: 255}
@@ -48,6 +50,8 @@ class Property < ActiveRecord::Base
   end
 
   def information_primary
-    " Propiedad #{self.pretty_address}. Num ref:#{self.id}".slice(0..254)
+    info = " Propiedad #{self.pretty_address}. Num ref:#{self.id}".slice(0..250)
+    info << "#{info} /n" if self.active.blank?
+    info
   end
 end
