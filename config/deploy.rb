@@ -10,7 +10,7 @@ set :branch, "master"
 set :repository,  'git@github.com:fbrusatti/g.git'
 set :deploy_to, '/var/www'
 set :deploy_via, :remote_cache
-server "192.168.0.32", :app, :web, :db, :primary => true
+server "192.168.1.111", :app, :web, :db, :primary => true
 
 set :user, "gutierrez"
 default_run_options[:pty] = true
