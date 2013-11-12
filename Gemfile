@@ -20,6 +20,7 @@ gem 'unicorn'
 gem 'capistrano', '2.15.5'
 gem 'rvm-capistrano'
 gem 'bootstrap-multiselect-rails'
+gem 'geocoder'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
