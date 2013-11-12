@@ -8,7 +8,9 @@ class Property < ActiveRecord::Base
                   :influence_zone, :type_property, :position,
                   :type_transaction, :key_possessor, :photos_attributes,
                   :status, :owner_tokens, :prices, :money_to_sale_attributes,
-                  :money_to_rent_attributes, :to_sale, :to_rent, :active
+                  :money_to_rent_attributes, :to_sale, :to_rent, :active,
+                  :latitude, :longitude
+
   # == Validations
   validates_presence_of :address, :type_transaction
   validates :title_to_print, length: {maximum: 255}
@@ -33,6 +35,11 @@ class Property < ActiveRecord::Base
 
   # == Tracking
   has_paper_trail meta: { primary_information: :information_primary }
+
+  # == Geocoder
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
 
   def pretty_address
     "#{self.address} \n#{self.influence_zone}"
