@@ -151,6 +151,7 @@ GEM
     formtastic (2.2.1)
       actionpack (>= 3.0)
     geocoder (1.1.8)
+    gmaps4rails (2.0.4)
     haml (4.0.3)
       tilt
     haml-rails (0.4)
@@ -336,6 +337,7 @@ DEPENDENCIES
   factory_girl_rails
   font-awesome-sass-rails
   geocoder
+  gmaps4rails
   haml
   haml-rails
   jquery-datatables-rails!
