@@ -301,6 +301,22 @@ es:
       contracts: Contratos
       exit: Salir
       confirm: ¿Está Seguro?
+  calculator:
+    calculator:
+      simple_calculator: Calculadora Simple
+      real_estate_calculator: Calculadora de Inmobiliaria
+      close: Cerrar
+      x: X
+    real_estate_calculator:
+      property_price: Precio de Propiedad
+      prepayment: Pago Anticipado
+      interest_payments: Interes
+      payment_years: años
+      calculate_result: Calcular
+    error_messages:
+      prepayment: Precio de la propiedad o Pago anticipado en %\n No pueden estar en blanco\n
+      percentage_payment: Precio de la propiedad o Pago anticipado en $\nNo pueden estar en blanco \n
+      calculate_result: "Precio de Propiedad, tasa de interes y años no deben estar vacios y deben ser mayor a cero"
   activerecord:
     models:
       money: Moneda

@@ -16,8 +16,8 @@
       %i.icon-calendar.icon-3x
       = t('.calendar')
   %li
-    %a{href: "#", class: current_tag('calculator')}
-      %i.icon-cog.icon-3x
+    %a#calculator{ "data-target" => "#calculator-modal", "data-toggle" => "modal" }
+      %i.icon-money.icon-3x
       = t('.calculator')
   %li
     %a{href: "#", class: current_tag('contracts')}

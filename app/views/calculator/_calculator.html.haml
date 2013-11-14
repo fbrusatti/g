@@ -1,0 +1,20 @@
+#calculator-modal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal"}= t('.x')
+        %ul
+          %li.active
+            %a{"data-toggle" => "tab", href: "#simple-calculator"}
+              = t('.simple_calculator')
+          %li
+            %a{"data-toggle" => "tab", href: "#real-estate"}
+              = t('.real_estate_calculator')
+      .modal-body
+        .property-tabs-content
+          #simple-calculator.tab-pane.active
+            .calculator
+          #real-estate.tab-pane
+            = render 'calculator/real_estate_calculator'
+      .modal-footer
+        %button{"data-dismiss" => "modal"}= t('.close')

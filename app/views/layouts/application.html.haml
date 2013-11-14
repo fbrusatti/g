@@ -12,6 +12,7 @@
     = render 'layouts/header' if current_user
     = render 'sub_header'
     .container
+      = render 'calculator/calculator'
       - flash.each do |key, value|
         - key = key.to_s
         - key.gsub!(/alert|notice/, 'notice' => :info, 'alert' => :warning) || key
