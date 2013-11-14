@@ -23,6 +23,8 @@
 //= require moment
 //= require daterangepicker
 //= require ColReorderWithResize.js
+//= require underscore
+//= require gmaps/google
 //= require_tree .
 //= require twitter/bootstrap
 //= require bootstrap-multiselect
