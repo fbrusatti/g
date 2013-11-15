@@ -28,6 +28,7 @@ G
 
 ``` ALTER SEQUENCE properties_id_seq RESTART WITH 1;```
 
+
 ####configure your paths
 
 #
@@ -43,6 +44,9 @@ G
     # file_f = "your_pathresultsetFotos.csv"
     # photo.image = File.open("your_path_where_are_photos/#{rowf[1].strip}_#{rowf[2]}.jpg")
 
+    ## lib/taks/populate_locations.rake
+    # file = "your_path_.csv"
+    
 ####run migration
 
 * rake db:import_properties["a"]
@@ -53,3 +57,4 @@ G
 * rake db:set_up_owner
 * rake db:migrate_to_new_prices
 * rake db:take_off_ceros
+* rake db:populate_locations
