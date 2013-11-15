@@ -6,6 +6,10 @@
     %a.customer-danger{href: "#{customers_path}"}
       %i.icon-remove-sign.icon-2x
       = t('.cancel')
+    - if current_page?(action: 'edit', id: @customer.id || 0)
+      %a.customer-remove{href: "#"}
+        %i.icon-remove.icon-2x
+        = t('.remove')
   -elsif show_page?(@customer)
     %a.customer-new{ href: "#{edit_customer_path(@customer)}" }
       %i.icon-edit.icon-2x

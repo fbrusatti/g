@@ -1,3 +1,4 @@
+<%# @encoding: UTF-8 %>
     /***************
     DATE-TIME-PICKER
     ****************/
@@ -15,6 +16,15 @@ $(document).ready(function(){
   $("a.appointment-save").click(function() {
     $("a.appointment-save").attr("disabled", true);
     $("#new_appointment, [id^=edit_appointment_]").submit();
+  });
+
+  // button remove of form appointment
+  $("a.appointment-remove").click(function() {
+    if (confirm("<%= I18n.t('confirm_remove.confirm') %>")){
+      $("a.appointment-save, a.appointment-remove").attr("disabled", true);
+      $('#appointment_active').prop('value',0);
+      $("[id^=edit_appointment_]").submit();
+    }
   });
 
   $('input[name="daterange"]').daterangepicker(

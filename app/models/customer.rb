@@ -1,11 +1,13 @@
 class Customer < ActiveRecord::Base
+  # == Scopes
+  default_scope { where active: true }
 
   serialize :phones, Hash
   has_paper_trail meta: { primary_information: :information_primary }
 
   # == Accessors
   attr_accessible :name, :surname, :dni, :phones, :phone, :mobile_phone,
-                  :address, :dob, :email, :profession, :description
+                  :address, :dob, :email, :profession, :description, :active
 
   # == Validations
   validates_presence_of :name, :surname
@@ -26,7 +28,9 @@ class Customer < ActiveRecord::Base
   end
 
   def information_primary
-    " Cliente #{self.surname_with_name}. Num cliente:#{self.id}".slice(0..254)
+    info = " Cliente #{self.surname_with_name}. Num cliente:#{self.id}".slice(0..250)
+    info << "#{info} /n" if self.active.blank?
+    info
   end
 
   private

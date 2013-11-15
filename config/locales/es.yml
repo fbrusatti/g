@@ -1,4 +1,6 @@
 es:
+  confirm_remove:
+    confirm: ¿Esta seguro de Borrar? Esto lo borrara permanentemente.
   landing:
     index:
       search_by: Buscar por
@@ -9,6 +11,7 @@ es:
       date: Fecha
       last_date: Ultimas Fechas
     history:
+      remove: Se Borro
       create: Se creo
       update: Se actulizo
   appointments:
@@ -40,6 +43,7 @@ es:
       search_by: Buscar por ..
       last_date: Ultimas Fechas
     sub_header:
+      remove: Borrar
       appointment_save: Guardar
       appointment_edit: Editar
       print: Imprimir
@@ -148,6 +152,7 @@ es:
       garage: Cochera
       pasture: Campo
     sub_header:
+      remove: Borrar
       print: Imprimir
       new: Nueva
       property_save: Guardar
@@ -194,6 +199,7 @@ es:
       print: Imprimir
       save: Guardar
       edit: Editar
+      remove: Borrar
     new:
       customer_data: Datos Personales
     new_customer_data:

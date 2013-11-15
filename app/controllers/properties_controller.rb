@@ -33,7 +33,11 @@ class PropertiesController < ApplicationController
   end
 
   def show
-    @property = Property.find(params[:id])
+    begin
+      @property = Property.find params[:id]
+    rescue ActiveRecord::RecordNotFound => e
+      return redirect_to properties_path
+    end
     @versions = @property.versions
     respond_to do |format|
       format.html

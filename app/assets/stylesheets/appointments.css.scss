@@ -28,6 +28,10 @@
      @extend .btn,  .btn-danger, .btn-xs;
   }
 
+  .appointment-remove {
+    @extend .btn, .btn-warning, .btn-xs;
+  }
+
 #appointment{
   $GREEN_BUTTON: #5CB85C;
   $GREEN: #4CAE4C;

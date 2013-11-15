@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131028191505) do
+ActiveRecord::Schema.define(:version => 20131107193900) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -57,9 +57,10 @@ ActiveRecord::Schema.define(:version => 20131028191505) do
     t.string   "status"
     t.integer  "priority"
     t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.integer  "owner_id"
+    t.boolean  "active",      :default => true
   end
 
   create_table "customers", :force => true do |t|
@@ -71,10 +72,11 @@ ActiveRecord::Schema.define(:version => 20131028191505) do
     t.date     "dob"
     t.string   "email"
     t.string   "profession"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.integer  "user_id"
     t.text     "description"
+    t.boolean  "active",      :default => true
   end
 
   add_index "customers", ["dni"], :name => "index_customers_on_dni"
@@ -121,8 +123,8 @@ ActiveRecord::Schema.define(:version => 20131028191505) do
     t.string   "type_property"
     t.string   "position"
     t.string   "type_transaction"
-    t.datetime "created_at",                                                          :null => false
-    t.datetime "updated_at",                                                          :null => false
+    t.datetime "created_at",                                                            :null => false
+    t.datetime "updated_at",                                                            :null => false
     t.integer  "user_id"
     t.string   "key_possessor"
     t.string   "status",                                              :default => ""
@@ -132,6 +134,7 @@ ActiveRecord::Schema.define(:version => 20131028191505) do
     t.text     "description_to_print"
     t.decimal  "to_sale",              :precision => 10, :scale => 2
     t.decimal  "to_rent",              :precision => 10, :scale => 2
+    t.boolean  "active",                                              :default => true
   end
 
   add_index "properties", ["key_possessor"], :name => "index_properties_on_key_possessor"

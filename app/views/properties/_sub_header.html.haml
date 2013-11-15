@@ -6,6 +6,10 @@
     %a.property-danger{href: "#{properties_path}"}
       %i.icon-remove-sign.icon-2x
       = t('.cancel')
+    - if current_page?(action: 'edit', id: @property.id || 0)
+      %a.property-remove{href: "#"}
+        %i.icon-remove.icon-2x
+        = t('.remove')
   - elsif show_page?(@property)
     %a.property-save{ href: "#{edit_property_path(@property)}" }
       %i.icon-edit.icon-2x

@@ -26,6 +26,10 @@
    @extend .btn, .btn-danger, .btn-xs;
 }
 
+.property-remove {
+  @extend .btn, .btn-warning, .btn-xs;
+}
+
 div.property-tabs-content div.tab-pane { margin-left: 0px !important}
 
 // New and Edit Property

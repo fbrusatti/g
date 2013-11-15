@@ -6,6 +6,10 @@
     %a.appointment-danger{href: "#{appointments_path}"}
       %i.icon-remove-sign.icon-2x
       = t('.cancel')
+    - if current_page?(action: 'edit', id: @appointment.id || 0)
+      %a.appointment-remove{href: "#"}
+        %i.icon-remove.icon-2x
+        = t('.remove')
   - elsif show_page?(@appointment)
     %a.appointment-save{ href: "#{edit_appointment_path(@appointment)}" }
       %i.icon-edit.icon-2x

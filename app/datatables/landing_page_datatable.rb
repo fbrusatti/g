@@ -70,6 +70,10 @@ private
   end
 
   def changes_tohuman(version)
+    if version.primary_information.include? '/n'
+       info = I18n.t("landing.history.remove")
+       return "#{info} #{version.primary_information}".gsub('/n','')
+    end
     klass, id = version.item_type.downcase, version.item_id
     info = I18n.t("landing.history.#{version.event}")
     info << version.primary_information

@@ -31,6 +31,10 @@
    @extend .btn, .btn-primary, .btn-xs;
 }
 
+.customer-remove {
+  @extend .btn, .btn-warning, .btn-xs;
+}
+
 #new_customer {
   background-color: #E0DFDB;
   padding-left: 40px;
