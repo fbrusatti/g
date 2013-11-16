@@ -151,7 +151,7 @@ GEM
     formtastic (2.2.1)
       actionpack (>= 3.0)
     geocoder (1.1.8)
-    gmaps4rails (2.0.4)
+    gmaps4rails (2.1.0)
     haml (4.0.3)
       tilt
     haml-rails (0.4)
