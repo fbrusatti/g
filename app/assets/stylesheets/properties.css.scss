@@ -101,6 +101,11 @@ form[id*='edit_property_'], #new_property .detail, .general {
 
 // Show Property
 // -------------
+.property-tabs-content #show-map {
+  background-color: #E0DFDB;
+  #map { @extend .col-lg-offset-2 }
+}
+
 ul.property-tabs .nmro-ref{
   padding-top: 10px;
   color: #357ebd;
@@ -212,9 +217,9 @@ div.btn-group{
   display: inline;
 }
 
-// change color of select row
-//table#properties{
-//  .row_selected td {
-//    background-color: #4cae4c !important;
-//  }
-//}
+#map img {
+  max-width: none;
+}
+#map label {
+  width: auto; display:inline;
+}

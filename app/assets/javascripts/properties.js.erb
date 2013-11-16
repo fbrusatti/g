@@ -149,6 +149,13 @@ $(document).ready(function() {
   rowSelected(oTable, "#properties");
   datatableKeyboard("#properties");
 
+  // fixes issue: the map loads only half inside a modal or  a tab
+  $('a[href="#show-map"]').on('shown.bs.tab', function(e){
+      google.maps.event.trigger(map, 'resize');
+      markers.panTo();
+  });
+
+
 });// END-$(document)
 
   /*********
@@ -233,4 +240,13 @@ function loadPreview(input) {
     };
     reader.readAsDataURL(input.files[0]);
   }
+}
+
+function buildMap(marker){
+  handler = Gmaps.build('Google', { markers: { maxRandomDistance: null } });
+  handler.buildMap({ provider: {maxZoom: 17}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarker(marker);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });// end handler
 }

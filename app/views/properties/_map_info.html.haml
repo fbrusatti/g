@@ -1,0 +1,7 @@
+%h4= @property.title_to_print
+%h5= @property.description_to_print
+%h5= @property.address
+%h6= photos?(@property.photos)
+- @property.photos.each do |p|
+  %a{ href: p.image, class: "gallery", "rel" => "gallery" }
+    = image_tag(p.image.url(:thumb), size: "30x30")

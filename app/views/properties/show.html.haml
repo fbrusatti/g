@@ -9,6 +9,9 @@
     %a{"data-toggle" => "tab", href: "#show-photos"}
       = t('.photos')
   %li
+    %a{"data-toggle" => "tab", href: "#show-map"}
+      = t('.map')
+  %li
     %a{"data-toggle" => "tab", href: "#show-history"}
       = t('.history')
   .nmro-ref
@@ -26,5 +29,13 @@
     - @property.photos.each do |p|
       %a{ href: p.image, class: "gallery", "rel" => "gallery" }
         = image_tag(p.image.url(:thumb))
+
+  #show-map.tab-pane
+    %div
+      #map{style: "width: 800px; height: 600px;"}
+
   #show-history.tab-pane
     = render "history"
+
+%script{charset: "utf-8", type: "text/javascript"}
+  buildMap(#{raw @hash.to_json});

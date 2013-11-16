@@ -185,6 +185,7 @@ es:
       general: General
       detail: Detalles
       photos: Fotos
+      map: Mapa
       history: Historial
       not_photos: Esta Propiedad No Posee Fotos
     datatables:
@@ -332,6 +333,9 @@ es:
         property_id: Propiedad
         customer_id: Cliente
       property:
+        latitude: Latitud
+        longitude: Longitud
+        location_id: Localidad
         to_sale: Venta
         to_rent: Alquiler
         owner_id: Dueño
