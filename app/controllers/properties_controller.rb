@@ -1,5 +1,5 @@
 class PropertiesController < ApplicationController
-  respond_to :html
+  respond_to :html, :js
   before_filter :authenticate_user!
 
   def index
@@ -39,6 +39,12 @@ class PropertiesController < ApplicationController
       return redirect_to properties_path
     end
     @versions = @property.versions
+    @hash = { lat: @property.latitude,
+              lng: @property.longitude,
+              infowindow: render_to_string(partial: 'map_info',
+                                           formats: [:html],
+                                           layout: false)
+            }
     respond_to do |format|
       format.html
       format.json { render json: PropertyVersionDatatable.new(view_context, @versions) }
