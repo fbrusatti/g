@@ -1,4 +1,5 @@
 .general
+  = f.check_box :active, hidden: true
   .left
     .title= t(".title_left_1")
     .input
@@ -9,6 +10,9 @@
     .input
       = f.label :status
       = f.select :status, status, {}, { class: "pretty-input" }
+    .input
+      = f.label :description
+      = f.text_area :description, size: "1x10",  class: "pretty-input"
 
   .right
     .title= t(".title_right_1")
@@ -16,6 +20,15 @@
       = f.label :address
       = f.text_area :address, size: "1x2",  class: "pretty-input"
     .input
-      = f.label :description
-      = f.text_area :description, size: "1x10",  class: "pretty-input"
-  = f.check_box :active, hidden: true
+      = f.label :location_id
+      = f.collection_select :location_id,
+                            Location.all,
+                            :id, :complete_location,
+                            { selected: 135 },
+                            class: "pretty-input"
+
+    %div{style: "width: 400px;"}
+      #map{style: "width: 400px; height: 400px;"}
+
+%script{charset: "utf-8", type: "text/javascript"}
+  buildMap(#{raw @hash.to_json});

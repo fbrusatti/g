@@ -135,8 +135,8 @@ es:
       none: Otro
     general:
       title_left_1: Propietario
-      title_right_1: Dirección y notas
-      title_left_2: Estado de la Propiedad
+      title_right_1: Dirección
+      title_left_2: Estado de la Propiedad y Nota
     positions:
       front_facade: Frente
       rear_facade: Contra Frente

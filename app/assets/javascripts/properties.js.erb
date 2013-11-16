@@ -155,6 +155,20 @@ $(document).ready(function() {
       markers.panTo();
   });
 
+  $(document).on('keypress change','#property_address, #property_location_id', function(e){
+    var data, adddres, location, isEnterKey;
+    istEnterKey = (e.type == 'keypress' && e.keyCode == 13);
+    if (istEnterKey || e.type == 'change') {
+      address = $('#property_address').val();
+      location = $('#property_location_id option:selected').text();
+      data = { address: address + " " + location }
+      $.get( "/properties/geocoding", data, function( data ) {
+        handler.removeMarker(markers);
+        markers = handler.addMarker(data);
+        markers.panTo();
+      });
+    }
+  });
 
 });// END-$(document)
 
