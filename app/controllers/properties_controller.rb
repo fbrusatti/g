@@ -1,5 +1,5 @@
 class PropertiesController < ApplicationController
-  respond_to :html, :js
+  respond_to :html, :json
   before_filter :authenticate_user!
 
   def index
@@ -19,6 +19,8 @@ class PropertiesController < ApplicationController
   def new
     @property = Property.new
     set_up_money
+    @hash = { lat: -33.121732600000016,
+              lng: -64.3496723}
   end
 
   def create
@@ -54,6 +56,12 @@ class PropertiesController < ApplicationController
   def edit
     @property = Property.find(params[:id])
     set_up_money
+    @hash = { lat: @property.latitude,
+              lng: @property.longitude,
+              infowindow: render_to_string(partial: 'map_info',
+                                           formats: [:html],
+                                           layout: false)
+            }
   end
 
   def update
@@ -65,6 +73,12 @@ class PropertiesController < ApplicationController
       set_up_money
     end
     respond_with @property
+  end
+
+  def geocoding
+    result = Geocoder.search(params[:address]).as_json
+    result = result[0]["data"]["geometry"]["location"]
+    render json: result
   end
 
   private

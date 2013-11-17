@@ -1,6 +1,8 @@
 G::Application.routes.draw do
 
-  resources :properties
+  resources :properties do
+    get 'geocoding', on: :collection
+  end
 
   devise_scope :user do
     root to: 'devise/sessions#new'
