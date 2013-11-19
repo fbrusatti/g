@@ -25,6 +25,8 @@
 //= require ColReorderWithResize.js
 //= require underscore
 //= require gmaps/google
+//= require jquery.blackcalculator-1.0.min.js
+//= require jquery.blackcalculator.src.js
 //= require_tree .
 //= require twitter/bootstrap
 //= require bootstrap-multiselect

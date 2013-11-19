@@ -1,0 +1,30 @@
+#reals_state_calculator
+  .input
+    %span#property_price_span= t('.property_price')
+    = text_field_tag nil, nil,
+      { id: "property_price", autofocus: true, class: "pretty-input"}
+  .input
+    %span#prepayment_span= t('.prepayment')
+    %span $
+    = text_field_tag nil, nil,
+      { id: "prepayment", class: "pretty-input",
+        onkeypress: "calculate_percentage_payment(event)"}
+    %span
+    = text_field_tag nil, nil,
+      { id: "percentage_payment", class: "pretty-input",
+        onkeypress: "calculate_prepayment(event)" }
+    %span %
+  .input
+    %span#interest_payments_span= t('.interest_payments')
+    = text_field_tag nil, nil,
+      { id: "interest_payments", class: "pretty-input"}
+    %span %
+  .input
+    %span#payment_years_span= t('.payment_years')
+    = text_field_tag nil, nil,
+      { id: "payment_years", class: "pretty-input"}
+  .input
+    %span
+      %button#calculate_button= t('.calculate_result')
+    = text_field_tag nil, nil,
+      { id: "calculate_result", class: "pretty-input"}

@@ -19,6 +19,8 @@
  *= require jquery.ui.theme
  *= require dataTables/src/demo_table_jui
  *= require daterangepicker
+ *= require black_calculator.css.scss
+ *= require black_calculator_ie.css
  *= require_tree .
  *= require _font-awesome
  *= require bootstrap-multiselect
@@ -88,4 +90,73 @@ $GREEN: #4CAE4C;
 
 .field_with_errors {
   textarea, input { border: 1px solid red}
+}
+
+// real estate calculator
+#reals_state_calculator {
+  #property_price_span {
+    border-right: 0;
+    padding-right: 43px;
+  }
+
+  #prepayment_span {
+    border-right: 0;
+    padding-right: 69px;
+  }
+
+  #interest_payments_span {
+    border-right: 0;
+    padding-right: 127px;
+  }
+
+  #payment_years_span  {
+    border-right: 0;
+    padding-right: 140px;
+  }
+
+  .input {
+    @extend .input-group;
+    margin: 10px;
+    span {
+      @extend .input-group-addon;
+    }
+
+    button {
+      margin: -10px;
+      @extend .btn, .btn-default;
+    }
+  }
+
+  #calculate_button {
+    margin-right: -12px;
+    background-color: #428bca;
+    padding-right: 117px;
+  }
+
+  #calculation_result {
+    padding-right: 313px;
+  }
+
+  #calculator-modal .modal-body {
+    position: relative;
+    padding: 22px;
+    padding-bottom: 0px;
+    padding-top: 13px;
+  }
+
+  .pretty-input {
+    @extend .form-control
+  }
+
+}
+
+//modal of the calculator
+#calculator-modal {
+  ul {
+    @extend .nav, .nav-pills;
+  }
+
+  button {
+    @extend .btn, .btn-default
+  }
 }

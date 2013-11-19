@@ -1,0 +1,75 @@
+<%# @encoding: UTF-8 %>
+$(document).ready(function(){
+
+  $("#calculator").click( function() {
+    if ($('.calculator').find('a').val() == null) {
+      var langs = {value: 'Valor', clear: 'Limpiar', backspace: 'Voltar'};
+      $('.calculator').blackCalculator({type:'simple', allowKeyboard:true,
+       language:langs, css:'/assets/'});
+    }
+  });
+
+  $("#calculate_button").click( function() {
+    var property_price, percentage_payment, prepayment, interest_payments,
+        payment_years, interest_rate, monthly_interest_rate,
+        monthly_mortgage_duration, result;
+    property_price = $("#property_price:input").val() || 0;
+    percentage_payment = $("#percentage_payment:input").val() || 0;
+    prepayment = $("#prepayment:input").val() || 0 ;
+    interest_payments = $("#interest_payments:input").val() || 0;
+    payment_years = $("#payment_years:input").val() || 0;
+
+    if ((property_price > 0) && (interest_payments > 0 ) && (payment_years > 0)) {
+      // interest rate = annual interest divided by 100
+      interest_rate = interest_payments / 100;
+      // monthly interest rate = Annual interest divided by 12 (months of the year)
+      monthly_interest_rate = interest_rate / 12;
+      // monthly mortgage duration = Number of Years of Mortgage mult by 12
+      monthly_mortgage_duration = payment_years * 12;
+      // The monthly fee is formulated using
+      result = (property_price - prepayment) * (monthly_interest_rate / (1 -
+              ( Math.pow( 1 + monthly_interest_rate, -monthly_mortgage_duration))));
+      //update percentage payment because take prepayment as data of the calculate
+      percentage_payment = (prepayment / property_price) * 100;
+      $("#percentage_payment:input").val(percentage_payment);
+      //return of result of the calculate
+      $("#calculate_result:input").val(Math.round(result * 100) / 100);
+    }
+    else {
+      alert("<%= I18n.t('calculator.error_messages.calculate_result') %>");
+    }
+  });
+
+}); // end ready
+
+//changed percentage payment then reload prepayment
+function calculate_prepayment(event) {
+  var prepayment, property_price, percentage_payment;
+  property_price = $("#property_price:input").val() || "";
+  percentage_payment = $("#percentage_payment:input").val() || "";
+  if (event.keyCode == 13){
+    if (percentage_payment && property_price) {
+      prepayment = property_price * (percentage_payment / 100 );
+      $("#prepayment:input").val(prepayment);
+    }
+    else{
+      alert("<%= I18n.t('calculator.error_messages.prepayment') %>");
+    }
+  }
+}
+
+//changed prepayment then reload percentage payment
+function calculate_percentage_payment(event) {
+  var prepayment, property_price, percentage_payment;
+  property_price = $("#property_price:input").val() || "";
+  prepayment = $("#prepayment:input").val() || "";
+  if (event.keyCode == 13) {
+    if (prepayment && property_price) {
+      percentage_payment = (prepayment / property_price) * 100;
+      $("#percentage_payment:input").val(percentage_payment);
+    }
+    else {
+      alert("<%= I18n.t('calculator.error_messages.percentage_payment') %>");
+    }
+  }
+}
