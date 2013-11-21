@@ -8,8 +8,10 @@
     .tlabel
       = f.label t('.money')
     .tinput
-      = f.fields_for :money_to_sale do |m|
-        = transaction_money m, :money_to_sale
+      = f.collection_select :m_to_sale_id,
+                            Money.all,
+                            :id, :complete_name,
+                            { :include_blank => true }, class: "pretty-input"
   .thorizontal
     .tlabel
       = f.label t('.price_to_sale')
@@ -25,8 +27,10 @@
     .tlabel
       = f.label t('.money')
     .tinput
-      = f.fields_for :money_to_rent do |m|
-        = transaction_money m, :money_to_rent
+      = f.collection_select :m_to_rent_id,
+                            Money.all,
+                            :id, :complete_name,
+                            { :include_blank => true }, class: "pretty-input"
   .thorizontal
     .tlabel
       = f.label t('.price_to_rent')

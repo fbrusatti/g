@@ -108,7 +108,7 @@ es:
       date: Fecha
     moneys:
       eeuu: Dolar
-      arg: Peso Argentino
+      arg: ARG
     transactions:
       error: Los campos de Moneda o Precio no pueden estar vacios
       price_to_sale: Precio

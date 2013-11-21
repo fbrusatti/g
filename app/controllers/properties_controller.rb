@@ -18,9 +18,8 @@ class PropertiesController < ApplicationController
 
   def new
     @property = Property.new
-    set_up_money
     @hash = { lat: -33.121732600000016,
-              lng: -64.3496723}
+              lng: -64.3496723 }
   end
 
   def create
@@ -28,8 +27,6 @@ class PropertiesController < ApplicationController
     type_transaction(params)
     if @property.save
       flash[:success] = t('flash.property', message: t('flash.created'))
-    else
-      set_up_money
     end
     respond_with @property
   end
@@ -55,7 +52,6 @@ class PropertiesController < ApplicationController
 
   def edit
     @property = Property.find(params[:id])
-    set_up_money
     @hash = { lat: @property.latitude,
               lng: @property.longitude,
               infowindow: render_to_string(partial: 'map_info',
@@ -69,8 +65,6 @@ class PropertiesController < ApplicationController
     type_transaction(params)
     if @property.update_attributes(params[:property])
       flash[:success] = t('flash.property', message: t('flash.updated'))
-    else
-      set_up_money
     end
     respond_with @property
   end
@@ -85,11 +79,6 @@ class PropertiesController < ApplicationController
     def type_transaction(params)
       text = "#{params[:to_sale]} #{params[:to_rent]}".strip
       @property.type_transaction = text
-    end
-
-    def set_up_money
-      @property.build_money_to_sale if @property.money_to_sale.nil?
-      @property.build_money_to_rent if @property.money_to_rent.nil?
     end
 
     def user_for_paper_trail
