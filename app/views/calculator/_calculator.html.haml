@@ -18,3 +18,11 @@
             = render 'calculator/real_estate_calculator'
       .modal-footer
         %button{"data-dismiss" => "modal"}= t('.close')
+:javascript
+  $(document).on('shown.bs.modal', '#calculator-modal', function () {
+    $('#blackCalculator, #property_price').val("");
+    $('#blackCalculator, #property_price').focus();
+    $(document).on('click', '#calculator-modal li a', function () {
+      $('#blackCalculator, #property_price').focus();
+    })
+  })
