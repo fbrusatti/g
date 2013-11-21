@@ -58,3 +58,4 @@ G
 * rake db:migrate_to_new_prices
 * rake db:take_off_ceros
 * rake db:populate_locations
+* rake db:improve_money
