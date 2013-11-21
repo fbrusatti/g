@@ -63,15 +63,6 @@ module PropertiesHelper
     form.number_field attr_name, options
   end
 
-  def transaction_money(form, money)
-    options = { class: "pretty-input" }
-    options[:value] = @property.send("#{money}").try(:name) unless @property.new_record?
-    form.select :name,
-                moneys,
-                {},
-                options
-  end
-
   def prices_to_show(t)
     html, type = "", I18n.t(".properties.transactions.#{t}").downcase
     if (@property.type_transaction.downcase.include? type)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131114231550) do
+ActiveRecord::Schema.define(:version => 20131121025451) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -138,6 +138,8 @@ ActiveRecord::Schema.define(:version => 20131114231550) do
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "location_id"
+    t.integer  "m_to_rent_id"
+    t.integer  "m_to_sale_id"
   end
 
   add_index "properties", ["key_possessor"], :name => "index_properties_on_key_possessor"
