@@ -113,7 +113,7 @@ $(document).ready(function() {
 
   // function principal to index
   // ---------------------------
-  var oTable, bMyProperties;
+  var oTable, bMyProperties, rent_from, rent_to, sale_from, sale_to;
   bMyProperties = false;
   oTable = $('#properties').dataTable({
     sPaginationType: "full_numbers",
@@ -139,10 +139,21 @@ $(document).ready(function() {
           $('select', this).change( function () {
             oTable.fnFilter($(this).val(),i);
            });
+          $('input', this).change( function () {
+            sale_from = $('input[name="sale_from"]').val();
+            sale_to = $('input[name="sale_to"]').val();
+            rent_from = $('input[name="rent_from"]').val();
+            rent_to = $('input[name="rent_to"]').val();
+            oTable.fnFilter($(this).val(),i);
+           });
       });
     },
     aoColumns: aColumnsOptions,
     "fnServerParams": function ( aoData ) {
+      aoData.push( { "name": "sale_from", "value": sale_from } );
+      aoData.push( { "name": "sale_to", "value": sale_to } );
+      aoData.push( { "name": "rent_from", "value": rent_from } );
+      aoData.push( { "name": "rent_to", "value": rent_to } );
       aoData.push( { "name": "bMyProperties", "value": bMyProperties } );
     }
   });
@@ -178,14 +189,14 @@ $(document).ready(function() {
 var aColumnsOptions =
     [
       { "sWidth": "5%", "sClass": "center", "bSearchable": true },
+      { "sWidth": "5%", "bSearchable": true },
+      { "sWidth": "5%", "bSearchable": true },
+      { "sWidth": "5%", "bSearchable": true },
       { "sWidth": "10%", "bSearchable": true },
-      { "sWidth": "10%", "bSearchable": true },
-      { "sWidth": "10%", "bSearchable": true },
-      { "bSearchable": true },
       { "sWidth": "5%", "sClass": "center", "bSearchable": true },
-      { "bSearchable": true },
-      { "bSearchable": true },
-      { "bSearchable": false, "bSortable": false}
+      { "sWidth": "5%", "bSearchable": true },
+      { "sWidth": "5%", "bSearchable": true },
+      { "sWidth": "10%", "bSearchable": false, "bSortable": false}
     ]
 // --- end data-table ----
 

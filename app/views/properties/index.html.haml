@@ -14,14 +14,37 @@
     %thead
       %tr
         %th
-        %th= select_tag nil, options_for_select(status), {include_blank: true, class: "pretty-input-data-table"}
-        %th= select_tag nil, options_for_select(type_properties),{include_blank: true, class: "pretty-input-data-table"}
-        %th= select_tag nil, options_for_select(transactions),{include_blank: true, class: "pretty-input-data-table"}
+        %th= select_tag nil, options_for_select(status),
+                            { include_blank: true,
+                              class: "pretty-input-data-table" }
+        %th= select_tag nil, options_for_select(type_properties),
+                            { include_blank: true,
+                              class: "pretty-input-data-table" }
+        %th= select_tag nil, options_for_select(transactions),
+                            { include_blank: true,
+                              class: "pretty-input-data-table" }
         %th
-        %th= select_tag nil, options_for_select((1..80).to_a), {multiple: true ,class: "multiselect"}
+        %th= select_tag nil, options_for_select((1..80).to_a),
+                            { multiple: true ,class: "multiselect" }
         %th
+          .aligned-input
+            = text_field_tag "rent_from", nil,
+                                          { placeholder: t('.from'),
+                                            class: "pretty-input-range" }
+            = text_field_tag "rent_to", nil,
+                                        { placeholder: t('.to'),
+                                          class: "pretty-input-range" }
         %th
-        %th
+          .aligned-input
+            = text_field_tag "sale_from", nil,
+                                          { placeholder: t('.from'),
+                                            class: "pretty-input-range" }
+            = text_field_tag "sale_to", nil,
+                                        { placeholder: t('.to'),
+                                          class: "pretty-input-range" }
+        %th= select_tag nil, options_for_select(moneys),
+                            { prompt: t('.money'), include_blank: true,
+                              class: "pretty-input-select" }
       %tr
         %th= t('.nref')
         %th= t('.status')

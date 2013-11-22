@@ -173,6 +173,9 @@ es:
       my_properties: Mis Propiedades
       my_rent_properties: Mis Alquileres
       my_favourite_properties: Mis Favoritas
+      from: Desde
+      to: Hasta
+      money: Moneda
     new:
       general: General
       details: Detalles
