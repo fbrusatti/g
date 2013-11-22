@@ -66,11 +66,28 @@ private
       rooms = params[:sSearch_5].split(",")
       properties =  properties.where("amount_rooms IN (?)",rooms)
     end
-
+    if params[:sale_from].present? & params[:sale_to].present?
+      properties = properties.where(to_sale: params[:sale_from]..params[:sale_to])
+    end
+    if params[:rent_from].present? & params[:rent_to].present?
+      properties = properties.where(to_rent: params[:rent_from]..params[:rent_to])
+    end
+    if params[:sSearch_8].present?
+      rent = params[:rent_from].present? && params[:rent_to].present? ? 'rent' : nil
+      sale = params[:sale_from].present? && params[:sale_to].present? ? 'sale' : nil
+      properties = search_money(rent, sale, params[:sSearch_8], properties)
+    end
     if params[:bMyProperties] == 'true'
       properties = properties.where("properties.user_id = ?", current_user.id)
     end
     properties.includes(:money_to_rent, :money_to_sale, :owner)
+  end
+
+  def search_money(trans_rent, trans_sale, param, properties)
+    query = "money.id = properties.m_to_#{ trans_rent || trans_sale }_id" +
+            " #{'AND money.id = properties.m_to_sale_id' if (trans_rent && trans_sale) }"
+    properties.joins("LEFT OUTER JOIN money ON #{query}")
+              .where("money.name = ?", param)
   end
 
   def per_page
