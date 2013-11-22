@@ -40,7 +40,7 @@
 
     // put itens inside element
     var form = '<form method="post" action="javascript:void(0)" id="blackCalculatorForm">';
-    form += '<input type="text" name="blackCalculator" id="blackCalculator" autofocus="autofocus"></form>';
+    form += '<input type="text" name="blackCalculator" id="blackCalculator" </form>';
 
     $(this).addClass('blackCalculator');
     $(this).prepend(form);
