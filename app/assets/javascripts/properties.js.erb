@@ -1,6 +1,22 @@
 <%# @encoding: UTF-8 %>
 $(document).ready(function() {
 
+  var select = document.getElementById('property_influence_zone');
+  if (select != null){
+    select.onchange = function() {
+      if(this.selectedIndex != this.options.length - 1) {
+        return;
+      }
+      var new_name = prompt("<%= I18n.t('properties.zones.add_new') %>");
+      if(new_name == null || !new_name.length) {
+          return;
+      }
+      var option = $("<option/>").val(new_name).text(new_name);
+      $(this).prepend(option);
+      $('#property_influence_zone option:first').prop('selected', true);
+    }
+  }
+
   // SELECT TO ROWS
   $('.multiselect').multiselect({
       maxHeight: 400,

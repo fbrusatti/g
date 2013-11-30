@@ -82,6 +82,35 @@ es:
       property: Propiedad
       last_date: Ultimas Fechas
   properties:
+    zones:
+      zone_1: CENTRO
+      zone_2: MACROCENTRO
+      zone_3: BANDA NORTE
+      zone_4: ALBERDI
+      zone_5: FENIX
+      zone_6: SAN ANTONIO DE PADUA
+      zone_7: BARRIO INDUSTRIAL
+      zone_8: BIMACO
+      zone_9: ABILENE
+      zone_10: ATTE 1
+      zone_11: ATTE 2
+      zone_12: LOMITAS DE ORO
+      zone_13: VILLA DALCAR
+      zone_14: GOLF CLUB
+      zone_15: SAN ESTEBAN
+      zone_16: RIVERSIDE
+      zone_17: LOS QUEBRACHOS
+      zone_18: LOS CACIQUES
+      zone_19: LOS AROMOS
+      zone_20: SOLES DEL OESTE
+      zone_21: LOS TILOS
+      zone_22: EL OMBU
+      zone_23: 320 VIVIENDAS
+      zone_24: HIPODROMO
+      zone_25: BUENA VISTA
+      zone_26: QUINTITAS GOLF
+      zone_27: TIRO FEDERAL
+      add_new: Por favor ingrese el nombre
     selected_rooms:
       not_select:
       selected: seleccionados
@@ -137,6 +166,8 @@ es:
       title_left_1: Propietario
       title_right_1: Dirección
       title_left_2: Estado de la Propiedad y Nota
+      title_left_show_2: Estado de la Propiedad
+      title_right_show_1: Dirección y Nota
     positions:
       front_facade: Frente
       rear_facade: Contra Frente

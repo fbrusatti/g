@@ -5,6 +5,12 @@ module PropertiesHelper
   KEY_POSSESSORS = %w(owner office agent none)
   TYPE_MONEYS = %w(eeuu arg)
   TYPE_TRANSACTIONS = %w(sale rent sale_rent)
+  ZONES = (1..27).to_a
+
+  def zones
+    ZONES.map { |z| [I18n.t("properties.zones.zone_#{z}"),
+                     I18n.t("properties.zones.zone_#{z}")] } << "+"
+  end
 
   def transactions
     TYPE_TRANSACTIONS.map { |t| [I18n.t(".properties.transactions.#{t}"),
