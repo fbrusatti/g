@@ -246,3 +246,23 @@ div.btn-group{
 #map label {
   width: auto; display:inline;
 }
+
+
+#modal_to_print {
+  ul {
+    @extend .row;
+    overflow: auto;
+    height:200px;
+  }
+  ul > li {
+    @extend .col-md-6;
+    list-style-type: none;
+  }
+  .line-separator {
+    height: 1px;
+    background: #717171;
+    border-bottom: 1px solid #313030;
+  }
+  .modal-footer button { @extend .btn, .btn-default }
+  .modal-footer input { @extend .btn, .btn-primary }
+}

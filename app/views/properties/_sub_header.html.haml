@@ -14,7 +14,7 @@
     %a.property-save{ href: "#{edit_property_path(@property)}" }
       %i.icon-edit.icon-2x
       = t('.property_edit')
-    %a.property-print{href: "#"}
+    %a.property-print{href: '#', 'data-toggle' => "modal", 'data-target' => '#modal_to_print'}
       %i.icon-print.icon-2x
       = t('.print')
   - else
