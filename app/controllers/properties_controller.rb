@@ -46,6 +46,14 @@ class PropertiesController < ApplicationController
             }
     respond_to do |format|
       format.html
+      format.pdf do
+        pdf = PropertyPdf.new(@property, params[:property_pdf])
+        send_data pdf.render,
+                  filename: "propiedad_#{@property.id}.pdf",
+                  type: "application/pdf",
+                  disposition: "inline"
+
+       end
       format.json { render json: PropertyVersionDatatable.new(view_context, @versions) }
     end
   end

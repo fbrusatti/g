@@ -82,6 +82,12 @@ es:
       property: Propiedad
       last_date: Ultimas Fechas
   properties:
+    property_to_print:
+      title: Opciones para Imprimir
+      cancel: Cancelar
+      generate: Generar
+      without_photo: No incluir foto
+      include_map: Incluir gogle map
     zones:
       zone_1: CENTRO
       zone_2: MACROCENTRO
