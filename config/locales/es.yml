@@ -88,6 +88,9 @@ es:
       generate: Generar
       without_photo: No incluir foto
       include_map: Incluir gogle map
+      include_address: Incluir Direción
+      include_sale_price: Incluir Precio de Venta
+      include_rent_price: Incluir Precio de Alquiler
     zones:
       zone_1: CENTRO
       zone_2: MACROCENTRO
