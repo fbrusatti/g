@@ -89,8 +89,8 @@ es:
       without_photo: No incluir foto
       include_map: Incluir gogle map
       include_address: Incluir Direción
-      include_sale_price: Incluir Precio de Venta
-      include_rent_price: Incluir Precio de Alquiler
+      include_to_sale: Incluir Precio de Venta
+      include_to_rent: Incluir Precio de Alquiler
     zones:
       zone_1: CENTRO
       zone_2: MACROCENTRO

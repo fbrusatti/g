@@ -12,7 +12,7 @@
             %ul
               %li
                 = label_tag 'property_pdf[photo]', t('.without_photo')
-                = radio_button_tag 'property_pdf[photo]', '#', true
+                = radio_button_tag 'property_pdf[photo]', '', true
               - @property.photos.each do |p|
                 %li
                   = image_tag(p.image.url(:thumb))

@@ -9,8 +9,8 @@ module PropertiesHelper
 
   def prices_for_property_pdf(property)
     label_names = []
-    label_names << 'sale_price' if (property.to_sale && property.to_sale > 0)
-    label_names << 'rent_price' if (property.to_sale && property.to_rent.try('>', 0))
+    label_names << 'to_sale' if (property.to_sale && property.to_sale > 0)
+    label_names << 'to_rent' if (property.to_sale && property.to_rent.try('>', 0))
     label_names.map do |name|
       l = label_tag "property_pdf[with_#{name}]", t(".include_#{name}")
       c = check_box_tag "property_pdf[with_#{name}]", value = "1", checked = false
