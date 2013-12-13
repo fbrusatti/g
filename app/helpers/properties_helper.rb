@@ -9,12 +9,11 @@ module PropertiesHelper
 
   def prices_for_property_pdf(property)
     label_names = []
-    label_names << 'to_sale' if (property.to_sale && property.to_sale > 0)
-    label_names << 'to_rent' if (property.to_sale && property.to_rent.try('>', 0))
+    %w{to_sale to_rent}.each { |e| label_names << e  if (property.send(e) || 0 > 0) }
     label_names.map do |name|
-      l = label_tag "property_pdf[with_#{name}]", t(".include_#{name}")
-      c = check_box_tag "property_pdf[with_#{name}]", value = "1", checked = false
-      content_tag :div, (l + c)
+      label = label_tag "property_pdf[with_#{name}]", t(".include_#{name}")
+      check = check_box_tag "property_pdf[with_#{name}]", value = "1", checked = false
+      content_tag :div, (label + check)
     end.join.html_safe
   end
 
