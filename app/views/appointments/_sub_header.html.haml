@@ -14,9 +14,6 @@
     %a.appointment-save{ href: "#{edit_appointment_path(@appointment)}" }
       %i.icon-edit.icon-2x
       = t('.appointment_edit')
-    %a.appointment-print{href: "#"}
-      %i.icon-print.icon-2x
-      = t('.print')
   - else
     %a.appointment-new{ href: "#{new_appointment_path}" }
       %i.icon-plus-sign.icon-2x
@@ -34,7 +31,5 @@
       %a.appointment-all{href: "#"}
         %i.icon-calendar.icon-2x
         = t('.all')
-    %a.appointment-print{href: "#"}
-      %i.icon-print.icon-2x
-      = t('.print')
+
 
