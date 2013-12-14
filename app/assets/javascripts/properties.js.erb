@@ -171,6 +171,23 @@ $(document).ready(function() {
       aoData.push( { "name": "rent_from", "value": rent_from } );
       aoData.push( { "name": "rent_to", "value": rent_to } );
       aoData.push( { "name": "bMyProperties", "value": bMyProperties } );
+    },
+    bAutoWidth: false,
+    sDom: '<"H"lTCfr>t<"F"ip>',
+    oTableTools: {
+      aButtons: [
+        {
+          "sExtends":    "collection",
+          "sButtonText": "Exportar",
+          "aButtons":
+            [ "xls",
+              {
+                "sExtends": "pdf",
+                "sPdfOrientation": "landscape"
+              }
+            ]
+        }
+      ]
     }
   });
   rowSelected(oTable, "#properties");

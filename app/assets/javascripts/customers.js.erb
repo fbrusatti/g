@@ -55,6 +55,23 @@ $(document).ready(function() {
           oTableIndex.fnFilter( $(this).val(),i);
          });
       });
+    },
+    bAutoWidth: false,
+    sDom: '<"H"lTCfr>t<"F"ip>',
+    oTableTools: {
+      aButtons: [
+        {
+          "sExtends":    "collection",
+          "sButtonText": "Exportar",
+          "aButtons":
+            [ "xls",
+              {
+                "sExtends": "pdf",
+                "sPdfOrientation": "landscape"
+              }
+            ]
+        }
+      ]
     }
   });
   rowSelected(oTableIndex, "#customers");
