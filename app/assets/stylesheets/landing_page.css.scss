@@ -5,6 +5,13 @@
     &:hover { color: #2a6496 }
   }
 
+  #lastest-changes_wrapper {
+    @extend .container;
+    @extend .row;
+    width: 99%;
+    margin-left: 2px;
+  }
+
   .dataTables_wrapper .ui-toolbar {
     padding: 0px;
   }

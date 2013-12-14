@@ -119,6 +119,13 @@ form[id*='edit_property_'], #new_property .detail, .general {
 }
 
 .property-tabs-content { @extend .tab-content }
+#properties_wrapper {
+  @extend .container;
+  @extend .row;
+  width: 99%;
+  margin-left: 1px;
+}
+.property-tabs-content .DTTT_container { float: right }
 
 // Show Property
 // -------------
@@ -246,7 +253,6 @@ div.btn-group{
 #map label {
   width: auto; display:inline;
 }
-
 
 #modal_to_print {
 
