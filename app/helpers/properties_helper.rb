@@ -7,6 +7,16 @@ module PropertiesHelper
   TYPE_TRANSACTIONS = %w(sale rent sale_rent)
   ZONES = (1..27).to_a
 
+  def prices_for_property_pdf(property)
+    label_names = []
+    %w{to_sale to_rent}.each { |e| label_names << e  if (property.send(e) || 0 > 0) }
+    label_names.map do |name|
+      label = label_tag "property_pdf[with_#{name}]", t(".include_#{name}")
+      check = check_box_tag "property_pdf[with_#{name}]", value = "1", checked = false
+      content_tag :div, (label + check)
+    end.join.html_safe
+  end
+
   def zones
     ZONES.map { |z| [I18n.t("properties.zones.zone_#{z}"),
                      I18n.t("properties.zones.zone_#{z}")] } << "+"
