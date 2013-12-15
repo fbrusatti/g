@@ -60,6 +60,15 @@
     }
   }
 
+  #appointments_wrapper {
+    @extend .container;
+    @extend .row;
+    width: 99%;
+    margin-left: 1px;
+  }
+  .DTTT_container { float: right }
+
+
   // Appointments
   .form-appointments{
     background-color: #E0DFDB;

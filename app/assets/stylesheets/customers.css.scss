@@ -50,6 +50,14 @@
   }
 }
 
+#customers_wrapper {
+  @extend .container;
+  @extend .row;
+  width: 99%;
+  margin-left: 1px;
+}
+#customers-data .DTTT_container { float: right }
+
 // form new and edit customer data
 .new-customer, .edit-customer {
   @include make-row();

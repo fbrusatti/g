@@ -122,7 +122,6 @@ $(function () {
       { "sWidth": "15%"},
       { "sWidth": "20%"}
       ],
-      // "sDom": "Rlfrtip",
       sAjaxSource: $('#appointments').data('source'),
       "fnInitComplete": function(oSettings, json) {
 
@@ -166,6 +165,23 @@ $(function () {
       },
       "fnServerParams": function ( aoData ) {
          aoData.push( { "name": "dateType", "value": dateType });
+      },
+      bAutoWidth: false,
+      sDom: '<"H"lTCfr>t<"F"ip>',
+      oTableTools: {
+        aButtons: [
+          {
+            "sExtends":    "collection",
+            "sButtonText": "Exportar",
+            "aButtons":
+              [ "xls",
+                {
+                  "sExtends": "pdf",
+                  "sPdfOrientation": "landscape"
+                }
+              ]
+          }
+        ]
       }
   });
 
