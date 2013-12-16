@@ -29,6 +29,9 @@
 .property-remove {
   @extend .btn, .btn-warning, .btn-xs;
 }
+#confirm { display: inline; visibility: hidden }
+#confirm .property-print { @extend .btn, .btn-success, .btn-xs, .pull-right }
+#confirm .property-danger { @extend .btn, .btn-danger, .btn-xs, .pull-right }
 
 div.property-tabs-content div.tab-pane { margin-left: 0px !important}
 
@@ -269,3 +272,9 @@ div.btn-group{
   .modal-footer button { @extend .btn, .btn-default }
   .modal-footer input { @extend .btn, .btn-primary }
 }
+
+ #modal_print_list_properties {
+  @extend .form-inline;
+  .modal-footer button { @extend .btn, .btn-default }
+  .modal-footer button#open_check { @extend .btn, .btn-primary }
+ }

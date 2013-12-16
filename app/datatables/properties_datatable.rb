@@ -1,7 +1,7 @@
 class PropertiesDatatable
   include ApplicationHelper
   delegate :simple_format, :current_user, :params,
-           :h, :link_to, :number_to_currency,
+           :h, :link_to, :number_to_currency, :check_box_tag,
            to: :@view
 
   def initialize(view)
@@ -30,7 +30,8 @@ private
         h(property.amount_rooms),
         h(prices(property, 'rent')),
         h(prices(property, 'sale')),
-        link_to(short_string("#{property.owner.try(:surname_with_name)}"), property.owner)
+        link_to(short_string("#{property.owner.try(:surname_with_name)}"), property.owner),
+        check_box_tag('to_list', property.id)
       ]
     end
   end

@@ -1,4 +1,12 @@
 
+// change the column visibility from table
+// iCol: index of colum
+// oTable : dataTable obeject
+function fnShowHideColumnVisibility(iCol, oTable){
+  var bVis = oTable.fnSettings().aoColumns[iCol].bVisible;
+  oTable.fnSetColumnVis( iCol, bVis ? false : true );
+}
+
 // select row of datatable
 function rowSelected(oTable, idTable){
   var giRedraw = false

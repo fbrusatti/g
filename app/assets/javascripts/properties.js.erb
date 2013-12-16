@@ -1,4 +1,6 @@
 <%# @encoding: UTF-8 %>
+var COLUMN_CHECK = 9;
+
 $(document).ready(function() {
 
   var select = document.getElementById('property_influence_zone');
@@ -213,6 +215,24 @@ $(document).ready(function() {
     }
   });
 
+  // print list of properties
+  $(document).on('click', 'button#open_check', function(event){
+    event.preventDefault();
+    fnShowHideColumnVisibility(COLUMN_CHECK, oTable);
+    $('.sub-header #property_print_index').hide();
+    $('.sub-header #confirm').css('visibility', 'visible');
+  });
+  $(document).on('click', '.sub-header #confirm a.property-danger', function(event){
+    event.preventDefault();
+    fnShowHideColumnVisibility(COLUMN_CHECK, oTable);
+    $('.sub-header #confirm').css('visibility', 'hidden');
+    $('.sub-header #property_print_index').show();
+  });
+  $(document).on('click', '.sub-header #confirm a.property-print', function(event){
+    event.preventDefault();
+    $('#modal_print_list_properties.modal .modal-footer #submit_generate').click();
+  })
+
 });// END-$(document)
 
   /*********
@@ -229,7 +249,9 @@ var aColumnsOptions =
       { "sWidth": "5%", "sClass": "center", "bSearchable": true },
       { "sWidth": "5%", "bSearchable": true },
       { "sWidth": "5%", "bSearchable": true },
-      { "sWidth": "10%", "bSearchable": false, "bSortable": false}
+      { "sWidth": "10%", "bSearchable": false, "bSortable": false},
+      { "sWidth": "1%", "sClass": "center",
+        "bSearchable": false, "bSortable": false,  "bVisible":  false  }
     ]
 // --- end data-table ----
 

@@ -82,6 +82,14 @@ es:
       property: Propiedad
       last_date: Ultimas Fechas
   properties:
+    print_list_properties:
+      cancel: Cancelar
+      title: Opciones para Imprimir
+      title_to_print: Titulo a Imprimir
+      select: Elegir Propiedades
+      sale: EN VENTA
+      rent: EN ALQUILER
+      under_construction: EN CONSTRUCCION
     property_to_print:
       title: Opciones para Imprimir
       cancel: Cancelar

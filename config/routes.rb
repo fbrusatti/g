@@ -2,6 +2,7 @@ G::Application.routes.draw do
 
   resources :properties do
     get 'geocoding', on: :collection
+    get 'generate_list', on: :collection
   end
 
   devise_scope :user do
