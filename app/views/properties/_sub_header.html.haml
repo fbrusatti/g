@@ -21,6 +21,15 @@
     %a.property-new{ href: "#{new_property_path}" }
       %i.icon-plus-sign.icon-2x
       = t('.new')
-    %a.property-print{href: "#"}
+    %a.property-print#property_print_index{href: '#',
+                                           'data-toggle' => "modal",
+                                           'data-target' => '#modal_print_list_properties'}
       %i.icon-print.icon-2x
       = t('.print')
+    #confirm
+      %a.property-print{ href: '#' }
+        %i.icon-print.icon-2x
+        = t('.print')
+      %a.property-danger{href: "#"}
+        %i.icon-remove-sign.icon-2x
+        = t('.cancel')
