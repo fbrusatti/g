@@ -6,6 +6,7 @@
           %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
           %h4.modal-title= t('.title')
         .modal-body
+          = hidden_field_tag 'print_list[property_ids]'
           %div
             = text_field_tag 'print_list[titile]',
                              nil,

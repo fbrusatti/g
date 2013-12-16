@@ -1,6 +1,6 @@
 <%# @encoding: UTF-8 %>
 var COLUMN_CHECK = 9;
-
+var propertiesToPrint;
 $(document).ready(function() {
 
   var select = document.getElementById('property_influence_zone');
@@ -173,6 +173,7 @@ $(document).ready(function() {
       aoData.push( { "name": "rent_from", "value": rent_from } );
       aoData.push( { "name": "rent_to", "value": rent_to } );
       aoData.push( { "name": "bMyProperties", "value": bMyProperties } );
+      aoData.push( { "name": "list_checked", "value": propertiesToPrint } );
     },
     bAutoWidth: false,
     sDom: '<"H"lTCfr>t<"F"ip>',
@@ -221,6 +222,9 @@ $(document).ready(function() {
     fnShowHideColumnVisibility(COLUMN_CHECK, oTable);
     $('.sub-header #property_print_index').hide();
     $('.sub-header #confirm').css('visibility', 'visible');
+    propertiesToPrint = [];
+    // clean up the list_checked in server.
+    $('ul.property-tabs li #tab-all-prop').click();
   });
   $(document).on('click', '.sub-header #confirm a.property-danger', function(event){
     event.preventDefault();
@@ -232,6 +236,18 @@ $(document).ready(function() {
     event.preventDefault();
     $('#modal_print_list_properties.modal .modal-footer #submit_generate').click();
   })
+
+  // handled of property list  to print
+  $(document).on('click','table input[name="to_list"]', function(event){
+    if (this.checked)
+      propertiesToPrint.push(this.value)
+    else {
+      i = propertiesToPrint.indexOf(this.value);
+      if(i != -1)
+        propertiesToPrint.splice(i, 1)
+    }
+    $('#modal_print_list_properties #print_list_property_ids').val(propertiesToPrint);
+  });
 
 });// END-$(document)
 
