@@ -1,8 +1,9 @@
 class PropertyPdfFactory
   class << self
-    def create(property, options)
-      options[:photo].present? ? PropertyWithPhoto.new(property, options)
-                               : PropertyWithoutPhoto.new(property, options)
+    def create(*property, options)
+      return ListOfProperties.new(options) if property.blank?
+      options[:photo].present? ? PropertyWithPhoto.new(property[0], options)
+                               : PropertyWithoutPhoto.new(property[0], options)
     end
   end
 end

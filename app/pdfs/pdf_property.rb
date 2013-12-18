@@ -3,17 +3,17 @@ module PdfProperty
   MAP_PATH = 'http://maps.googleapis.com/maps/api/staticmap'
   ATTR_PATH = 'activerecord.attributes.property'
 
-  def header
+  def header(opt)
     y_pos = cursor
     image 'public/gutierrez_header_img.jpg', { height: 50 }
     options = { at: [200, y_pos], height: 50, size: 24, valign: :center, style: :bold }
-    text_box "Ref: #{@property.id}", options
+    text_box "Ref: #{@property.id}", options if opt[:with_ref]
   end
 
-  def title
+  def title(str)
     options = { align: :center, size: 24, style: :bold, inline_format: true }
     pad_top(5) do
-      text("<u>#{@property.title_to_print}</u>", options)
+      text("<u>#{str}</u>", options)
     end
   end
 

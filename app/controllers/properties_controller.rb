@@ -84,7 +84,15 @@ class PropertiesController < ApplicationController
   end
 
   def generate_list
-
+    params[:print_list][:properties] = Property.find params[:print_list][:property_ids].split(',')
+    params[:print_list][:properties].sort! do |a,b|
+      a.influence_zone.upcase <=> b.influence_zone.upcase
+    end
+    pdf = PropertyPdfFactory.create(params[:print_list])
+    send_data pdf.render,
+              filename: "propiedades.pdf",
+              type: "application/pdf",
+              disposition: "inline"
   end
 
   private

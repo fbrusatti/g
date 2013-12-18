@@ -10,12 +10,12 @@ class PropertyWithPhoto < Prawn::Document
   end
 
   def structure
-    header
+    header({ with_ref: true })
     bounding_box([0, cursor - 10], width: bounds.width, height:bounds.height - 30) do
-      title
+      title(@property.title_to_print)
       @track_points[:photo] = cursor
       photo({ posx: 10, posy: cursor, photo: @options[:photo] })
-      details({ posx: cursor - 30 , posy: @track_points[:photo] })
+      details({ posx: cursor, posy: @track_points[:photo] })
       prices({ posx: 365, posy: cursor - 10,
                to_rent: @options[:with_to_rent],
                to_sale: @options[:with_to_sale] })
