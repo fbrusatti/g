@@ -83,6 +83,10 @@ class PropertiesController < ApplicationController
     render json: result
   end
 
+  def generate_list
+
+  end
+
   private
     def type_transaction(params)
       text = "#{params[:to_sale]} #{params[:to_rent]}".strip

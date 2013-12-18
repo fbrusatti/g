@@ -31,7 +31,7 @@ private
         h(prices(property, 'rent')),
         h(prices(property, 'sale')),
         link_to(short_string("#{property.owner.try(:surname_with_name)}"), property.owner),
-        check_box_tag('to_list', property.id)
+        checkbox(property)
       ]
     end
   end
@@ -116,4 +116,9 @@ private
     simple_format(property.pretty_price t)
   end
 
+  def checkbox(property)
+    check_box_tag 'to_list',
+                  property.id,
+                  params[:list_checked] =~ /#{property.id}/ ? true : false
+  end
 end
