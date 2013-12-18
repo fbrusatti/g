@@ -274,7 +274,7 @@ div.btn-group{
 }
 
  #modal_print_list_properties {
-  @extend .form-inline;
+  .modal-body div { margin: 5px }
   .modal-footer button { @extend .btn, .btn-default }
   .modal-footer button#open_check { @extend .btn, .btn-primary }
  }
