@@ -29,6 +29,7 @@
 //= require jquery.blackcalculator.src.js
 //= require dataTables/extras/TableTools
 //= require dataTables/extras/ZeroClipboard.js
+//= require ckeditor/init
 //= require_tree .
 //= require twitter/bootstrap
 //= require bootstrap-multiselect

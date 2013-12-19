@@ -1,5 +1,7 @@
 G::Application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
+
   resources :properties do
     get 'geocoding', on: :collection
     get 'generate_list', on: :collection
