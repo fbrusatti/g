@@ -10,6 +10,7 @@ G::Application.routes.draw do
   end
 
   resources :customers
+  resources :contracts
 
   get '/landing_page', to: 'landing#index'
 
