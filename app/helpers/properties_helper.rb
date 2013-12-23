@@ -7,6 +7,12 @@ module PropertiesHelper
   TYPE_TRANSACTIONS = %w(sale rent sale_rent)
   ZONES = (1..27).to_a
 
+  def transactions_to_print
+    %w(sale rent).map do |t|
+     "<option value=#{t}>" + I18n.t(".properties.transactions.#{t}") + '</option>'
+     end.join
+  end
+
   def prices_for_property_pdf(property)
     label_names = []
     %w{to_sale to_rent}.each { |e| label_names << e  if (property.send(e) || 0 > 0) }

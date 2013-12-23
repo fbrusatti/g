@@ -8,10 +8,16 @@
         .modal-body
           = hidden_field_tag 'print_list[property_ids]'
           %div
-            = text_field_tag 'print_list[titile]',
+            = text_field_tag 'print_list[title]',
                              nil,
                              { class: 'pretty-input',
                                placeholder: t('.title_to_print') }
+          %div
+            = select_tag 'print_list[transaction]',
+                         transactions_to_print,
+                         { class: 'pretty-input',
+                           include_blank: true,
+                           prompt: "Tipo de transaccion" }
         .modal-footer
           %button{"data-dismiss" => "modal", type: "button"}= t('.cancel')
           %button#open_check{"data-dismiss" => "modal", type: "button"}= t('.select')

@@ -10,9 +10,9 @@ class PropertyWithoutPhoto < Prawn::Document
   end
 
   def structure
-    header
+    header({ with_ref: true })
     bounding_box([0, cursor - 10], width: bounds.width, height:bounds.height - 30) do
-      title
+      title(@property.title_to_print)
       details({ posx: 20, posy: cursor - 10 })
       prices({ posx: 20, posy: cursor - 10,
                to_rent: @options[:with_to_rent],
