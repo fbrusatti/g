@@ -1,3 +1,44 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+<%# @encoding: UTF-8 %>
+$(document).ready(function() {
+
+  // token to customer
+  $('#renter_token').tokenInput('/customers.json', {
+    crossDomain: false,
+    prePopulate: $('#customer_tokens').data('pre'),
+    theme: "facebook",
+    tokenLimit: "1",
+    noResultsText: "<%= I18n.t('.token_input.noResultsText') %>",
+    hintText: "<%= I18n.t('.token_input.hintText_surname')%>",
+    searchingText: "<%= I18n.t('.token_input.searchingText')%>",
+    resultsFormatter: function(item){
+      return "<li><p style='color: black' >" + item.name
+      + " " + item.surname +  " " + item.dni + " </p> </li>" },
+    tokenFormatter: function(item) {
+      return "<li><p>" + (item.name + " " +
+      item.surname ).substring(0,22)+ " " + item.dni + " </p> </li>" },
+    onAdd: function(renter){ fillRenterData(renter) }
+  });
+
+  // token to porperty
+  $('#property_token').tokenInput('/properties.json', {
+    crossDomain: false,
+    prePopulate: $('#property_tokens').data('pre'),
+    theme: "facebook",
+    propertyToSearch: "address",
+    tokenLimit: "1",
+    noResultsText: "<%= I18n.t('.token_input.noResultsText') %>",
+    hintText: "<%= I18n.t('.token_input.hintText')%>",
+    searchingText: "<%= I18n.t('.token_input.searchingText')%>",
+     resultsFormatter: function(item){
+      return "<li><p style='color: black' >" + item.address
+      + " (" + item.id + ") </p> </li>" },
+     tokenFormatter: function(item) {
+       return "<li><p>" + item.address.substring(0,25) +
+       " (" + item.id + ") </p> </li>" }
+  });
+
+  function fillRenterData(renter){
+    $('#renter_name').val(renter.name + " " + renter.surname);
+    $('#renter_dni').val(renter.dni);
+  }
+})// end documents
