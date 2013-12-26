@@ -8,6 +8,13 @@ div.token-input-dropdown-facebook { z-index: 1900 !important; }
   }
 }
 
+#sub-header-contract {
+  margin: 3px;
+  padding: 3px;
+  a.contract-edit-parts, a.new-contract{ @extend .btn, .btn-xs, .btn-primary }
+  a.contract-danger { @extend .btn, .btn-xs, .btn-danger }
+}
+
 #contract {
   @extend .container;
   #text_editor { @extend .row }

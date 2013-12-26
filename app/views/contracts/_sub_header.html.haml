@@ -1,0 +1,17 @@
+#sub-header-contract
+  - if edit_or_new_page?(@contract)
+    %a.contract-danger{ href: "#{contracts_path}" }
+      %i.icon-remove-sign.icon-2x
+      = t('.cancel')
+    - if current_page?(action: 'edit', id: @contract.id || 0)
+      %a.contract-remove{href: "#"}
+        %i.icon-remove.icon-2x
+        = t('.remove')
+  - elsif show_page?(@contract)
+    %a.contract-edit-parts{ href: "#" }
+      %i.icon-edit.icon-2x
+      = t('.edit_relations')
+  - else
+    %a.new-contract{ "data-target" => "#contract-modal", "data-toggle" => "modal" }
+      %i.icon-file.icon-2x
+      = t('.new_contract')
