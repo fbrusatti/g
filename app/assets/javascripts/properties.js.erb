@@ -157,7 +157,7 @@ $(document).ready(function() {
           $('select', this).change( function () {
             oTable.fnFilter($(this).val(),i);
            });
-          $('input', this).change( function () {
+          $('.aligned-input input', this).change( function () {
             sale_from = $('input[name="sale_from"]').val();
             sale_to = $('input[name="sale_to"]').val();
             rent_from = $('input[name="rent_from"]').val();

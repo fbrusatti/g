@@ -115,4 +115,8 @@ module PropertiesHelper
   def photos?(photos)
     @property.photos.empty? ? I18n.t(".properties.show.not_photos") : ""
   end
+
+  def rooms
+    (0..45).to_a.map { |room| [ room == 0 ? "monoambiente" : room, room ] }
+  end
 end

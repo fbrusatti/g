@@ -24,7 +24,7 @@
                             { include_blank: true,
                               class: "pretty-input-data-table" }
         %th
-        %th= select_tag nil, options_for_select((1..80).to_a),
+        %th= select_tag nil, options_for_select(rooms),
                             { multiple: true ,class: "multiselect" }
         %th
           .aligned-input

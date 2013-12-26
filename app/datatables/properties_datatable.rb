@@ -85,10 +85,13 @@ private
   end
 
   def search_money(trans_rent, trans_sale, param, properties)
-    query = "money.id = properties.m_to_#{ trans_rent || trans_sale }_id" +
-            " #{'AND money.id = properties.m_to_sale_id' if (trans_rent && trans_sale) }"
-    properties.joins("LEFT OUTER JOIN money ON #{query}")
-              .where("money.name = ?", param)
+    if trans_sale.blank? && trans_rent.blank?
+      query = "money.id = properties.m_to_rent_id OR money.id = properties.m_to_sale_id"
+    else
+      query = "money.id = properties.m_to_#{ trans_rent || trans_sale }_id" +
+              " #{'AND money.id = properties.m_to_sale_id' if (trans_rent && trans_sale) }"
+    end
+    properties.joins("LEFT OUTER JOIN money ON #{query}").where("money.name = ?", param)
   end
 
   def per_page
