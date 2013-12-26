@@ -1,4 +1,11 @@
 es:
+  contracts:
+    modal_generate_contract:
+      title: Generar un Contrato
+      search_renter: Buscar Locatario
+      search_property: Buscar Propiedad
+      submit: Generar
+      cancel: Cancelar
   confirm_remove:
     confirm: ¿Esta seguro de Borrar? Esto lo borrara permanentemente.
   landing:
