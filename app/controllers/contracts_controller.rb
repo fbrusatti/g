@@ -21,6 +21,13 @@ class ContractsController < ApplicationController
     @contract = Contract.find params[:id]
   end
 
+  def index
+    respond_to do |format|
+      format.html
+      format.json { render json: ContractsDatatable.new(view_context) }
+    end
+  end
+
   private
     def fill_renter
       @data[:renter_token] = params[:renter_token]

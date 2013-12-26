@@ -1,7 +1,7 @@
 @import "twitter/bootstrap";
 
 div.token-input-dropdown-facebook { z-index: 1900 !important; }
-#contract-modal {
+#contract #index #contract-modal {
   .modal-footer {
     button { @extend .btn }
     .modal-submit { @extend .btn, .btn-success }
@@ -17,5 +17,6 @@ div.token-input-dropdown-facebook { z-index: 1900 !important; }
 
 #contract {
   @extend .container;
+  width: 99%;
   #text_editor { @extend .row }
 }

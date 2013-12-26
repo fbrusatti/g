@@ -8,6 +8,10 @@ class Contract < ActiveRecord::Base
   # == Attr reader
   attr_reader :renter_token, :property_token
 
+  # == Delegates
+  delegate :surname_with_name, to: :renter, prefix: true, allow_nil: true
+  delegate :pretty_address, to: :property, prefix: true, allow_nil: true
+
   def renter_token=(id)
     self.customer_id = id
   end
