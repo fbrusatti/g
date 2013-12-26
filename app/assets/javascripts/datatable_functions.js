@@ -37,10 +37,11 @@ function fnGetSelected( oTableLocal ){
 }
 
 // handle the datatable with keyboard
-function datatableKeyboard(idTable, idCalculator){
+// example idModals: "#calculator-modal, #contract-modal"
+function datatableKeyboard(idTable, idModals){
   $(document).keydown(function (event) {
-    // prevent row enter when calculator is open
-    if (!($(idCalculator).hasClass('in'))){
+    // prevent row enter when some modal was open
+    if (!($(idModals).hasClass('in'))){
       var currentRow = $( idTable + ' .row_selected').get(0);
       switch(event.keyCode){
         case 9: // tab
