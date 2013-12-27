@@ -40,5 +40,30 @@ $(document).ready(function() {
   function fillRenterData(renter){
     $('#renter_name').val(renter.name + " " + renter.surname);
     $('#renter_dni').val(renter.dni);
-  }
+  };
+
+  // function principal to index
+  // ---------------------------
+  var contractTable;
+  contractTable = $('#contracts-table').dataTable({
+    sPaginationType: "full_numbers",
+    bJQueryUI: true,
+    bProcessing: true,
+    bServerSide: true,
+    oLanguage: {
+        sUrl: "/datatables/spanish.txt"
+    },
+    sAjaxSource: $('#contracts-table').data('source'),
+    aaSorting: [[ 0, "desc" ]],
+    bAutoWidth: false,
+    aoColumns:
+      [
+        { "sClass": "center" },
+        { "bSearchable": true },
+        { "bSearchable": true },
+        { "sClass": "center", "bSearchable": true }
+      ]
+  });
+  rowSelected(contractTable, "#contracts-table");
+
 })// end documents

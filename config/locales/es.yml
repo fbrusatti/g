@@ -1,5 +1,15 @@
 es:
   contracts:
+    sub_header:
+      cancel: Cancelar
+      remove: Borrar
+      new_contract: Nuevo
+      edit_relations: Editar partes
+    index:
+      ref: Nro Ref
+      renter: Locatario
+      property: Propiedad
+      created_at: Creado en
     modal_generate_contract:
       title: Generar un Contrato
       search_renter: Buscar Locatario

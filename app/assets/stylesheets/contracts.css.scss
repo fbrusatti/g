@@ -1,14 +1,22 @@
 @import "twitter/bootstrap";
 
 div.token-input-dropdown-facebook { z-index: 1900 !important; }
-#contract-modal {
+#contract #index #contract-modal {
   .modal-footer {
     button { @extend .btn }
     .modal-submit { @extend .btn, .btn-success }
   }
 }
 
+#sub-header-contract {
+  margin: 3px;
+  padding: 3px;
+  a.contract-edit-parts, a.new-contract{ @extend .btn, .btn-xs, .btn-primary }
+  a.contract-danger { @extend .btn, .btn-xs, .btn-danger }
+}
+
 #contract {
   @extend .container;
+  width: 99%;
   #text_editor { @extend .row }
 }
