@@ -12,7 +12,7 @@ class ContractsController < ApplicationController
   end
 
   def create
-    @contract = Contract.new(params[:contract])
+    @contract = current_user.contracts.build(params[:contract])
     @contract.save
     respond_with @contract
   end

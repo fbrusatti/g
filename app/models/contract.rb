@@ -1,5 +1,6 @@
 class Contract < ActiveRecord::Base
   # == Associations
+  belongs_to :user
   belongs_to :property
   belongs_to :renter, foreign_key: 'customer_id', class_name: 'Customer'
 
