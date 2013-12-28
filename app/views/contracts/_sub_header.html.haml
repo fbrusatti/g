@@ -8,7 +8,8 @@
         %i.icon-remove.icon-2x
         = t('.remove')
   - elsif show_page?(@contract)
-    %a.contract-edit-parts{ href: "#" }
+    %a.contract-edit-parts{ "data-target" => "#contract-edit-modal",
+                            "data-toggle" => "modal" }
       %i.icon-edit.icon-2x
       = t('.edit_relations')
   - else

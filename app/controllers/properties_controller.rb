@@ -6,10 +6,13 @@ class PropertiesController < ApplicationController
     respond_to do |format|
       format.html
       if params[:q].present?
-        format.json { render json: Property.where(
-                                    "address ILIKE ? or properties.id =  ?",
-                                    "%#{params[:q]}%", params[:q].to_i)
-                                    .map(&:attributes) }
+        format.json do
+          data = Property.includes(:owner)
+          data = data.where("address ILIKE ? or properties.id =  ?",
+                                "%#{params[:q]}%", params[:q].to_i)
+          data = data.to_json(include: :owner)
+          render json: data
+        end
       else
         format.json { render json: PropertiesDatatable.new(view_context) }
       end
