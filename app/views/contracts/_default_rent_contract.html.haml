@@ -23,18 +23,21 @@
   %p
     Entre:
     El Señor/a
-    %b
+    %b#locator_name
       = @data[:locator_name] || 'NOMBRE APELLIDO'
     ,
     %b
       DNI N°:
+    %b#locator_dni
       = @data[:locator_dni] ||'XX.XXX.XXX'
     , en adelante
-    llamada locador por una parte y por la otra parte, El Señor
-    %b
+    llamada locador por una parte y por la otra parte, El Señor/a
+    %b#renter_name
       = @data[:renter_name] || 'NOMBRE APELLIDO'
+    %b
       – DNI Nº:
-      = @data[:renter_id] || 'XX.XXX.XXX'
+    %b#renter_dni
+      = @data[:renter_dni] || 'XX.XXX.XXX'
     ,
     %b
       TEL: XXX - XXXXXXX
@@ -47,7 +50,7 @@
     ART.
     1º: El locador da en locación al locatario y este lo recibe en ese
     carácter, un inmueble de su propiedad  ubicado en calle:
-    %b
+    %b#property_address
       = @data[:property_address] || 'DIRECCION COMPLETA'
     de la ciudad de XXXXXX, provincia de XXXXXXX.
   %p

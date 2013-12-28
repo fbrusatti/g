@@ -28,6 +28,12 @@ class ContractsController < ApplicationController
     end
   end
 
+  def update
+    @contract = Contract.find params[:id]
+    @contract.update_attributes(params[:contract])
+    respond_with @contract
+  end
+
   private
     def fill_renter
       @data[:renter_token] = params[:renter_token]

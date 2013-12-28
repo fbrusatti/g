@@ -1,10 +1,10 @@
 @import "twitter/bootstrap";
 
 div.token-input-dropdown-facebook { z-index: 1900 !important; }
-#contract #index #contract-modal {
+#contract #index #contract-modal, #contract-edit-modal {
   .modal-footer {
     button { @extend .btn }
-    .modal-submit { @extend .btn, .btn-success }
+    #btn_edit_contract, .modal-submit { @extend .btn, .btn-success }
   }
 }
 

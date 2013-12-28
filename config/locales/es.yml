@@ -16,6 +16,12 @@ es:
       search_property: Buscar Propiedad
       submit: Generar
       cancel: Cancelar
+    modal_edit_contract:
+      title: Modificar Contrato
+      search_renter: Locatario
+      search_property: Propiedad
+      submit: Modificar
+      cancel: Cancelar
   confirm_remove:
     confirm: ¿Esta seguro de Borrar? Esto lo borrara permanentemente.
   landing:
