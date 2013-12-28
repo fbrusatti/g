@@ -52,4 +52,8 @@ class ContractsController < ApplicationController
     def fill_property
       @data[:property_address] = @property.address.upcase if @property
     end
+
+     def user_for_paper_trail
+      current_user.surname_with_name
+    end
 end

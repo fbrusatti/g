@@ -13,6 +13,9 @@ class Contract < ActiveRecord::Base
   delegate :surname_with_name, to: :renter, prefix: true, allow_nil: true
   delegate :pretty_address, to: :property, prefix: true, allow_nil: true
 
+  # == Tracking
+  has_paper_trail meta: { primary_information: :information_primary }
+
   def renter_token=(id)
     self.customer_id = id
   end
@@ -21,4 +24,12 @@ class Contract < ActiveRecord::Base
     self.property_id = id
   end
 
+  def information_primary
+    info = " Contracto #{self.id}".slice(0..250)
+    if self.property || self.renter
+      info << " Entre " +  (self.property ? "Propiedad: #{self.property.id}. " : "")  +
+                           (self.renter ? "Locatario: #{self.renter.id}. " : "")
+    end
+    info
+  end
 end
