@@ -35,11 +35,11 @@ private
   def contracts
     contracts = Contract.order("#{sort_column} #{sort_direction} nulls last")
     contracts = contracts.page(page).per_page(per_page)
+    contracts =
+      contracts.joins("LEFT OUTER JOIN properties ON properties.id = contracts.property_id")
     if params[:sSearch].present?
       contracts =
         contracts.joins("LEFT OUTER JOIN customers ON customers.id = contracts.customer_id")
-      contracts =
-        contracts.joins("LEFT OUTER JOIN properties ON properties.id = contracts.property_id")
       contracts = contracts.where("contracts.id =  :idsearch
                                    or customers.name ilike :search
                                    or customers.surname ilike :search
@@ -49,8 +49,10 @@ private
                                    search: "%#{params[:sSearch]}%",
                                    idsearch: params[:sSearch].to_i)
     end
+    if params[:property_id].present?
+      contracts = contracts.where("properties.id = ?", params[:property_id].to_i)
+    end
     contracts.includes(:renter, :property)
-    # contracts
   end
 
   def per_page

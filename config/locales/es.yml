@@ -262,6 +262,7 @@ es:
       map: Mapa
       history: Historial
       not_photos: Esta Propiedad No Posee Fotos
+      contracts: Contratos
     datatables:
       delete: Se borro
       create: Se Creo La Propiedad con direccion
