@@ -12,7 +12,7 @@ class ContractsController < ApplicationController
   end
 
   def create
-    @contract = Contract.new(params[:contract])
+    @contract = current_user.contracts.build(params[:contract])
     @contract.save
     respond_with @contract
   end
@@ -51,5 +51,9 @@ class ContractsController < ApplicationController
 
     def fill_property
       @data[:property_address] = @property.address.upcase if @property
+    end
+
+     def user_for_paper_trail
+      current_user.surname_with_name
     end
 end

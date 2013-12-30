@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :customers
   has_many :appointments, foreign_key: "owner_id"
   has_many :properties
+  has_many :contracts
 
   def surname_with_name
     "#{surname}, #{name}"
