@@ -108,6 +108,33 @@ $(document).ready(function() {
     DATA-TABLE
     **********/
 
+  // function table to contracts
+  // ---------------------------
+  var contractTable;
+  contractTable = $('#show-property-contracts-table').dataTable({
+    sPaginationType: "full_numbers",
+    bJQueryUI: true,
+    bProcessing: true,
+    bServerSide: true,
+    oLanguage: {
+        sUrl: "/datatables/spanish.txt"
+    },
+    sAjaxSource: $('#show-property-contracts-table').data('source'),
+    aaSorting: [[ 0, "desc" ]],
+    bAutoWidth: false,
+    aoColumns:
+      [
+        { "sClass": "center" },
+        { "bSearchable": true },
+        { "bSearchable": true },
+        { "sClass": "center", "bSearchable": true }
+      ],
+    fnServerParams: function ( aoData ) {
+      aoData.push( { "name": "property_id", "value": $('#property-id').data('id') } )
+    }
+  });
+  rowSelected(contractTable, "#show-property-contracts-table");
+
   // function principal to show
   // ---------------------------
   var oTable, bMyProperties;

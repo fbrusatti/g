@@ -132,6 +132,11 @@ form[id*='edit_property_'], #new_property .detail, .general {
 
 // Show Property
 // -------------
+#property-show-contracts {
+  @extend .container;
+  width: 99%
+}
+
 .property-tabs-content #show-map {
   background-color: #E0DFDB;
   #map { @extend .col-lg-offset-2 }
