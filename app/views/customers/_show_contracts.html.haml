@@ -1,0 +1,11 @@
+%table#show-customer-contracts-table.display{ "data-source" => contracts_url(format: "json") }
+  %thead
+    %tr
+      %th= t('contracts.index.ref')
+      %th= t('contracts.index.renter')
+      %th= t('contracts.index.property')
+      %th= t('contracts.index.created_at')
+  %tbody
+#customer-id{ 'data-id' => "#{@customer.id}" }
+:javascript
+  datatableKeyboard("#show-customer-contracts-table", "#calculator-modal");

@@ -120,6 +120,10 @@
 }
 
 // show customer
+#show-customer-contracts {
+  @extend .container;
+  width: 99%
+}
 .show-customer {
   background-color: #E0DFDB;
   @include make-row(6);

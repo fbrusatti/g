@@ -288,6 +288,7 @@ es:
       customer_data: Datos Personales
       history: Historial
       properties: Propiedades
+      contracts: Contratos
     show_customer_data:
       name: Nombre
       surname: Apellido
