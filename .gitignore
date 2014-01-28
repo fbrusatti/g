@@ -17,3 +17,5 @@ pickle-email-*.html
 /config/database.yml
 .rvmrc
 public/uploads
+.ruby-gemset*
+.ruby-version*
