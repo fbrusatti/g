@@ -240,6 +240,7 @@ es:
       sale: Vta
       price: Precio
       owner: Propietario
+      phones: Telefonos
       properties: Propiedades
       my_properties: Mis Propiedades
       my_rent_properties: Mis Alquileres
