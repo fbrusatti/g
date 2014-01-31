@@ -24,7 +24,7 @@ $(document).ready(function() {
       maxHeight: 400,
       buttonText: function(options, select) {
         if (options.length == 0) {
-          return ""+'<b class="caret"></b>';
+          return "Habitaciones"+'<b class="caret"></b>';
         }
         else if (options.length > 3) {
           return options.length + " <%=I18n.t('properties.selected_rooms.selected') %>" + '<b class="caret"></b>';
@@ -171,14 +171,6 @@ $(document).ready(function() {
     sAjaxSource: $('#properties').data('source'),
     aaSorting: [[ 0, "desc" ]],
     fnInitComplete: function(oSettings, json){
-      $("a#tab-all-prop").click(function() {
-         bMyProperties = false;
-         oTable.fnFilter("");
-      });
-      $("a#tab-my-prop").click(function() {
-         bMyProperties = true;
-         oTable.fnFilter("");
-      });
       // Add a select menu for each TH element in the table footer
       $("thead th").each( function (i) {
           $('select', this).change( function () {
@@ -222,6 +214,15 @@ $(document).ready(function() {
   });
   rowSelected(oTable, "#properties");
 
+  $("a#tab-all-prop").click(function() {
+    bMyProperties = false;
+    oTable.fnFilter("");
+  });
+  $("a#tab-my-prop").click(function() {
+    bMyProperties = true;
+    oTable.fnFilter("");
+  });
+
   // fixes issue: the map loads only half inside a modal or  a tab
   $('a[href="#show-map"]').on('shown.bs.tab', function(e){
       google.maps.event.trigger(map, 'resize');
@@ -250,6 +251,13 @@ $(document).ready(function() {
     $('.sub-header #property_print_index').hide();
     $('.sub-header #confirm').css('visibility', 'visible');
     propertiesToPrint = [];
+    aux = $("#select_count_of_rooms").val();
+    $('#rooms_selector').val(aux).prop('checked', true).change();
+    $('#rooms_selector').multiselect("refresh");
+    if ($('#print_list_transaction :selected').val() != "") {
+      aux = $('#print_list_transaction :selected').text();
+      $('#transaction_selector').val(aux).prop('selected', true).change();
+    }
     // clean up the list_checked in server.
     $('ul.property-tabs li #tab-all-prop').click();
   });
@@ -263,9 +271,12 @@ $(document).ready(function() {
     event.preventDefault();
     $('#modal_print_list_properties.modal .modal-footer #submit_generate').click();
   })
+  $(document).on('click', '#check_all', function (e) {
+    $(this).closest('table').find('td input:checkbox').prop('checked', this.checked).change();
+  });
 
   // handled of property list  to print
-  $(document).on('click','table input[name="to_list"]', function(event){
+  $(document).on('change','table input[name="to_list"]', function(event){
     if (this.checked)
       propertiesToPrint.push(this.value)
     else {
@@ -285,18 +296,18 @@ $(document).ready(function() {
 var aColumnsOptions =
     [
       { "sWidth": "1%", "sClass": "center", "bSearchable": true },
-      { "sWidth": "1%", "bSearchable": true },
-      { "sWidth": "1%", "bSearchable": true },
-      { "sWidth": "1%", "bSearchable": true },
+      { "sWidth": "5%", "bSearchable": true },
+      { "sWidth": "5%", "bSearchable": true },
+      { "sWidth": "6%", "bSearchable": true },
       { "sWidth": "10%", "bSearchable": true },
       { "sWidth": "1%", "sClass": "center", "bSearchable": true },
       { "sWidth": "1%", "bSearchable": true },
       { "sWidth": "1%", "bSearchable": true },
       { "sWidth": "10%", "bSearchable": false, "bSortable": false},
       { "sWidth": "5%", "bSearchable": false, "bSortable": false},
-      { "sWidth": "1%", "sClass": "center",
-        "bSearchable": false, "bSortable": false,  "bVisible": false  }
-
+      { "sWidth": "1%", "sClass": "text-align:center",
+        "bSearchable": false, "bSortable": false, "bVisible": false,
+        "sTitle": "<input style='center' type='checkbox' id='check_all'/>" }
     ]
 // --- end data-table ----
 

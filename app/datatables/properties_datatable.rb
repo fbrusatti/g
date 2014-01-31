@@ -30,7 +30,7 @@ private
         h(property.amount_rooms),
         h(prices(property, 'rent')),
         h(prices(property, 'sale')),
-        link_to(property.owner.try(:surname_with_name), property.owner),
+        link_to(short_string(property.owner.try(:surname_with_name)), property.owner),
         h(phones(property)),
         checkbox(property)
       ]
@@ -127,6 +127,6 @@ private
   end
 
   def phones(property)
-    simple_format(property.owner.pretty_phones)
+    simple_format(property.owner.try :pretty_phones)
   end
 end

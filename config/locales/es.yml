@@ -109,6 +109,8 @@ es:
       cancel: Cancelar
       title: Opciones para Imprimir
       title_to_print: Titulo a Imprimir
+      rooms: Habitaciones
+      transaction_type: Tipo de transaccion
       select: Elegir Propiedades
       sale: EN VENTA
       rent: EN ALQUILER
@@ -241,6 +243,7 @@ es:
       price: Precio
       owner: Propietario
       phones: Telefonos
+      all_properties: Todas las Propiedades
       properties: Propiedades
       my_properties: Mis Propiedades
       my_rent_properties: Mis Alquileres
