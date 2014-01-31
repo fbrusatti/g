@@ -1,4 +1,27 @@
 es:
+  contracts:
+    sub_header:
+      cancel: Cancelar
+      remove: Borrar
+      new_contract: Nuevo
+      edit_relations: Editar partes
+    index:
+      ref: Nro Ref
+      renter: Locatario
+      property: Propiedad
+      created_at: Creado en
+    modal_generate_contract:
+      title: Generar un Contrato
+      search_renter: Buscar Locatario
+      search_property: Buscar Propiedad
+      submit: Generar
+      cancel: Cancelar
+    modal_edit_contract:
+      title: Modificar Contrato
+      search_renter: Locatario
+      search_property: Propiedad
+      submit: Modificar
+      cancel: Cancelar
   confirm_remove:
     confirm: ¿Esta seguro de Borrar? Esto lo borrara permanentemente.
   landing:
@@ -82,6 +105,54 @@ es:
       property: Propiedad
       last_date: Ultimas Fechas
   properties:
+    print_list_properties:
+      cancel: Cancelar
+      title: Opciones para Imprimir
+      title_to_print: Titulo a Imprimir
+      rooms: Habitaciones
+      transaction_type: Tipo de transaccion
+      select: Elegir Propiedades
+      sale: EN VENTA
+      rent: EN ALQUILER
+      under_construction: EN CONSTRUCCION
+    property_to_print:
+      title: Opciones para Imprimir
+      cancel: Cancelar
+      generate: Generar
+      without_photo: No incluir foto
+      include_map: Incluir gogle map
+      include_address: Incluir Direción
+      include_to_sale: Incluir Precio de Venta
+      include_to_rent: Incluir Precio de Alquiler
+    zones:
+      zone_1: CENTRO
+      zone_2: MACROCENTRO
+      zone_3: BANDA NORTE
+      zone_4: ALBERDI
+      zone_5: FENIX
+      zone_6: SAN ANTONIO DE PADUA
+      zone_7: BARRIO INDUSTRIAL
+      zone_8: BIMACO
+      zone_9: ABILENE
+      zone_10: ATTE 1
+      zone_11: ATTE 2
+      zone_12: LOMITAS DE ORO
+      zone_13: VILLA DALCAR
+      zone_14: GOLF CLUB
+      zone_15: SAN ESTEBAN
+      zone_16: RIVERSIDE
+      zone_17: LOS QUEBRACHOS
+      zone_18: LOS CACIQUES
+      zone_19: LOS AROMOS
+      zone_20: SOLES DEL OESTE
+      zone_21: LOS TILOS
+      zone_22: EL OMBU
+      zone_23: 320 VIVIENDAS
+      zone_24: HIPODROMO
+      zone_25: BUENA VISTA
+      zone_26: QUINTITAS GOLF
+      zone_27: TIRO FEDERAL
+      add_new: Por favor ingrese el nombre
     selected_rooms:
       not_select:
       selected: seleccionados
@@ -108,7 +179,7 @@ es:
       date: Fecha
     moneys:
       eeuu: Dolar
-      arg: Peso Argentino
+      arg: ARG
     transactions:
       error: Los campos de Moneda o Precio no pueden estar vacios
       price_to_sale: Precio
@@ -137,6 +208,8 @@ es:
       title_left_1: Propietario
       title_right_1: Dirección
       title_left_2: Estado de la Propiedad y Nota
+      title_left_show_2: Estado de la Propiedad
+      title_right_show_1: Dirección y Nota
     positions:
       front_facade: Frente
       rear_facade: Contra Frente
@@ -169,10 +242,15 @@ es:
       sale: Vta
       price: Precio
       owner: Propietario
+      phones: Telefonos
+      all_properties: Todas las Propiedades
       properties: Propiedades
       my_properties: Mis Propiedades
       my_rent_properties: Mis Alquileres
       my_favourite_properties: Mis Favoritas
+      from: Desde
+      to: Hasta
+      money: Moneda
     new:
       general: General
       details: Detalles
@@ -188,6 +266,7 @@ es:
       map: Mapa
       history: Historial
       not_photos: Esta Propiedad No Posee Fotos
+      contracts: Contratos
     datatables:
       delete: Se borro
       create: Se Creo La Propiedad con direccion
@@ -213,6 +292,7 @@ es:
       customer_data: Datos Personales
       history: Historial
       properties: Propiedades
+      contracts: Contratos
     show_customer_data:
       name: Nombre
       surname: Apellido

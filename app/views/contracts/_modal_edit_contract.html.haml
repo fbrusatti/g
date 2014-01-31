@@ -1,0 +1,20 @@
+#contract-edit-modal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", type: "button"} ×
+        %h3= t('.title')
+      .modal-body
+        .token
+          %b= t('.search_renter')
+          = text_field_tag 'contract[renter_token]',
+                           nil,
+                           'data-pre' => fill_with_renter
+        .token
+          %b= t('.search_property')
+          = text_field_tag 'contract[property_token]',
+                           nil,
+                           'data-pre' => fill_with_property
+      .modal-footer
+        %button{"data-dismiss" => "modal"}= t('.cancel')
+        %button#btn_edit_contract{"data-dismiss" => "modal"}= t('.submit')

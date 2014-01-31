@@ -19,7 +19,10 @@
       = f.number_field :meters_constructed, class: "pretty-input"
     .input
       = f.label :influence_zone
-      = f.text_field :influence_zone, class: "pretty-input"
+      = f.select :influence_zone,
+                 zones,
+                 { include_blank: true },
+                 { class: "pretty-input" }
     .input
       = f.label :position
       = f.select :position, positions,

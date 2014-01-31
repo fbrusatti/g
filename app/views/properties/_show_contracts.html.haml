@@ -1,0 +1,11 @@
+%table#show-property-contracts-table.display{ "data-source" => contracts_url(format: "json") }
+  %thead
+    %tr
+      %th= t('contracts.index.ref')
+      %th= t('contracts.index.renter')
+      %th= t('contracts.index.property')
+      %th= t('contracts.index.created_at')
+  %tbody
+#property-id{ 'data-id' => "#{@property.id}" }
+:javascript
+  datatableKeyboard("#show-property-contracts-table", "#calculator-modal");

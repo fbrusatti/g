@@ -49,8 +49,8 @@ G
     
 ####run migration
 
-* rake db:import_properties["a"]
-* rake db:import_properties["d"]
+* **rake db:import_properties["a"]
+* **rake db:import_properties["d"]
 * rake db:import_photos["d"] ~40min
 * rake db:import_photos["a"] ~120min
 * rake db:import_customers
@@ -58,3 +58,22 @@ G
 * rake db:migrate_to_new_prices
 * rake db:take_off_ceros
 * rake db:populate_locations
+* rake db:improve_money
+
+**Before run these ** task we have to prepare the Property model for it.**
+
+1. First: We have to comment these lines.
+  * belongs_to :money_to_sale, class_name: "Money", foreign_key: "m_to_sale_id"
+  * belongs_to :money_to_rent, class_name: "Money", foreign_key: "m_to_rent_id"
+2. Second: We have to add these lines.
+  * has_one :money_to_sale, class_name: "Money", foreign_key: "p_sale_id"
+  * has_one :money_to_rent, class_name: "Money", foreign_key: "p_rent_id"
+
+**After run these ** task we have to come back to original Property model.**
+
+1. First: We have to uncomment these lines.
+  * belongs_to :money_to_sale, class_name: "Money", foreign_key: "m_to_sale_id"
+  * belongs_to :money_to_rent, class_name: "Money", foreign_key: "m_to_rent_id"
+2. Second: We have to drop these lines.
+  * has_one :money_to_sale, class_name: "Money", foreign_key: "p_sale_id"
+  * has_one :money_to_rent, class_name: "Money", foreign_key: "p_rent_id"

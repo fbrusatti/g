@@ -5,6 +5,28 @@ module PropertiesHelper
   KEY_POSSESSORS = %w(owner office agent none)
   TYPE_MONEYS = %w(eeuu arg)
   TYPE_TRANSACTIONS = %w(sale rent sale_rent)
+  ZONES = (1..27).to_a
+
+  def transactions_to_print
+    %w(sale rent).map do |t|
+     "<option value=#{t}>" + I18n.t(".properties.transactions.#{t}") + '</option>'
+     end.join
+  end
+
+  def prices_for_property_pdf(property)
+    label_names = []
+    %w{to_sale to_rent}.each { |e| label_names << e  if (property.send(e) || 0 > 0) }
+    label_names.map do |name|
+      label = label_tag "property_pdf[with_#{name}]", t(".include_#{name}")
+      check = check_box_tag "property_pdf[with_#{name}]", value = "1", checked = false
+      content_tag :div, (label + check)
+    end.join.html_safe
+  end
+
+  def zones
+    ZONES.map { |z| [I18n.t("properties.zones.zone_#{z}"),
+                     I18n.t("properties.zones.zone_#{z}")] } << "+"
+  end
 
   def transactions
     TYPE_TRANSACTIONS.map { |t| [I18n.t(".properties.transactions.#{t}"),
@@ -63,15 +85,6 @@ module PropertiesHelper
     form.number_field attr_name, options
   end
 
-  def transaction_money(form, money)
-    options = { class: "pretty-input" }
-    options[:value] = @property.send("#{money}").try(:name) unless @property.new_record?
-    form.select :name,
-                moneys,
-                {},
-                options
-  end
-
   def prices_to_show(t)
     html, type = "", I18n.t(".properties.transactions.#{t}").downcase
     if (@property.type_transaction.downcase.include? type)
@@ -101,5 +114,9 @@ module PropertiesHelper
 
   def photos?(photos)
     @property.photos.empty? ? I18n.t(".properties.show.not_photos") : ""
+  end
+
+  def rooms
+    (0..45).to_a.map { |room| [ room == 0 ? "monoambiente" : room, room ] }
   end
 end

@@ -14,6 +14,10 @@
   %li
     %a{"data-toggle" => "tab", href: "#show-history"}
       = t('.history')
+      %li
+  %li
+    %a{"data-toggle" => "tab", href: "#property-show-contracts"}
+      = t('.contracts')
   .nmro-ref
     = "#{t('.nref')}: #{@property.id}"
 .property-tabs-content
@@ -37,5 +41,9 @@
   #show-history.tab-pane
     = render "history"
 
+  #property-show-contracts.tab-pane
+    = render 'show_contracts'
 %script{charset: "utf-8", type: "text/javascript"}
   buildMap(#{raw @hash.to_json});
+
+= render 'property_to_print'

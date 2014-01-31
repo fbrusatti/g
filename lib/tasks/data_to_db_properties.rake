@@ -118,7 +118,7 @@ namespace :db do
       c.name =  row[67].blank? ? "Cliente" : row[67]
       c.surname =  row[68].blank? ? "Cliente" : row[68]
       c.dni = row[113]
-      phoness(c,row)
+      phones_property(c,row)
       c.address =  row[6]
       c.email =  row[73]
       c.profession = row[66]
@@ -133,7 +133,7 @@ namespace :db do
     c
   end
 
-  def phoness(customer, row)
+  def phones_property(customer, row)
     customer.phones[:phone] =  "#{row[69]} #{row[70]}".strip
     customer.phones[:mobile_phone] =  "#{row[71]} #{row[72]}".strip
     if "#{customer.phones[:phone]} #{customer.phones[:mobile_phone]}".blank?

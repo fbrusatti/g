@@ -56,6 +56,6 @@ module ApplicationHelper
   end
 
   def short_string(string)
-    "#{string.slice(0..13)}#{"..." if string.size > 13}"
+     string ? "#{string.slice(0..26)}#{"..." if string.size > 26}" : ""
   end
 end

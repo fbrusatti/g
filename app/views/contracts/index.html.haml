@@ -1,0 +1,13 @@
+#contract
+  #index
+    = render 'modal_generate_contract'
+    %table#contracts-table.display{ "data-source" => contracts_url(format: "json") }
+      %thead
+        %tr
+          %th= t('.ref')
+          %th= t('.renter')
+          %th= t('.property')
+          %th= t('.created_at')
+      %tbody
+  :javascript
+    datatableKeyboard("#contracts-table", "#calculator-modal, #contract-modal");

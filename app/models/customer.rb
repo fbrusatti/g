@@ -27,6 +27,10 @@ class Customer < ActiveRecord::Base
       self.property_id = ids
   end
 
+  def pretty_phones
+    "#{self.phones[:phone]} \n #{self.phones[:mobile_phone]}"
+  end
+
   def information_primary
     info = " Cliente #{self.surname_with_name}. Num cliente:#{self.id}".slice(0..250)
     info << "#{info} /n" if self.active.blank?

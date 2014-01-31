@@ -29,6 +29,9 @@
 .property-remove {
   @extend .btn, .btn-warning, .btn-xs;
 }
+#confirm { display: inline; visibility: hidden }
+#confirm .property-print { @extend .btn, .btn-success, .btn-xs, .pull-right }
+#confirm .property-danger { @extend .btn, .btn-danger, .btn-xs, .pull-right }
 
 div.property-tabs-content div.tab-pane { margin-left: 0px !important}
 
@@ -48,10 +51,31 @@ div.property-tabs-content div.tab-pane { margin-left: 0px !important}
   @extend .form-control
 }
 
-.pretty-input-data-table {
+#properties {
+
+  .pretty-input-data-table {
+      height :25px !important;
+      padding:1px 12px !important;
+      @extend .form-control;
+  }
+
+  .aligned-input {
+    @extend .input-group, .input-group-sm;
+  }
+
+  .pretty-input-range {
     height :25px !important;
+    width: 70px !important;
     padding:1px 12px !important;
     @extend .form-control;
+  }
+
+  .pretty-input-select {
+    height :25px !important;
+    width: 100px !important;
+    padding:1px 12px !important;
+    @extend .form-control;
+  }
 }
 
 .pretty-check {
@@ -98,9 +122,21 @@ form[id*='edit_property_'], #new_property .detail, .general {
 }
 
 .property-tabs-content { @extend .tab-content }
+#properties_wrapper {
+  @extend .container;
+  @extend .row;
+  width: 99%;
+  margin-left: 1px;
+}
+.property-tabs-content .DTTT_container { float: right }
 
 // Show Property
 // -------------
+#property-show-contracts {
+  @extend .container;
+  width: 99%
+}
+
 .property-tabs-content #show-map {
   background-color: #E0DFDB;
   #map { @extend .col-lg-offset-2 }
@@ -225,3 +261,25 @@ div.btn-group{
 #map label {
   width: auto; display:inline;
 }
+
+#modal_to_print {
+
+  .photo_options ul {
+    @extend .row;
+    overflow: auto;
+    height:200px;
+  }
+  .photo_options ul > li {
+    @extend .col-md-6;
+    list-style-type: none;
+  }
+  .other_options, .photo_options { padding: 5px; border: 1px solid black }
+  .modal-footer button { @extend .btn, .btn-default }
+  .modal-footer input { @extend .btn, .btn-primary }
+}
+
+ #modal_print_list_properties {
+  .modal-body div { margin: 5px }
+  .modal-footer button { @extend .btn, .btn-default }
+  .modal-footer button#open_check { @extend .btn, .btn-primary }
+ }

@@ -1,0 +1,11 @@
+#contract
+  #text_editor
+    = form_tag @contract do
+      = hidden_field_tag 'contract[renter_token]',
+                         @data[:renter_token],
+                         { id: 'token_renter' }
+      = hidden_field_tag 'contract[property_token]',
+                         @data[:property_token],
+                         { id: 'token_property' }
+      = cktext_area_tag 'contract[raw_contract]', render('default_rent_contract')
+      = submit_tag :submit, hidden: true

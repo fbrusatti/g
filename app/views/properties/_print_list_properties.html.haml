@@ -1,0 +1,31 @@
+#modal_print_list_properties.modal.fade{"aria-hidden" => "true", role: "dialog", tabindex: "-1"}
+  .modal-dialog
+    .modal-content
+      = form_tag(generate_list_properties_path(format: :pdf), method: :get) do
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+          %h4.modal-title= t('.title')
+        .modal-body
+          = hidden_field_tag 'print_list[property_ids]'
+          .row
+            .col-md-12
+              %div
+                = text_field_tag 'print_list[title]',
+                                nil,
+                                { class: 'pretty-input',
+                                  placeholder: t('.title_to_print') }
+              %div
+                = select_tag 'print_list[transaction]',
+                            transactions_to_print,
+                            { class: 'pretty-input',
+                              include_blank: true,
+                              prompt: t('.transaction_type') }
+              %div
+                = select_tag 'select_count_of_rooms',
+                              options_for_select(rooms),
+                              { class: 'multiselect',
+                                multiple: true }
+        .modal-footer
+          %button{"data-dismiss" => "modal", type: "button"}= t('.cancel')
+          %button#open_check{"data-dismiss" => "modal", type: "button"}= t('.select')
+          = submit_tag 'generate_list', hidden: true, id: 'submit_generate'

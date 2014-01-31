@@ -1,0 +1,30 @@
+#modal_to_print.modal.fade{"aria-hidden" => "true",
+                            role: "dialog",
+                            tabindex: "-1"}
+  .modal-dialog
+    .modal-content
+      = form_tag(property_path(@property,format: :pdf), method: :get ) do
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+          %h4.modal-title= t('.title')
+        .modal-body
+          .photo_options
+            %ul
+              %li
+                = label_tag 'property_pdf[photo]', t('.without_photo')
+                = radio_button_tag 'property_pdf[photo]', '', true
+              - @property.photos.each do |p|
+                %li
+                  = image_tag(p.image.url(:thumb))
+                  = radio_button_tag 'property_pdf[photo]', p.image
+          .other_options
+            %div
+              = label_tag 'property_pdf[with_map]', t('.include_map')
+              = check_box_tag 'property_pdf[with_map]', value = "1", checked = false
+            %div
+              = label_tag 'property_pdf[with_address]', t('.include_address')
+              = check_box_tag 'property_pdf[with_address]', value = "1", checked = false
+            = prices_for_property_pdf(@property)
+        .modal-footer
+          %button{"data-dismiss" => "modal", type: "button"}= t('.cancel')
+          = submit_tag t('.generate')

@@ -6,10 +6,13 @@ class PropertiesController < ApplicationController
     respond_to do |format|
       format.html
       if params[:q].present?
-        format.json { render json: Property.where(
-                                    "address ILIKE ? or properties.id =  ?",
-                                    "%#{params[:q]}%", params[:q].to_i)
-                                    .map(&:attributes) }
+        format.json do
+          data = Property.includes(:owner)
+          data = data.where("address ILIKE ? or properties.id =  ?",
+                                "%#{params[:q]}%", params[:q].to_i)
+          data = data.to_json(include: :owner)
+          render json: data
+        end
       else
         format.json { render json: PropertiesDatatable.new(view_context) }
       end
@@ -18,9 +21,8 @@ class PropertiesController < ApplicationController
 
   def new
     @property = Property.new
-    set_up_money
     @hash = { lat: -33.121732600000016,
-              lng: -64.3496723}
+              lng: -64.3496723 }
   end
 
   def create
@@ -28,8 +30,6 @@ class PropertiesController < ApplicationController
     type_transaction(params)
     if @property.save
       flash[:success] = t('flash.property', message: t('flash.created'))
-    else
-      set_up_money
     end
     respond_with @property
   end
@@ -49,13 +49,20 @@ class PropertiesController < ApplicationController
             }
     respond_to do |format|
       format.html
+      format.pdf do
+        pdf = PropertyPdfFactory.create(@property, params[:property_pdf])
+        send_data pdf.render,
+                  filename: "propiedad_#{@property.id}.pdf",
+                  type: "application/pdf",
+                  disposition: "inline"
+
+       end
       format.json { render json: PropertyVersionDatatable.new(view_context, @versions) }
     end
   end
 
   def edit
     @property = Property.find(params[:id])
-    set_up_money
     @hash = { lat: @property.latitude,
               lng: @property.longitude,
               infowindow: render_to_string(partial: 'map_info',
@@ -69,8 +76,6 @@ class PropertiesController < ApplicationController
     type_transaction(params)
     if @property.update_attributes(params[:property])
       flash[:success] = t('flash.property', message: t('flash.updated'))
-    else
-      set_up_money
     end
     respond_with @property
   end
@@ -81,15 +86,22 @@ class PropertiesController < ApplicationController
     render json: result
   end
 
+  def generate_list
+    params[:print_list][:properties] = Property.find params[:print_list][:property_ids].split(',')
+    params[:print_list][:properties].sort! do |a,b|
+      a.influence_zone.upcase <=> b.influence_zone.upcase
+    end
+    pdf = PropertyPdfFactory.create(params[:print_list])
+    send_data pdf.render,
+              filename: "propiedades.pdf",
+              type: "application/pdf",
+              disposition: "inline"
+  end
+
   private
     def type_transaction(params)
       text = "#{params[:to_sale]} #{params[:to_rent]}".strip
       @property.type_transaction = text
-    end
-
-    def set_up_money
-      @property.build_money_to_sale if @property.money_to_sale.nil?
-      @property.build_money_to_rent if @property.money_to_rent.nil?
     end
 
     def user_for_paper_trail

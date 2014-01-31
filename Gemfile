@@ -22,6 +22,9 @@ gem 'rvm-capistrano'
 gem 'bootstrap-multiselect-rails'
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'prawn'
+gem 'ckeditor'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -34,8 +37,7 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
-  gem 'jquery-ui-rails'
+  
 end
 
 gem 'jquery-rails', '~> 2.3.0'

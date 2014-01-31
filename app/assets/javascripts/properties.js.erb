@@ -1,12 +1,30 @@
 <%# @encoding: UTF-8 %>
+var COLUMN_CHECK = 10;
+var propertiesToPrint;
 $(document).ready(function() {
+
+  var select = document.getElementById('property_influence_zone');
+  if (select != null){
+    select.onchange = function() {
+      if(this.selectedIndex != this.options.length - 1) {
+        return;
+      }
+      var new_name = prompt("<%= I18n.t('properties.zones.add_new') %>");
+      if(new_name == null || !new_name.length) {
+          return;
+      }
+      var option = $("<option/>").val(new_name).text(new_name);
+      $(this).prepend(option);
+      $('#property_influence_zone option:first').prop('selected', true);
+    }
+  }
 
   // SELECT TO ROWS
   $('.multiselect').multiselect({
       maxHeight: 400,
       buttonText: function(options, select) {
         if (options.length == 0) {
-          return ""+'<b class="caret"></b>';
+          return "Habitaciones"+'<b class="caret"></b>';
         }
         else if (options.length > 3) {
           return options.length + " <%=I18n.t('properties.selected_rooms.selected') %>" + '<b class="caret"></b>';
@@ -90,6 +108,33 @@ $(document).ready(function() {
     DATA-TABLE
     **********/
 
+  // function table to contracts
+  // ---------------------------
+  var contractTable;
+  contractTable = $('#show-property-contracts-table').dataTable({
+    sPaginationType: "full_numbers",
+    bJQueryUI: true,
+    bProcessing: true,
+    bServerSide: true,
+    oLanguage: {
+        sUrl: "/datatables/spanish.txt"
+    },
+    sAjaxSource: $('#show-property-contracts-table').data('source'),
+    aaSorting: [[ 0, "desc" ]],
+    bAutoWidth: false,
+    aoColumns:
+      [
+        { "sClass": "center" },
+        { "bSearchable": true },
+        { "bSearchable": true },
+        { "sClass": "center", "bSearchable": true }
+      ],
+    fnServerParams: function ( aoData ) {
+      aoData.push( { "name": "property_id", "value": $('#property-id').data('id') } )
+    }
+  });
+  rowSelected(contractTable, "#show-property-contracts-table");
+
   // function principal to show
   // ---------------------------
   var oTable, bMyProperties;
@@ -113,7 +158,7 @@ $(document).ready(function() {
 
   // function principal to index
   // ---------------------------
-  var oTable, bMyProperties;
+  var oTable, bMyProperties, rent_from, rent_to, sale_from, sale_to;
   bMyProperties = false;
   oTable = $('#properties').dataTable({
     sPaginationType: "full_numbers",
@@ -126,27 +171,57 @@ $(document).ready(function() {
     sAjaxSource: $('#properties').data('source'),
     aaSorting: [[ 0, "desc" ]],
     fnInitComplete: function(oSettings, json){
-      $("a#tab-all-prop").click(function() {
-         bMyProperties = false;
-         oTable.fnFilter("");
-      });
-      $("a#tab-my-prop").click(function() {
-         bMyProperties = true;
-         oTable.fnFilter("");
-      });
       // Add a select menu for each TH element in the table footer
       $("thead th").each( function (i) {
           $('select', this).change( function () {
+            oTable.fnFilter($(this).val(),i);
+           });
+          $('.aligned-input input', this).change( function () {
+            sale_from = $('input[name="sale_from"]').val();
+            sale_to = $('input[name="sale_to"]').val();
+            rent_from = $('input[name="rent_from"]').val();
+            rent_to = $('input[name="rent_to"]').val();
             oTable.fnFilter($(this).val(),i);
            });
       });
     },
     aoColumns: aColumnsOptions,
     "fnServerParams": function ( aoData ) {
+      aoData.push( { "name": "sale_from", "value": sale_from } );
+      aoData.push( { "name": "sale_to", "value": sale_to } );
+      aoData.push( { "name": "rent_from", "value": rent_from } );
+      aoData.push( { "name": "rent_to", "value": rent_to } );
       aoData.push( { "name": "bMyProperties", "value": bMyProperties } );
+      aoData.push( { "name": "list_checked", "value": propertiesToPrint } );
+    },
+    bAutoWidth: false,
+    sDom: '<"H"lTCfr>t<"F"ip>',
+    oTableTools: {
+      aButtons: [
+        {
+          "sExtends":    "collection",
+          "sButtonText": "Exportar",
+          "aButtons":
+            [ "xls",
+              {
+                "sExtends": "pdf",
+                "sPdfOrientation": "landscape"
+              }
+            ]
+        }
+      ]
     }
   });
   rowSelected(oTable, "#properties");
+
+  $("a#tab-all-prop").click(function() {
+    bMyProperties = false;
+    oTable.fnFilter("");
+  });
+  $("a#tab-my-prop").click(function() {
+    bMyProperties = true;
+    oTable.fnFilter("");
+  });
 
   // fixes issue: the map loads only half inside a modal or  a tab
   $('a[href="#show-map"]').on('shown.bs.tab', function(e){
@@ -169,6 +244,49 @@ $(document).ready(function() {
     }
   });
 
+  // print list of properties
+  $(document).on('click', 'button#open_check', function(event){
+    event.preventDefault();
+    fnShowHideColumnVisibility(COLUMN_CHECK, oTable);
+    $('.sub-header #property_print_index').hide();
+    $('.sub-header #confirm').css('visibility', 'visible');
+    propertiesToPrint = [];
+    aux = $("#select_count_of_rooms").val();
+    $('#rooms_selector').val(aux).prop('checked', true).change();
+    $('#rooms_selector').multiselect("refresh");
+    if ($('#print_list_transaction :selected').val() != "") {
+      aux = $('#print_list_transaction :selected').text();
+      $('#transaction_selector').val(aux).prop('selected', true).change();
+    }
+    // clean up the list_checked in server.
+    $('ul.property-tabs li #tab-all-prop').click();
+  });
+  $(document).on('click', '.sub-header #confirm a.property-danger', function(event){
+    event.preventDefault();
+    fnShowHideColumnVisibility(COLUMN_CHECK, oTable);
+    $('.sub-header #confirm').css('visibility', 'hidden');
+    $('.sub-header #property_print_index').show();
+  });
+  $(document).on('click', '.sub-header #confirm a.property-print', function(event){
+    event.preventDefault();
+    $('#modal_print_list_properties.modal .modal-footer #submit_generate').click();
+  })
+  $(document).on('click', '#check_all', function (e) {
+    $(this).closest('table').find('td input:checkbox').prop('checked', this.checked).change();
+  });
+
+  // handled of property list  to print
+  $(document).on('change','table input[name="to_list"]', function(event){
+    if (this.checked)
+      propertiesToPrint.push(this.value)
+    else {
+      i = propertiesToPrint.indexOf(this.value);
+      if(i != -1)
+        propertiesToPrint.splice(i, 1)
+    }
+    $('#modal_print_list_properties #print_list_property_ids').val(propertiesToPrint);
+  });
+
 });// END-$(document)
 
   /*********
@@ -177,15 +295,19 @@ $(document).ready(function() {
 
 var aColumnsOptions =
     [
-      { "sWidth": "5%", "sClass": "center", "bSearchable": true },
+      { "sWidth": "1%", "sClass": "center", "bSearchable": true },
+      { "sWidth": "5%", "bSearchable": true },
+      { "sWidth": "5%", "bSearchable": true },
+      { "sWidth": "6%", "bSearchable": true },
       { "sWidth": "10%", "bSearchable": true },
-      { "sWidth": "10%", "bSearchable": true },
-      { "sWidth": "10%", "bSearchable": true },
-      { "bSearchable": true },
-      { "sWidth": "5%", "sClass": "center", "bSearchable": true },
-      { "bSearchable": true },
-      { "bSearchable": true },
-      { "bSearchable": false, "bSortable": false}
+      { "sWidth": "1%", "sClass": "center", "bSearchable": true },
+      { "sWidth": "1%", "bSearchable": true },
+      { "sWidth": "1%", "bSearchable": true },
+      { "sWidth": "10%", "bSearchable": false, "bSortable": false},
+      { "sWidth": "5%", "bSearchable": false, "bSortable": false},
+      { "sWidth": "1%", "sClass": "text-align:center",
+        "bSearchable": false, "bSortable": false, "bVisible": false,
+        "sTitle": "<input style='center' type='checkbox' id='check_all'/>" }
     ]
 // --- end data-table ----
 

@@ -55,6 +55,23 @@ $(document).ready(function() {
           oTableIndex.fnFilter( $(this).val(),i);
          });
       });
+    },
+    bAutoWidth: false,
+    sDom: '<"H"lTCfr>t<"F"ip>',
+    oTableTools: {
+      aButtons: [
+        {
+          "sExtends":    "collection",
+          "sButtonText": "Exportar",
+          "aButtons":
+            [ "xls",
+              {
+                "sExtends": "pdf",
+                "sPdfOrientation": "landscape"
+              }
+            ]
+        }
+      ]
     }
   });
   rowSelected(oTableIndex, "#customers");
@@ -127,4 +144,30 @@ $(document).ready(function() {
     }
   });
 
+  // function table to contracts
+  // ---------------------------
+  var contractTable;
+  contractTable = $('#show-customer-contracts-table').dataTable({
+    sPaginationType: "full_numbers",
+    bJQueryUI: true,
+    bProcessing: true,
+    bServerSide: true,
+    oLanguage: {
+        sUrl: "/datatables/spanish.txt"
+    },
+    sAjaxSource: $('#show-customer-contracts-table').data('source'),
+    aaSorting: [[ 0, "desc" ]],
+    bAutoWidth: false,
+    aoColumns:
+      [
+        { "sClass": "center" },
+        { "bSearchable": true },
+        { "bSearchable": true },
+        { "sClass": "center", "bSearchable": true }
+      ],
+    fnServerParams: function ( aoData ) {
+      aoData.push( { "name": "customer_id", "value": $('#customer-id').data('id') } )
+    }
+  });
+  rowSelected(contractTable, "#show-customer-contracts-table");
 });

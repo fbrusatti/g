@@ -27,6 +27,9 @@
 //= require gmaps/google
 //= require jquery.blackcalculator-1.0.min.js
 //= require jquery.blackcalculator.src.js
+//= require dataTables/extras/TableTools
+//= require dataTables/extras/ZeroClipboard.js
+//= require ckeditor/init
 //= require_tree .
 //= require twitter/bootstrap
 //= require bootstrap-multiselect

@@ -1,7 +1,10 @@
 G::Application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
+
   resources :properties do
     get 'geocoding', on: :collection
+    get 'generate_list', on: :collection
   end
 
   devise_scope :user do
@@ -9,6 +12,7 @@ G::Application.routes.draw do
   end
 
   resources :customers
+  resources :contracts
 
   get '/landing_page', to: 'landing#index'
 

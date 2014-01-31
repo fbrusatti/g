@@ -7,7 +7,7 @@ set :bundle_flags, '--system --quiet'
 set :application, "g"
 set :scm, :git
 set :branch, "master"
-set :repository,  'git@github.com:fbrusatti/g.git'
+set :repository,  'git@github.com:PlumLabs/g.git'
 set :deploy_to, '/var/www'
 set :deploy_via, :remote_cache
 server "192.168.1.111", :app, :web, :db, :primary => true

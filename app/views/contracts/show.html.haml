@@ -1,0 +1,6 @@
+#contract
+  #text_editor
+    = form_tag @contract, method: :put do |f|
+      = render 'modal_edit_contract'
+      = cktext_area_tag 'contract[raw_contract]', @contract.raw_contract.html_safe
+      = submit_tag :submit, hidden: true

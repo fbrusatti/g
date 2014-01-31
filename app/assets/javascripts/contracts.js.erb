@@ -1,0 +1,96 @@
+<%# @encoding: UTF-8 %>
+$(document).ready(function() {
+
+  var currentRenterToken, currentPropertyToken;
+
+  // token to customer
+  $('#renter_token, #contract_renter_token').tokenInput('/customers.json', {
+    crossDomain: false,
+    prePopulate: $('#renter_token, #contract_renter_token').data('pre'),
+    theme: "facebook",
+    tokenLimit: "1",
+    noResultsText: "<%= I18n.t('.token_input.noResultsText') %>",
+    hintText: "<%= I18n.t('.token_input.hintText_surname')%>",
+    searchingText: "<%= I18n.t('.token_input.searchingText')%>",
+    resultsFormatter: function(item){
+      return "<li><p style='color: black' >" + item.name
+      + " " + item.surname +  " " + item.dni + " </p> </li>" },
+    tokenFormatter: function(item) {
+      return "<li><p>" + (item.name + " " +
+      item.surname ).substring(0,22)+ " " + item.dni + " </p> </li>" },
+    onAdd: function(renter){
+      currentRenterToken = renter;
+      fillRenterData(renter);
+    }
+  });
+
+  // token to porperty
+  $('#property_token, #contract_property_token').tokenInput('/properties.json', {
+    crossDomain: false,
+    prePopulate: $('#property_tokens, #contract_property_token').data('pre'),
+    theme: "facebook",
+    propertyToSearch: "address",
+    tokenLimit: "1",
+    noResultsText: "<%= I18n.t('.token_input.noResultsText') %>",
+    hintText: "<%= I18n.t('.token_input.hintText')%>",
+    searchingText: "<%= I18n.t('.token_input.searchingText')%>",
+    resultsFormatter: function(item){
+      return "<li><p style='color: black' >" + item.address
+      + " (" + item.id + ") </p> </li>" },
+    tokenFormatter: function(item) {
+       return "<li><p>" + item.address.substring(0,25) +
+       " (" + item.id + ") </p> </li>" },
+    onAdd: function(property){ currentPropertyToken = property }
+  });
+
+  function fillRenterData(renter){
+    $('#renter_name').val(renter.name + " " + renter.surname);
+    $('#renter_dni').val(renter.dni);
+  };
+
+  // function principal to index
+  // ---------------------------
+  var contractTable;
+  contractTable = $('#contracts-table').dataTable({
+    sPaginationType: "full_numbers",
+    bJQueryUI: true,
+    bProcessing: true,
+    bServerSide: true,
+    oLanguage: {
+        sUrl: "/datatables/spanish.txt"
+    },
+    sAjaxSource: $('#contracts-table').data('source'),
+    aaSorting: [[ 0, "desc" ]],
+    bAutoWidth: false,
+    aoColumns:
+      [
+        { "sClass": "center" },
+        { "bSearchable": true },
+        { "bSearchable": true },
+        { "sClass": "center", "bSearchable": true }
+      ]
+  });
+  rowSelected(contractTable, "#contracts-table");
+
+  // edit parts of a contract
+  $(document).on('click', 'button#btn_edit_contract', function(){
+    var rName, lName, editor, editText, pAddress;
+    rName, lName = 'NOMBRE APELLIDO';
+    pAddress = 'DIRECCION COMPLETA';
+
+    if (currentRenterToken != null)
+      rName = currentRenterToken.name + " " + currentRenterToken.surname;
+    if (currentPropertyToken != null) {
+      lName = currentPropertyToken.owner.name + " " + currentPropertyToken.owner.surname;
+      pAddress = currentPropertyToken.address;
+    }
+
+    editor = CKEDITOR.instances["contract_raw_contract"];
+    editText =  $(editor.editable().$);
+
+    editText.find('#locator_name').text(lName);
+    editText.find('#renter_name').text(rName);
+    editText.find('#property_address').text(pAddress);
+  });
+
+})// end documents
